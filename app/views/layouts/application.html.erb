@@ -9,6 +9,9 @@
 <body>
   <%= render 'shared/header' %>
   <div class="container">
+    <div class="alerts">
+      <%= flash_message %>
+    </div>
     <%= yield %>
   </div>
 </body>
