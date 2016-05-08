@@ -4,3 +4,10 @@
       |  Idea
       em
         | Dash
+  = horizontal do
+    = nav class: 'navbar-right' do
+      - if user_signed_in?
+        = link_to "Welcome, #{current_user.name}!", 'javascript:void(0)'
+        = link_to 'Logout', destroy_user_session_path, method: :delete
+      - else
+        = link_to 'Login with Facebook', user_facebook_omniauth_authorize_path

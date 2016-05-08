@@ -6,8 +6,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    /= render 'shared/header'
+    = render 'shared/header'
     .container
       .alerts
-        = flash_message
+        = flash_messages
       = yield

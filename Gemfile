@@ -19,17 +19,30 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 gem 'puma'
-gem 'dotenv'
 gem 'simple_form'
 gem 'slim'
-gem 'letter_opener', :group => :development
+gem 'devise'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+  gem 'dotenv-rails'
+  gem 'faker'
+  gem 'simplecov', :require => false
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'letter_opener'
+  gem 'better_errors'
 end
 
+group :test do
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'poltergeist'
+end

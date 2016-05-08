@@ -1,7 +1,9 @@
 module ApplicationHelper
-  def flash_message
+  def flash_messages
+    out = ''
     flash.each do |key, msg|
-      alert_box msg, dismissible: true, context: key
+      out << alert_box(msg, dismissible: true, context: key)
     end if flash.any?
+    return out.html_safe
   end
 end
