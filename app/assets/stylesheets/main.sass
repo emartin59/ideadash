@@ -1,7 +1,15 @@
-// Place all the styles related to the main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .subscribe-header
+  @include make-xs-column(12)
+  @include make-sm-column(8)
+  @include make-sm-column-offset(2)
+  @include make-md-column(6)
+  @include make-md-column-offset(3)
+  @include make-lg-column(6)
+  @include make-lg-column-offset(3)
   text-align: center
   margin-top: 20vh
+  .simple_form
+    @include make-xs-column(12)
+    @include make-lg-column(8)
+    @include make-lg-column-offset(2)
+

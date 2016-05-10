@@ -1,11 +1,9 @@
-.subscribe-header
-  h1 ideas unleashed
-  p.lead
-    | submit your email below and be among the first
-    br
-    | to be invited to our launch
-  .row
-    .col-xs-12.col-sm-6.col-sm-offset-3.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
+.row
+  .subscribe-header
+    h1 ideas unleashed
+    p.lead
+      = unbreakable_lines 'submit your email below', 'and be among the first', 'to be invited to our launch'
+    .row
       = simple_form_for :subscriber, url: subscribe_path, remote: true do |f|
         .input-group
           = f.text_field :email, placeholder: 'name@example.com', class: 'form-control'

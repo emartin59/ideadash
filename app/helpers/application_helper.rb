@@ -6,4 +6,8 @@ module ApplicationHelper
     end if flash.any?
     return out.html_safe
   end
+
+  def unbreakable_lines(*str)
+    str.map{|s| s.split(' ').join('&nbsp;')}.join(' ').html_safe
+  end
 end
