@@ -1,10 +1,10 @@
 module ApplicationHelper
   def flash_messages
-    out = ''
-    flash.each do |key, msg|
-      out << alert_box(msg, dismissible: true, context: key)
-    end if flash.any?
-    return out.html_safe
+    content_tag :div, class: 'alerts' do
+      flash.map do |key, msg|
+        alert_box(msg, dismissible: true, context: key)
+      end.join.html_safe
+    end.html_safe
   end
 
   def unbreakable_lines(*str)

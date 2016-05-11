@@ -24,6 +24,8 @@ gem 'slim'
 gem 'devise'
 gem 'omniauth-facebook'
 
+gem 'email_validator'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'

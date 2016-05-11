@@ -4,10 +4,17 @@ class MainController < ApplicationController
   end
 
   def subscribe
-    Subscriber.create(email: params[:subscriber][:email])
+    @subscriber = Subscriber.new(email: params[:subscriber][:email])
     respond_to do |format|
+      if @subscriber.save
+        @status = :success
+        @message = 'Thanks for subscribing!'
+      else
+        @status = :info
+        @message = @subscriber.errors[:email].join
+      end
       format.js
-      format.html { redirect_to root_path, success: 'Thanks for subscribing!' }
+      format.html { redirect_to root_path, @status => @message }
     end
   end
 end
