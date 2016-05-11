@@ -15,7 +15,7 @@ RSpec.describe ApplicationHelper, type: :helper do
         danger: 'User already exists'
       })
       expect(helper.flash_messages).to eq <<-HTML.chomp
-<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert">
+<div class=\"alerts\"><div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert">
   <span aria-hidden="true">&times;</span>
   <span class="sr-only">Close</span>
 </button>
@@ -23,7 +23,7 @@ User successfully created!</div><div class="alert alert-danger" role="alert"><bu
   <span aria-hidden="true">&times;</span>
   <span class="sr-only">Close</span>
 </button>
-User already exists</div>
+User already exists</div></div>
 HTML
     end
   end
