@@ -6,6 +6,7 @@
         | Dash
   = horizontal do
     = nav class: 'navbar-right' do
+      = link_to 'Explore Ideas', ideas_path
       - if user_signed_in?
         = link_to "Welcome, #{current_user.name}!", 'javascript:void(0)'
         = link_to 'Logout', destroy_user_session_path, method: :delete
