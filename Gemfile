@@ -48,3 +48,8 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
 end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-vue'
+end
+

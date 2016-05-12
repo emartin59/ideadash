@@ -1,0 +1,10 @@
+= simple_form_for(@idea) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :title
+    = f.input :summary, as: :text, hint: '{{ summaryLength }}', input_html: { 'v-model' => 'summary' }, hint_html: { 'v-if' => 'showHint' }
+    = f.input :description
+  .form-actions
+    .btn-group
+      = f.button :submit, class: 'btn btn-primary'
+      = link_to 'Back', back, class: 'btn btn-default'

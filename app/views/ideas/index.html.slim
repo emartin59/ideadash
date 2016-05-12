@@ -1,0 +1,21 @@
+.col-xs-12.col-md-offset-1.col-md-10
+  table.table#ideas
+    thead
+      tr
+        th Title
+        th Summary
+        th User
+    tbody
+      - @ideas.each do |idea|
+        tr
+          td= link_to idea.title, idea
+          td= idea.summary.truncate_words 20
+          td= idea.user.name
+      - if @ideas.empty?
+        tr
+          td[colspan="3"]
+            h5
+              ' During this month, nobody posted his idea yet.
+              = link_to 'Be the first!', new_idea_path
+  br
+  = link_to 'New Idea', new_idea_path, class: 'btn btn-primary'
