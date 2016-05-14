@@ -23,8 +23,11 @@ gem 'simple_form'
 gem 'slim'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'cancancan', '~> 1.10'
 
 gem 'email_validator'
+
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug'

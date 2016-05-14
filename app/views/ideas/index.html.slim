@@ -18,4 +18,5 @@
               ' During this month, nobody posted his idea yet.
               = link_to 'Be the first!', new_idea_path
   br
-  = link_to 'New Idea', new_idea_path, class: 'btn btn-primary'
+  - if can? :create, Idea
+    = link_to 'New Idea', new_idea_path, class: 'btn btn-primary'

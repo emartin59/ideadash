@@ -1,4 +1,6 @@
 class MainController < ApplicationController
+  skip_authorization_check
+
   def index
     @subscriber = Subscriber.new
   end

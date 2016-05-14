@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_authorization_check
+
   def facebook
     if request.env["omniauth.auth"].info.email.blank?
       redirect_to "/users/auth/facebook?auth_type=rerequest&scope=email"

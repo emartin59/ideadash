@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /ideas
   # GET /ideas.json
@@ -62,11 +62,6 @@ class IdeasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_idea
-      @idea = Idea.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:title, :summary, :description)
