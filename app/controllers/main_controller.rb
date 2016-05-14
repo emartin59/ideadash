@@ -19,4 +19,8 @@ class MainController < ApplicationController
       format.html { redirect_to root_path, @status => @message }
     end
   end
+
+  def letsencrypt
+    render text: 'UbCdFEh8G_VlbCXa9Ma-jrowj-gsvUdnin2zLz9LqEc.RxQRd4Fobz-EYXXu2uCEebPb8NjiQNF8r1w4uX0Jxwc'
+  end
 end
