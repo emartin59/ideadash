@@ -13,6 +13,7 @@
           a href="#" class="dropdown-toggle" data-toggle="dropdown"
             i.fa.fa-cogs
           ul.dropdown-menu
+            li= link_to 'New Idea', new_idea_path
             li= link_to 'My Ideas', user_ideas_path(current_user)
             li= link_to 'Logout', destroy_user_session_path, method: :delete
       - else

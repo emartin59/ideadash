@@ -14,8 +14,8 @@
           td= idea.summary.truncate_words 20
           td= idea.user.name
           - if @user
-            td= link_to 'Edit', edit_idea_path(idea)
-            td= link_to 'Delete', idea_path(idea), method: :delete, data: { confirm: 'Are you sure? This action is irreversible.' }
+            td= link_to 'Edit', edit_idea_path(idea), class: 'btn btn-warning btn-xs'
+            td= link_to 'Delete', idea_path(idea), method: :delete, data: { confirm: 'Are you sure? This action is irreversible.' }, class: 'btn btn-danger btn-xs'
       - if @ideas.empty?
         tr
           - if @user
@@ -28,6 +28,3 @@
               h5
                 ' During this month, nobody posted his idea yet.
                 = link_to 'Be the first!', new_idea_path
-  br
-  - if can? :create, Idea
-    = link_to 'New Idea', new_idea_path, class: 'btn btn-primary'
