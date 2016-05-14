@@ -107,6 +107,7 @@ RSpec.describe IdeasController, type: :controller do
   end
 
   describe "DELETE #destroy" do
+    before { request.env["HTTP_REFERER"] = ideas_url }
     it "destroys the requested idea" do
       expect {
         delete :destroy, {:id => idea.to_param}
