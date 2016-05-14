@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :ideas
+
+  resources :users, only: [] do
+    resources :ideas, only: [:index]
+  end
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   post :subscribe, to: 'main#subscribe', as: :subscribe

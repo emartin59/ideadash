@@ -5,6 +5,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     can :read, Idea
+    can :read, User
     can :read, :main
 
     if user.persisted?

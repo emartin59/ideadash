@@ -1,10 +1,10 @@
 class IdeasController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :user, only: [:index]
+  load_and_authorize_resource :idea, through: :user, shallow: true
 
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
   end
 
   # GET /ideas/1
@@ -14,7 +14,6 @@ class IdeasController < ApplicationController
 
   # GET /ideas/new
   def new
-    @idea = Idea.new
   end
 
   # GET /ideas/1/edit
@@ -24,8 +23,6 @@ class IdeasController < ApplicationController
   # POST /ideas
   # POST /ideas.json
   def create
-    @idea = current_user.ideas.new(idea_params)
-
     respond_to do |format|
       if @idea.save
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
@@ -56,7 +53,7 @@ class IdeasController < ApplicationController
   def destroy
     @idea.destroy
     respond_to do |format|
-      format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Idea was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

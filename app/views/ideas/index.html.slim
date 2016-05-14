@@ -5,18 +5,29 @@
         th Title
         th Summary
         th User
+        - if @user
+          th[colspan=2]
     tbody
       - @ideas.each do |idea|
         tr
           td= link_to idea.title, idea
           td= idea.summary.truncate_words 20
           td= idea.user.name
+          - if @user
+            td= link_to 'Edit', edit_idea_path(idea)
+            td= link_to 'Delete', idea_path(idea), method: :delete, data: { confirm: 'Are you sure? This action is irreversible.' }
       - if @ideas.empty?
         tr
-          td[colspan="3"]
-            h5
-              ' During this month, nobody posted his idea yet.
-              = link_to 'Be the first!', new_idea_path
+          - if @user
+            td[colspan="5"]
+              h5
+                ' During this month, you did not post your ideas yet.
+                = link_to 'Post one!', new_idea_path
+          - else
+            td[colspan="3"]
+              h5
+                ' During this month, nobody posted his idea yet.
+                = link_to 'Be the first!', new_idea_path
   br
   - if can? :create, Idea
     = link_to 'New Idea', new_idea_path, class: 'btn btn-primary'
