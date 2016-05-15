@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
+//= require bootstrap/collapse
 //= require vue
 //= require_tree .
