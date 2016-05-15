@@ -23,4 +23,7 @@ class MainController < ApplicationController
   def letsencrypt
     render text: '4LqymWrcWT6jYCSJoL9jGhNXm_70r0vZ5gZ3EdGBtGU.RxQRd4Fobz-EYXXu2uCEebPb8NjiQNF8r1w4uX0Jxwc'
   end
+  def letsencrypt_nowww
+    render text: 'JBCpA0jl5NBy9bVdvfgwZeegCFCzeI9aYxaQFd1sDGo.RxQRd4Fobz-EYXXu2uCEebPb8NjiQNF8r1w4uX0Jxwc'
+  end
 end
