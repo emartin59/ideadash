@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   post :subscribe, to: 'main#subscribe', as: :subscribe
 
-  get '/.well-known/acme-challenge/UbCdFEh8G_VlbCXa9Ma-jrowj-gsvUdnin2zLz9LqEc' => 'main#letsencrypt'
+  get '/.well-known/acme-challenge/4LqymWrcWT6jYCSJoL9jGhNXm_70r0vZ5gZ3EdGBtGU' => 'main#letsencrypt'
 
   root to: 'main#index'
 end
