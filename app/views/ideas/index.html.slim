@@ -1,4 +1,11 @@
 .col-xs-12.col-md-offset-1.col-md-10
+  h3
+    ' Showing
+    = dropdown params[:filter] == 'current' ? 'Current' : 'All' do
+      = link_to 'All', ideas_path(filter: nil, order: params[:order])
+      = link_to 'Monthly', ideas_path(filter: 'current', order: params[:order])
+    '  ideas sorted by
+    = order_dropdown
   table.table#ideas
     thead
       tr

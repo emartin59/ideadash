@@ -5,6 +5,8 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
+    @ideas = @ideas.current if params[:filter] == 'current'
+    @ideas = @ideas.safe_order(params[:order].to_sym) if params[:order]
   end
 
   # GET /ideas/1
