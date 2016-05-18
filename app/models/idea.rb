@@ -1,6 +1,12 @@
 class Idea < ActiveRecord::Base
   belongs_to :user
 
+  has_many :positive_votes, class_name: 'Vote',
+           inverse_of: :positive_idea, foreign_key: 'positive_idea_id'
+
+  has_many :negative_votes, class_name: 'Vote',
+           inverse_of: :negative_idea, foreign_key: 'negative_idea_id'
+
   MAX_SUMMARY_LENGTH = 200
 
   SAFE_ORDERS = {
