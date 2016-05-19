@@ -6,7 +6,7 @@ class VotingListBuilder
   def generate
     ideas = []
     current_ideas.each_index do |i|
-      ideas.push current: current_ideas[i], all: all_ideas[i]
+      ideas.push [current_ideas[i], all_ideas[i]]
     end
     ideas
   end

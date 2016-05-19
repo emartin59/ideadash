@@ -1,6 +1,6 @@
 $ ->
   if $('.simple_form.new_idea, .simple_form.edit_idea').length
-    window.form = new Vue
+    new Vue
       el: '.simple_form.new_idea, .simple_form.edit_idea'
       data: summary: ''
       computed:
