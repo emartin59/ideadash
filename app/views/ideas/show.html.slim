@@ -5,4 +5,11 @@
       ' By
       = @idea.user.name
     p.lead= @idea.summary
+    .votes
+      span.votes-up
+        i.fa.fa-thumbs-o-up
+        = @idea.positive_votes_count
+      span.votes-down
+        i.fa.fa-thumbs-o-down
+        = @idea.negative_votes_count
   p= simple_format @idea.description

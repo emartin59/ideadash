@@ -22,5 +22,5 @@ class Idea < ActiveRecord::Base
   scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str)) }
 
-  default_scope { order('ideas.created_at DESC') }
+  default_scope { order(created_at: :desc) }
 end

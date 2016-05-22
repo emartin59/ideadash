@@ -8,7 +8,7 @@ class VotesController < ApplicationController
   def finish
     Vote.transaction do
       votes_params[:votes].each do |vote|
-        current_user.votes.create!(vote)
+        current_user.votes.create(vote)
       end
     end
   end

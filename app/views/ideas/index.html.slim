@@ -9,18 +9,22 @@
       tr
         th Title
         th Summary
-        th User
         - if @user
           th[colspan=2]
+        - else
+          th User
     tbody
       - @ideas.each do |idea|
         tr
           td= link_to idea.title, idea
-          td= idea.summary.truncate_words 20
-          td= idea.user.name
+          td= idea.summary.truncate_words 12
           - if @user
-            td= link_to 'Edit', edit_idea_path(idea), class: 'btn btn-warning btn-xs'
-            td= link_to 'Delete', idea_path(idea), method: :delete, data: { confirm: 'Are you sure? This action is irreversible.' }, class: 'btn btn-danger btn-xs'
+            td= link_to 'Edit', edit_idea_path(idea), class: 'btn btn-warning btn-xs' if can? :edit, idea
+            td= link_to 'Delete', idea_path(idea), method: :delete,
+                    data: { confirm: 'Are you sure? This action is irreversible.' },
+                    class: 'btn btn-danger btn-xs' if can? :destroy, idea
+          - else
+            td= idea.user.name
       - if @ideas.empty?
         tr
           - if @user

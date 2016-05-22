@@ -53,7 +53,7 @@ RSpec.describe IdeasController, type: :controller do
 
       it "redirects to the created idea" do
         post :create, {:idea => valid_attributes}
-        expect(response).to redirect_to(Idea.last)
+        expect(response).to redirect_to(Idea.unscope(:order).last)
       end
     end
 
