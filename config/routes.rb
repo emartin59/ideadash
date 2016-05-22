@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   resources :ideas
   resources :votes, only: [] do
     get :start, on: :collection

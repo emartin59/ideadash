@@ -6,7 +6,14 @@ class ApplicationController < ActionController::Base
 
   include CanCan::ControllerAdditions
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from CanCan::AccessDenied, with: :access_denied
+
+  private
+  def authenticate_admin_user!
+    raise CanCan::AccessDenied.new('You are not authorized to access this page') unless user_signed_in? && current_user.admin
+  end
+
+  def access_denied(exception)
     redirect_to root_url, :danger => exception.message
   end
 end
