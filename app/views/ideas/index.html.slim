@@ -15,7 +15,7 @@
           th User
     tbody
       - @ideas.each do |idea|
-        tr
+        = content_tag_for :tr, idea do
           td= link_to idea.title, idea
           td= idea.summary.truncate_words 12
           - if @user
