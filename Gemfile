@@ -4,6 +4,7 @@ ruby '2.3.1'
 gem 'rails', '4.2.6'
 gem 'thin'
 gem 'pg', '~> 0.15'
+gem 'quiet_assets'
 
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -47,6 +48,7 @@ group :development do
   gem 'spring'
   gem 'letter_opener'
   gem 'better_errors'
+  gem 'bullet'
 end
 
 group :test do

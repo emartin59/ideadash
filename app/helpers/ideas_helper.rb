@@ -12,7 +12,7 @@ module IdeasHelper
   def order_dropdown
     dropdown ORDER_MAPPING.fetch(params[:order].try(:to_sym)){ 'Newest first' } do
       ORDER_MAPPING.inject('') do |tmp, itm|
-        tmp += link_to(itm[1], current_ideas_path(filter: params[:filter], order: itm[0]))
+        tmp + link_to(itm[1], current_ideas_path(filter: params[:filter], order: itm[0]))
       end.html_safe
     end
   end
