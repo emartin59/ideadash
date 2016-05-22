@@ -1,0 +1,35 @@
+= simple_form_for :votes, url: finish_votes_path, html: { id: 'voting_list', class: 'col-xs-12' } do |f|
+  .hidden-xs
+    h2.text-center
+      | ({{currentIdx + 1}}/5) Select the idea you prefer:
+    h5.text-center.text-muted and earn a dashNut!
+  .visible-xs
+    h4
+      | ({{currentIdx + 1}}/5) Select idea you prefer:
+  - @ideas.each_with_index do |ideas, idx|
+    - current, all = ideas
+    .vote-select[v-show="currentIdx == #{idx}"]
+      - rnd = Random.rand(2)
+      - if rnd == 1
+        .row[data-id=idx]
+          .voted-idea.col-md-offset-1[data-id=current.id v-on:click="updateSelect" data-vs_id=all.id]
+            h3.text-center= current.title
+            p.text-center=current.summary
+          .voted-idea.col-md-offset-2[data-id=all.id v-on:click="updateSelect" data-vs_id=current.id]
+            h3.text-center= all.title
+            p.text-center=all.summary
+      - else
+        .row[data-id=idx]
+          .voted-idea.col-md-offset-1[data-id=all.id v-on:click="updateSelect" data-vs_id=current.id]
+            h3.text-center= all.title
+            p.text-center=all.summary
+          .voted-idea.col-md-offset-2[data-id=current.id v-on:click="updateSelect" data-vs_id=all.id]
+            h3.text-center= current.title
+            p.text-center=current.summary
+      = simple_fields_for 'votes[]', Vote.new do |v|
+        = v.input :positive_idea_id, input_html: { 'v-model' => "votes.vote_#{idx}.positive_idea_id" }, as: :hidden
+        = v.input :negative_idea_id, input_html: { 'v-model' => "votes.vote_#{idx}.negative_idea_id" }, as: :hidden
+  .btn-group.center-block
+    = f.submit 'Back', class: 'btn btn-warning', 'v-on:click' => 'prevVote', 'v-if' => 'prevPossible'
+    = f.submit 'Next', class: 'btn btn-info', 'v-on:click' => 'nextVote', 'v-if' => 'nextPossible'
+    = f.submit class: 'btn btn-primary', 'v-if' => 'submitPossible'

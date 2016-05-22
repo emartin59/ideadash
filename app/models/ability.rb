@@ -10,6 +10,7 @@ class Ability
 
     if user.persisted?
       can :manage, Idea, { user_id: user.id }
+      can :manage, Vote
     end
   end
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :ideas
+  resources :votes, only: [] do
+    get :start, on: :collection
+    post :finish, on: :collection
+  end
 
   resources :users, only: [] do
     resources :ideas, only: [:index]

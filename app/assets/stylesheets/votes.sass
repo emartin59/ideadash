@@ -1,0 +1,31 @@
+#voting_list
+  .vote-select > .row
+    display: flex
+    align-items: stretch
+    flex-wrap: wrap
+    @media screen and (max-width: $screen-xs-max)
+      flex-direction: column
+    .voted-idea
+      @include make-xs-column(12)
+      @include make-md-column(4)
+      border: 1px #ffcc00 solid
+      border-radius: 10px
+      margin-bottom: 10px
+  .selected-idea
+    background-color: #fff7e4
+    &:after
+      content: "\f00c"
+      font-family: FontAwesome
+      position: absolute
+      right: 10px
+      top: 10px
+      font-size: 30px
+      color: $brand-primary
+      background-color: #d9edf7
+      border-radius: 21px
+      width: 42px
+      text-align: center
+  .btn-group
+    text-align: center
+    .btn
+      float: none
