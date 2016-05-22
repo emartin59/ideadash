@@ -1,7 +1,8 @@
 module IdeasHelper
   ORDER_MAPPING = {
       newest: 'Newest first',
-      oldest: 'Oldest first'
+      oldest: 'Oldest first',
+      rating: 'Rating'
   }
   FILTER_MAPPING = {
       all: 'All',
@@ -10,8 +11,9 @@ module IdeasHelper
 
   def order_dropdown
     dropdown ORDER_MAPPING.fetch(params[:order].try(:to_sym)){ 'Newest first' } do
-      link_to('Newest first', current_ideas_path(filter: params[:filter], order: :newest)) +
-          link_to('Oldest first', current_ideas_path(filter: params[:filter], order: :oldest))
+      ORDER_MAPPING.inject('') do |tmp, itm|
+        tmp += link_to(itm[1], current_ideas_path(filter: params[:filter], order: itm[0]))
+      end.html_safe
     end
   end
 

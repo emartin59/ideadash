@@ -11,7 +11,8 @@ class Idea < ActiveRecord::Base
 
   SAFE_ORDERS = {
       newest: 'ideas.created_at DESC',
-      oldest: 'ideas.created_at ASC'
+      oldest: 'ideas.created_at ASC',
+      rating: '(positive_votes_count::float / (positive_votes_count + negative_votes_count + 1)) DESC'
   }
 
   validates :title, presence: true, uniqueness: true
@@ -19,6 +20,7 @@ class Idea < ActiveRecord::Base
   validates :user, presence: true
 
   scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
-  scope :safe_order, -> (order_str){ order(SAFE_ORDERS[order_str]) }
+  scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str)) }
 
+  default_scope { order('ideas.created_at DESC') }
 end
