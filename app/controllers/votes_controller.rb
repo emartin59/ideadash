@@ -6,5 +6,10 @@ class VotesController < ApplicationController
   end
 
   def finish
+    Vote.transaction do
+      params[:votes].each do |vote|
+        current_user.votes.create!(vote)
+      end
+    end
   end
 end
