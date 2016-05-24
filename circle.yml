@@ -14,3 +14,5 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - cp ./rspec.xml $CIRCLE_TEST_REPORTS/junit/
+    - npm install junit-viewer -g
+    - junit-viewer --results=rspec.xml --save=$CIRCLE_TEST_REPORTS/test_results.html

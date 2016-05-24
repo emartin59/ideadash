@@ -1,5 +1,11 @@
 ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
+
+if ENV['CIRCLE_ARTIFACTS']
+  dir = File.join(ENV['CIRCLE_ARTIFACTS'], "coverage")
+  SimpleCov.coverage_dir(dir)
+end
+
 SimpleCov.start 'rails'
 require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
