@@ -7,6 +7,10 @@ class Idea < ActiveRecord::Base
   has_many :negative_votes, class_name: 'Vote',
            inverse_of: :negative_idea, foreign_key: 'negative_idea_id'
 
+  attr_accessor :tos_accepted
+
+  validates :tos_accepted, presence: { message: 'You must accept Terms of Service before you can proceed' }, on: :create
+
   MAX_SUMMARY_LENGTH = 200
 
   SAFE_ORDERS = {
