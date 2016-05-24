@@ -1,5 +1,10 @@
 .col-xs-12.col-md-offset-1.col-md-10
-  h3
+  h3.hidden-xs
+    ' Showing
+    = filter_dropdown
+    '  ideas sorted by
+    = order_dropdown
+  h5.visible-xs
     ' Showing
     = filter_dropdown
     '  ideas sorted by
@@ -12,7 +17,7 @@
         - if @user
           th[colspan=2]
         - else
-          th User
+          th.hidden-xs User
     tbody
       - @ideas.each do |idea|
         = content_tag_for :tr, idea do
@@ -24,7 +29,7 @@
                     data: { confirm: 'Are you sure? This action is irreversible.' },
                     class: 'btn btn-danger btn-xs' if can? :destroy, idea
           - else
-            td= idea.user.name
+            td.hidden-xs= idea.user.name
       - if @ideas.empty?
         tr
           - if @user
