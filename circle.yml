@@ -7,3 +7,10 @@ deployment:
     branch: production
     heroku:
       appname: ideadash
+
+test:
+  override:
+    - bundle exec rspec --format progress --format RspecJunitFormatter --out rspec.xml
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - cp ./rspec.xml $CIRCLE_TEST_REPORTS/junit/

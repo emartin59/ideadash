@@ -58,6 +58,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'rspec_junit_formatter'
 end
 
 source 'https://rails-assets.org' do
