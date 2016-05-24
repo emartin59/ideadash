@@ -9,6 +9,7 @@ describe 'idea creation' do
     expect(page).to have_field 'Title'
     expect(page).to have_field 'Summary'
     expect(page).to have_field 'Description'
+    expect(page).to have_field 'I accept Terms of Service and understand, that by posting my idea, I release it under CC0 (public domain) license, so anyone will be able to use or implement it without further attribution'
   end
   it 'accepts idea submission' do
     visit new_idea_path
@@ -16,6 +17,7 @@ describe 'idea creation' do
     fill_in 'Title', with: idea.title
     fill_in 'Summary', with: idea.summary
     fill_in 'Description', with: idea.description
+    check('idea_tos_accepted')
     expect{
       click_button 'Create Idea'
     }.to change(Idea, :count).by 1

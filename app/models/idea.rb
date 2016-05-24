@@ -1,4 +1,6 @@
 class Idea < ActiveRecord::Base
+  attr_accessor :tos_accepted
+
   belongs_to :user
 
   has_many :positive_votes, class_name: 'Vote',
@@ -6,10 +8,6 @@ class Idea < ActiveRecord::Base
 
   has_many :negative_votes, class_name: 'Vote',
            inverse_of: :negative_idea, foreign_key: 'negative_idea_id'
-
-  attr_accessor :tos_accepted
-
-  validates :tos_accepted, presence: { message: 'You must accept Terms of Service before you can proceed' }, on: :create
 
   MAX_SUMMARY_LENGTH = 200
 
@@ -22,6 +20,7 @@ class Idea < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :summary, presence: true, length: { maximum: MAX_SUMMARY_LENGTH }
   validates :user, presence: true
+  validates :tos_accepted, acceptance: { accept: '1' }
 
   scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str)) }
