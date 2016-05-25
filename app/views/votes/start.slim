@@ -13,18 +13,18 @@
       - if rnd == 1
         .row[data-id=idx]
           .voted-idea.col-md-offset-1[data-id=current.id v-on:click="updateSelect" data-vs_id=all.id]
-            h3.text-center= current.title
+            h3.text-center= link_to current.title, current, target: '_blank'
             p.text-center=current.summary
           .voted-idea.col-md-offset-2[data-id=all.id v-on:click="updateSelect" data-vs_id=current.id]
-            h3.text-center= all.title
+            h3.text-center= link_to all.title, all, target: '_blank'
             p.text-center=all.summary
       - else
         .row[data-id=idx]
           .voted-idea.col-md-offset-1[data-id=all.id v-on:click="updateSelect" data-vs_id=current.id]
-            h3.text-center= all.title
+            h3.text-center= link_to all.title, all, target: '_blank'
             p.text-center=all.summary
           .voted-idea.col-md-offset-2[data-id=current.id v-on:click="updateSelect" data-vs_id=all.id]
-            h3.text-center= current.title
+            h3.text-center= link_to current.title, current, target: '_blank'
             p.text-center=current.summary
       = simple_fields_for 'votes[]', Vote.new do |v|
         = v.input :positive_idea_id, input_html: { 'v-model' => "votes.vote_#{idx}.positive_idea_id" }, as: :hidden
