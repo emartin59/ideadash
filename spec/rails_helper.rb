@@ -6,7 +6,16 @@ if ENV['CIRCLE_ARTIFACTS']
   SimpleCov.coverage_dir(dir)
 end
 
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter 'app/admin'
+  add_filter 'app/inputs'
+  add_filter '/config/'
+  add_filter '/lib/assets'
+  add_filter '/lib/tasks'
+  add_filter '/spec/'
+  add_filter '/vendor/'
+end
+
 require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 

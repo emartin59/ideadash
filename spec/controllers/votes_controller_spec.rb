@@ -33,7 +33,6 @@ RSpec.describe VotesController, type: :controller do
     let(:valid_attributes){ { votes: [{negative_idea_id: negative_idea.id, positive_idea_id: positive_idea.id}], signed_str: signed_str } }
 
     it "returns success" do
-      puts valid_attributes
       post :finish, valid_attributes
       expect(response).to have_http_status(:success)
     end
