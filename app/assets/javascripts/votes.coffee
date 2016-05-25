@@ -23,7 +23,7 @@ $(document).ready ->
       computed:
         nextPossible: ->
           currentVote = @votes["vote_#{@currentIdx}"]
-          @currentIdx < 4 and currentVote.positive_idea_id and currentVote.negative_idea_id
+          !!(@currentIdx < 4 and currentVote.positive_idea_id and currentVote.negative_idea_id)
         prevPossible: -> @currentIdx > 0
         submitPossible: ->
           return false if @currentIdx < 4
