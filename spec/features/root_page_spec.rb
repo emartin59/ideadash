@@ -7,40 +7,6 @@ describe 'root page' do
     expect(page).to have_text('ideas unleashed')
   end
 
-  describe 'subscription process' do
-    it 'shows subscribe form' do
-      visit root_path
-      expect(page).to have_text 'submit your email below and be among the first'
-      expect(page).to have_text 'to be invited to our launch'
-      expect(page).to have_field 'subscriber_email'
-      expect(page).to have_button 'Subscribe'
-    end
-
-    it 'shows success flash when form is submitted' do
-      visit root_path
-      fill_in 'subscriber_email', with: build(:subscriber).email
-      click_button 'Subscribe'
-      expect(page).to have_text 'Thanks for subscribing!'
-    end
-  end
-
-  describe 'subscription process with JS', js: true do
-    it 'shows subscribe form' do
-      visit root_path
-      expect(page).to have_text 'submit your email below and be among the first'
-      expect(page).to have_text 'to be invited to our launch'
-      expect(page).to have_field 'subscriber_email'
-      expect(page).to have_button 'Subscribe'
-    end
-
-    it 'shows success flash when form is submitted' do
-      visit root_path
-      fill_in 'subscriber_email', with: build(:subscriber).email
-      click_button 'Subscribe'
-      expect(page).to have_text 'Thanks for subscribing!'
-    end
-  end
-
   describe 'facebook sign in' do
     context 'for new user' do
       let(:user){ build :user }

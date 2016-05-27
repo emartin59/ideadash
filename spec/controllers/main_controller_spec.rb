@@ -11,36 +11,6 @@ RSpec.describe MainController, type: :controller do
       get :index
       expect(response).to be_success
     end
-    it 'assigns new Subscriber' do
-      get :index
-      expect(assigns[:subscriber]).to be_kind_of Subscriber
-      expect(assigns[:subscriber]).to be_new_record
-    end
-  end
-
-  describe "POST subscribe" do
-    context "with valid email" do
-      it 'renders subscribe' do
-        xhr :post, :subscribe, { subscriber: { email: 'test@example.com' } }
-        expect(response).to render_template :subscribe
-      end
-      it 'creates subscriber' do
-        expect {
-          xhr :post, :subscribe, { subscriber: { email: 'test@example.com' } }
-        }.to change(Subscriber, :count).by(1)
-      end
-    end
-    context "with invalid email" do
-      it 'renders subscribe' do
-        xhr :post, :subscribe, { subscriber: { email: 'test@' } }
-        expect(response).to render_template :subscribe
-      end
-      it 'creates subscriber' do
-        expect {
-          xhr :post, :subscribe, { subscriber: { email: 'test@' } }
-        }.to_not change(Subscriber, :count)
-      end
-    end
   end
 
   describe "GET letsencrypt" do

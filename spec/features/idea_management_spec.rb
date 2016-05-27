@@ -5,11 +5,11 @@ describe 'idea creation' do
   before { login_as user }
   it 'shows idea form' do
     visit new_idea_path
-    expect(page).to have_text('I\'ve got an idea!')
+    expect(page).to have_text('Post an idea')
     expect(page).to have_field 'Title'
     expect(page).to have_field 'Summary'
     expect(page).to have_field 'Description'
-    expect(page).to have_field 'I accept Terms of Service and understand, that by posting my idea, I release it under CC0 (public domain) license, so anyone will be able to use or implement it without further attribution'
+    expect(page).to have_field 'I accept Terms of Service and understand that by posting my idea anyone will be able to use it or implement it.'
   end
   it 'accepts idea submission' do
     visit new_idea_path
@@ -19,7 +19,7 @@ describe 'idea creation' do
     fill_in 'Description', with: idea.description
     check('idea_tos_accepted')
     expect{
-      click_button 'Create Idea'
+      click_button 'Post Idea'
     }.to change(Idea, :count).by 1
     expect(page).to have_text idea.title
     expect(page).to have_text 'Idea was successfully created'
