@@ -6,17 +6,25 @@
     p.lead= link_to 'Discover new ideas', ideas_path(order: :newest, filter: :current)
     p.lead= link_to 'Rate ideas and earn DashNuts!', start_votes_path
 
-  - else
-    p.lead How it will work (super simplified):
-    p.lead
-      ' Post your idea and you could make money from it.
-      br
-      ' The twist: you don’t need to implement your idea.
-    p.lead
-      = unbreakable_lines 'submit your email below', 'and be among the first', 'to be invited to our launch'
-    .row
-      = simple_form_for :subscriber, url: subscribe_path, remote: true do |f|
-        .input-group
-          = f.text_field :email, placeholder: 'name@example.com', class: 'form-control'
-          span.input-group-btn
-            = f.submit 'Subscribe', class: 'btn btn-primary'
+  p.lead How it works (simplified):
+  p.lead
+    ' 1. You post an idea.
+    br
+    ' 2. The community raises funds for it.
+    br
+    ' 3. People propose to implement the idea.
+    br
+    ' 4. Backers vote on the best proposal.
+    br
+    ' 5. You get 10% of the funds.
+    br
+    ' 6. Winning proposal gets 85%.
+    br
+    ' 7. Winner implements the idea.
+    br
+    ' 8. Your idea is now a reality.
+
+  - unless user_signed_in?
+    .btn-group
+      = link_to 'Sign Up', user_facebook_omniauth_authorize_path, class: 'btn btn-primary'
+      = link_to 'Explore Ideas', ideas_path, class: 'btn btn-info'

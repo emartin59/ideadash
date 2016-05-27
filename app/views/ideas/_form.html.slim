@@ -4,7 +4,7 @@
     = f.input :title
     = f.input :summary, as: :text, hint: '{{ summaryLength }}', input_html: { 'v-model' => 'summary' }, hint_html: { 'v-if' => 'showHint' }
     = f.input :description
-    = f.input :tos_accepted, as: :boolean, label: 'I accept Terms of Service and understand, that by posting my idea, I release it under CC0 (public domain) license, so anyone will be able to use or implement it without further attribution' if @idea.new_record?
+    = f.input :tos_accepted, as: :boolean, label: 'I accept Terms of Service and understand that by posting my idea anyone will be able to use it or implement it.' if @idea.new_record?
   .form-actions
     .btn-group
       = f.button :submit, class: 'btn btn-primary'

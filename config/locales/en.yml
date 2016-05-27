@@ -1,1 +1,4 @@
 en:
+  helpers:
+    submit:
+      create: "Post %{model}"
