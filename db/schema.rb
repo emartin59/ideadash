@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522144743) do
+ActiveRecord::Schema.define(version: 20160526164220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,15 @@ ActiveRecord::Schema.define(version: 20160522144743) do
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
   create_table "ideas", force: :cascade do |t|
-    t.string   "title",                default: "", null: false
-    t.string   "summary",              default: "", null: false
-    t.text     "description",          default: "", null: false
-    t.integer  "user_id",                           null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "positive_votes_count", default: 0
-    t.integer  "negative_votes_count", default: 0
+    t.string   "title",                                        default: "",  null: false
+    t.string   "summary",                                      default: "",  null: false
+    t.text     "description",                                  default: "",  null: false
+    t.integer  "user_id",                                                    null: false
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
+    t.integer  "positive_votes_count",                         default: 0
+    t.integer  "negative_votes_count",                         default: 0
+    t.decimal  "balance",              precision: 8, scale: 2, default: 0.0
   end
 
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
@@ -73,6 +74,22 @@ ActiveRecord::Schema.define(version: 20160522144743) do
     t.string  "category", default: "default"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.string   "sender_type"
+    t.integer  "recipient_id"
+    t.string   "recipient_type"
+    t.decimal  "amount",         precision: 9, scale: 2, default: 0.0, null: false
+    t.string   "paypal_id"
+    t.string   "paypal_status"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  add_index "payments", ["paypal_id"], name: "index_payments_on_paypal_id", using: :btree
+  add_index "payments", ["recipient_type", "recipient_id"], name: "index_payments_on_recipient_type_and_recipient_id", using: :btree
+  add_index "payments", ["sender_type", "sender_id"], name: "index_payments_on_sender_type_and_sender_id", using: :btree
+
   create_table "sashes", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -85,24 +102,25 @@ ActiveRecord::Schema.define(version: 20160522144743) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "name",                   default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                                          default: "",    null: false
+    t.string   "name",                                           default: "",    null: false
+    t.string   "encrypted_password",                             default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                                  default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
     t.integer  "sash_id"
-    t.integer  "level",                  default: 0
-    t.boolean  "admin",                  default: false
+    t.integer  "level",                                          default: 0
+    t.boolean  "admin",                                          default: false
+    t.decimal  "balance",                precision: 8, scale: 2, default: 0.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -2,6 +2,7 @@ class Idea < ActiveRecord::Base
   attr_accessor :tos_accepted
 
   belongs_to :user
+  has_many :incoming_payments, as: :recipient, class_name: 'Payment'
 
   has_many :positive_votes, class_name: 'Vote',
            inverse_of: :positive_idea, foreign_key: 'positive_idea_id'
@@ -21,6 +22,7 @@ class Idea < ActiveRecord::Base
   validates :summary, presence: true, length: { maximum: MAX_SUMMARY_LENGTH }
   validates :user, presence: true
   validates :tos_accepted, acceptance: { accept: '1' }
+  validates :balance, numericality: { greater_than_or_equal_to: 0 }
 
   scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str)) }

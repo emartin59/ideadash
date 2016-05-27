@@ -6,9 +6,11 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true, email: true
   validates :name, presence: true
+  validates :balance, numericality: { greater_than_or_equal_to: 0 }
 
   has_many :ideas
   has_many :votes
+  has_many :outgoing_payments, as: :sender, class_name: 'Payment'
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

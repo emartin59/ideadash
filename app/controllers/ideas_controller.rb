@@ -13,6 +13,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    flash.now[:warning] = 'Funding was canceled' if params[:status] == 'canceled'
   end
 
   # GET /ideas/new

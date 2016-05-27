@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+
+  resources :payments, only: [] do
+    get :callback, on: :collection
+  end
+
   ActiveAdmin.routes(self)
-  resources :ideas
+  resources :ideas do
+    resources :payments, only: :create
+  end
   resources :votes, only: [] do
     get :start, on: :collection
     post :finish, on: :collection

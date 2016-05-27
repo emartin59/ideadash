@@ -1,3 +1,3 @@
-class Paypal
+class PaypalSdk
   include PayPal::SDK::REST
 end
