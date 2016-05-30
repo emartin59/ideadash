@@ -12,7 +12,26 @@ RSpec.describe MainController, type: :controller do
       expect(response).to be_success
     end
   end
-
+  describe "GET terms" do
+    it 'renders terms' do
+      get :terms
+      expect(response).to render_template :terms
+    end
+    it 'is successful' do
+      get :terms
+      expect(response).to be_success
+    end
+  end
+  describe "GET privacy_policy" do
+    it 'renders privacy_policy' do
+      get :privacy_policy
+      expect(response).to render_template :privacy_policy
+    end
+    it 'is successful' do
+      get :privacy_policy
+      expect(response).to be_success
+    end
+  end
   describe "GET letsencrypt" do
     it 'renders validation string' do
       get :letsencrypt

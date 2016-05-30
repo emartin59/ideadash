@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'root page' do
   it 'shows project name and slogan there' do
     visit root_path
-    expect(page).to have_text('IdeaDash')
+    expect(page).to have_text('ideadashbeta')
     expect(page).to have_text('ideas unleashed')
   end
 
