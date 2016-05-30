@@ -1,9 +1,11 @@
 = navbar do
   = vertical do
     = link_to root_path do
-      |  Idea
+      |  idea
       em
-        | Dash
+        | dash
+      span.text-beta
+        ' beta
   = horizontal do
     = nav class: 'navbar-right' do
       = link_to 'New Idea', new_idea_path
