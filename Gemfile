@@ -22,6 +22,7 @@ gem 'rails_12factor', group: :production
 gem 'puma'
 gem 'simple_form'
 gem 'slim'
+gem 'redcarpet'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'cancancan', '~> 1.10'

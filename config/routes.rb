@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  post :subscribe, to: 'main#subscribe', as: :subscribe
-
   get '/.well-known/acme-challenge/EDRa5RfvqS71twzPAfvzzAcnNSi4BhaalAld5Y5SVHQ' => 'main#letsencrypt'
 
+  get :terms, to: 'main#terms'
+  get :privacy_policy, to: 'main#privacy_policy'
   root to: 'main#index'
 end
