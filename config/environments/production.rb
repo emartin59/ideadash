@@ -79,8 +79,8 @@ Rails.application.configure do
 end
 
 ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['SENDGRID_LOGIN'],
-    :password => ENV['SENDGRID_PASSWORD'],
+    :user_name => ENV['SENDGRID_EXT_LOGIN'],
+    :password => ENV['SENDGRID_EXT_PASSWORD'],
     :domain => 'ideadash.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
