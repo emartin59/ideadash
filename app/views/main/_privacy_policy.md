@@ -161,13 +161,9 @@ If there are any questions or disputes regarding this privacy policy, the Englis
 If there are any questions regarding this privacy policy you may contact us using the information below.
 
 www.ideadash.com
-
 2088 Springwood Rd.
-
 York, PA 17403
-
 USA
-
 privacy@ideadash.com
 
 Last Edited on 2016-05-28
