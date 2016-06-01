@@ -24,4 +24,4 @@ development:
 
 production:
   <<: *default
-  mode: live
+  mode: <%= ENV['PAYPAL_MODE'] %>
