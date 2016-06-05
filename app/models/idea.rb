@@ -29,6 +29,13 @@ class Idea < ActiveRecord::Base
 
   default_scope { order(created_at: :desc) }
 
+  def rating
+    positive_votes_count.to_f / ( positive_votes_count + negative_votes_count + 1 )
+  end
+
+  def formatted_rating
+    sprintf('%.1f', rating * 10)
+  end
 
   def in_first_phase?
     created_at > Time.now.beginning_of_month
