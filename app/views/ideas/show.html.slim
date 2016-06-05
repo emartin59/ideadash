@@ -5,12 +5,13 @@
       ' By
       = @idea.user.name
     p.lead= @idea.summary
-    .row
-      .col-xs-12.col-md-6.col-md-offset-3
-        = simple_form_for [@idea, Payment.new] do |f|
-          .input-group
-            = f.number_field :amount, class: 'form-control', min: 1
-            .input-group-btn= f.submit 'Donate', class: 'btn btn-primary'
+    - if @idea.in_first_phase?
+      .row
+        .col-xs-12.col-md-6.col-md-offset-3
+          = simple_form_for [@idea, Payment.new] do |f|
+            .input-group
+              = f.number_field :amount, class: 'form-control', min: 1
+              .input-group-btn= f.submit 'Donate', class: 'btn btn-primary'
     .votes
       span.votes-up
         i.fa.fa-thumbs-o-up

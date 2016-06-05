@@ -28,4 +28,9 @@ class Idea < ActiveRecord::Base
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str)) }
 
   default_scope { order(created_at: :desc) }
+
+
+  def in_first_phase?
+    created_at > Time.now.beginning_of_month
+  end
 end

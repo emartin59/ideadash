@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :payment do
-    sender nil
-    recipient nil
+    association :sender, factory: :user
+    association :recipient, factory: :idea
     amount 1.5
-    paypal_id "MyString"
   end
 end
