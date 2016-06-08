@@ -1,13 +1,15 @@
 require 'rails_helper'
 
 describe 'admin root page' do
+  include ApplicationHelper
+
   context "for admin" do
     let(:user){ create :user, admin: true }
 
     before { login_as user }
 
     it 'shows admin dashboard' do
-      visit admin_root_path
+      visit send("#{ active_admin }_root_path")
       expect(page).to have_text('IdeaDash')
       expect(page).to have_text('Dashboard')
     end
@@ -18,7 +20,7 @@ describe 'admin root page' do
     before { login_as user }
 
     it 'redirects to root path' do
-      visit admin_root_path
+      visit send("#{ active_admin }_root_path")
       expect(page).to have_text('ideadashbeta')
       expect(page).to have_text('ideas unleashed')
       expect(page).to have_text('You are not authorized to access this page')
@@ -27,7 +29,7 @@ describe 'admin root page' do
   end
   context "for guest user" do
     it 'redirects to root path' do
-      visit admin_root_path
+      visit send("#{ active_admin }_root_path")
       expect(page).to have_text('ideadashbeta')
       expect(page).to have_text('ideas unleashed')
       expect(page).to have_text('You are not authorized to access this page')
