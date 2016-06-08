@@ -24,10 +24,11 @@ class Idea < ActiveRecord::Base
   validates :tos_accepted, acceptance: { accept: '1' }
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
 
-  scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
-  scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str)) }
-
   default_scope { order(created_at: :desc) }
+
+  scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
+  scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str){ SAFE_ORDERS[:rating] }) }
+
 
   def rating
     positive_votes_count.to_f / ( positive_votes_count + negative_votes_count + 1 )
