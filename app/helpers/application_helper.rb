@@ -10,4 +10,10 @@ module ApplicationHelper
   def unbreakable_lines(*str)
     str.map{|s| s.split(' ').join('&nbsp;')}.join(' ').html_safe
   end
+
+  def active_admin
+    ObjectSpace.each_object(
+        ActiveAdmin::Resource::Routes
+    ).first.namespace.name
+  end
 end

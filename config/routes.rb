@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   ActiveAdmin.routes(self)
+
   resources :ideas do
     resources :payments, only: :create
   end

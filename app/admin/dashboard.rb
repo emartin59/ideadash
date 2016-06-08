@@ -9,7 +9,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Ideas" do
           ul do
             Idea.limit(5).map do |idea|
-              li link_to(idea.title, admin_idea_path(idea))
+              li link_to(idea.title, send("#{ active_admin }_idea_path", idea))
             end
           end
         end
@@ -18,7 +18,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Users" do
           ul do
             User.order(created_at: :desc).limit(5).map do |user|
-              li link_to(user.name, admin_user_path(user))
+              li link_to(user.name, send("#{ active_admin }_user_path", user))
             end
           end
         end
