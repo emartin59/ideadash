@@ -6,6 +6,8 @@ class VotesController < ApplicationController
 
   def start
     @ideas, @signed_str = VotingListBuilder.new(current_user).generate
+  rescue VotingListBuilder::NotEnoughIdeas
+    redirect_to root_path, info: 'There are not enough ideas to vote for yet.'
   end
 
   def finish

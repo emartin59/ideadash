@@ -1,14 +1,13 @@
 class VotingListBuilder
+  class NotEnoughIdeas < StandardError; end
+
   def initialize(current_user)
     @current_user = current_user
   end
 
   def generate
-    ideas = []
-    current_ideas.each_index do |i|
-      ideas.push [current_ideas[i], all_ideas[i]]
-    end
-    return ideas, signed_str
+    validate_counts
+    return build_ideas, signed_str
   end
 
   def current_ideas
@@ -17,7 +16,7 @@ class VotingListBuilder
   end
 
   def all_ideas
-    @all_ideas ||= Idea.where('id NOT IN(?) AND user_id != ?', current_ideas_ids, @current_user.id).unscope(:order).order('random()')
+    @all_ideas ||= Idea.where('id NOT IN(?) AND user_id != ?', current_ideas_ids, @current_user.id).unscope(:order).order('random()').limit(5)
   end
 
   def current_ideas_ids
@@ -32,5 +31,18 @@ class VotingListBuilder
     crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
     str = current_ideas_ids.zip(all_ideas_ids).map{|x, y| x * y}.join
     crypt.encrypt_and_sign(str)
+  end
+
+  def build_ideas
+    ideas = []
+    current_ideas.each_index do |i|
+      ideas.push [current_ideas[i], all_ideas[i]]
+    end
+    ideas
+  end
+
+  def validate_counts
+    return if current_ideas.length == 5 && all_ideas.length == 5
+    raise NotEnoughIdeas
   end
 end

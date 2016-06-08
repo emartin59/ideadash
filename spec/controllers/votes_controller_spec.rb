@@ -6,6 +6,8 @@ RSpec.describe VotesController, type: :controller do
   before{ sign_in user }
 
   describe "GET #start" do
+    let(:other_user){ create :user }
+    before { create_list :idea, 10, user: other_user }
     it "returns http success" do
       get :start
       expect(response).to have_http_status(:success)
