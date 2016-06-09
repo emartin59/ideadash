@@ -35,11 +35,11 @@ RSpec.describe PaymentsController, type: :controller do
             post :create, idea_id: idea.id, payment: { amount: 5 }
           }.to_not change(Payment, :count)
         end
-        it 'changes idea balance' do
+        it 'does not change idea balance' do
           post :create, idea_id: idea.id, payment: { amount: 5 }
           expect(idea.reload.balance).to eq 0
         end
-        it 'changes user balance' do
+        it 'does not change user balance' do
           post :create, idea_id: idea.id, payment: { amount: 5 }
           expect(user.reload.balance).to eq 0
         end
@@ -47,7 +47,6 @@ RSpec.describe PaymentsController, type: :controller do
           post :create, idea_id: idea.id, payment: { amount: 5 }
           expect(response).to redirect_to idea
         end
-
       end
     end
   end
