@@ -3,9 +3,11 @@ class VotesController < ApplicationController
   authorize_resource
 
   before_filter :verify_signature, only: :finish
+  before_filter :verify_ds_protect, only: :finish, unless: 'Rails.env.test?'
 
   def start
     @ideas, @signed_str = VotingListBuilder.new(current_user).generate
+    @ds_protect = session[:ds_protect] = SecureRandom.base64
   rescue VotingListBuilder::NotEnoughIdeas
     redirect_to root_path, info: 'There are not enough ideas to vote for yet.'
   end
@@ -32,4 +34,9 @@ class VotesController < ApplicationController
     redirect_to start_votes_path, danger: 'Signature provided is invalid. Please, try again.'
   end
 
+  def verify_ds_protect
+    ds_protect = session.delete(:ds_protect)
+    return true if params[:ds_protect].present? && ds_protect == params[:ds_protect]
+    redirect_to root_path, info: 'This voting has already been submitted.'
+  end
 end
