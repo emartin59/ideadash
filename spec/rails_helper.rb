@@ -12,6 +12,7 @@ SimpleCov.start 'rails' do
   add_filter '/config/'
   add_filter '/lib/assets'
   add_filter '/lib/tasks'
+  add_filter '/lib/markdown_handler.rb'
   add_filter '/spec/'
   add_filter '/vendor/'
 end
@@ -21,6 +22,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 require 'spec_helper'
 require 'rspec/rails'
+
+require 'webmock/rspec'
 
 require 'capybara/rspec'
 require 'capybara/poltergeist'

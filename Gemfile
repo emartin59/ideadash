@@ -62,6 +62,8 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'rspec_junit_formatter'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 source 'https://rails-assets.org' do

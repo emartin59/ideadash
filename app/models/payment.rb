@@ -37,8 +37,8 @@ class Payment < ActiveRecord::Base
       sender.lock!
       recipient.lock!
       sender.balance -= amount
-      recipient.balance += amount
       sender.save!
+      recipient.balance += amount
       recipient.save!
     end
   end

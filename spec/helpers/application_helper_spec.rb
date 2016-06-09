@@ -27,4 +27,10 @@ User already exists</div></div>
 HTML
     end
   end
+
+  describe "#unbreakable_lines" do
+    it 'converts adds nbsp; to strings' do
+      expect(helper.unbreakable_lines('test string', 'another string')).to eq("test&nbsp;string another&nbsp;string")
+    end
+  end
 end

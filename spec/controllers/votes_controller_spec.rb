@@ -6,19 +6,27 @@ RSpec.describe VotesController, type: :controller do
   before{ sign_in user }
 
   describe "GET #start" do
-    let(:other_user){ create :user }
-    before { create_list :idea, 10, user: other_user }
-    it "returns http success" do
-      get :start
-      expect(response).to have_http_status(:success)
+    context "when enough ideas present" do
+      let(:other_user){ create :user }
+      before { create_list :idea, 10, user: other_user }
+      it "returns http success" do
+        get :start
+        expect(response).to have_http_status(:success)
+      end
+      it 'loads ideas' do
+        get :start
+        expect(assigns[:ideas]).to be_kind_of Array
+      end
+      it 'generates voting list' do
+        expect_any_instance_of(VotingListBuilder).to receive(:generate)
+        get :start
+      end
     end
-    it 'loads ideas' do
-      get :start
-      expect(assigns[:ideas]).to be_kind_of Array
-    end
-    it 'generates voting list' do
-      expect_any_instance_of(VotingListBuilder).to receive(:generate)
-      get :start
+    context "when not enough ideas" do
+      it "redirects to root" do
+        get :start
+        expect(response).to redirect_to root_path
+      end
     end
   end
 
