@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sandbox.paypal.com/v1/payments/payment
+    body:
+      encoding: UTF-8
+      string: '{"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"5.00"},"description":"IdeaDash
+        idea funding.","item_list":{"items":[{"quantity":"1","name":"Funding of Idea
+        2","price":"5.00","currency":"USD","sku":"idea_2"}]}}],"redirect_urls":{"return_url":"http://ideadash.dev:3000/payments/callback","cancel_url":"http://ideadash.dev:3000/ideas/2?status=canceled"}}'
+    headers:
+      Authorization:
+      - Bearer A101.B3AX0AfBdfnOJYoITZFaMlGTH6-jrvZYAUamuQjiTz75S1Ofo1ATW4YNCRDlrdwu._WPI2_6vi1FKY1_yxkbSj4_scum
+      Content-Type:
+      - application/json
+      User-Agent:
+      - PayPalSDK/PayPal-Ruby-SDK 1.4.5 (paypal-sdk-core 1.4.5; ruby 2.3.1p112-x86_64-darwin15;OpenSSL
+        1.0.2g  1 Mar 2016)
+      Paypal-Request-Id:
+      - e705b089-d68f-40a6-9346-2e57f5d775c0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 09 Jun 2016 13:50:42 GMT
+      Server:
+      - Apache
+      Proxy-Server-Info:
+      - host=slcsbplatformapiserv3001.slc.paypal.com;threadId=336
+      Paypal-Debug-Id:
+      - 1b6a6566db729
+      - 1b6a6566db729
+      Correlation-Id:
+      - 1b6a6566db729
+      Content-Language:
+      - "*"
+      Set-Cookie:
+      - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D846485847%26HTTP_X_PP_AZ_LOCATOR%3D;
+        Expires=Thu, 09 Jun 2016 14:20:43 GMT; domain=.paypal.com; path=/; Secure;
+        HttpOnly
+      Vary:
+      - Authorization
+      Content-Length:
+      - '788'
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-04S36716N90724614K5MXIMY","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"5.00","currency":"USD"},"description":"IdeaDash
+        idea funding.","item_list":{"items":[{"name":"Funding of Idea 2","sku":"idea_2","price":"5.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2016-06-09T13:50:42Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-04S36716N90724614K5MXIMY","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-6AN10900M30425155","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-04S36716N90724614K5MXIMY/execute","rel":"execute","method":"POST"}]}'
+    http_version: 
+  recorded_at: Thu, 09 Jun 2016 13:50:43 GMT
+recorded_with: VCR 3.0.3

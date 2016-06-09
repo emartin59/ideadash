@@ -49,5 +49,41 @@ RSpec.describe PaymentsController, type: :controller do
         end
       end
     end
+    context "paypal payment" do
+      it 'creates payment' do
+        expect{
+          post :create, idea_id: idea.id, payment: { amount: 5 }
+        }.to change(Payment, :count).by 1
+      end
+      it 'redirects to payment url' do
+        post :create, idea_id: idea.id, payment: { amount: 5 }
+        payment = Payment.last
+        expect(response).to redirect_to payment.paypal_payment.links.find{|v| v.method == "REDIRECT" }.href
+      end
+    end
+  end
+
+  describe "GET callback" do
+    it 'redirects to root if no payment found' do
+      get :callback
+      expect(response).to redirect_to root_path
+    end
+    context "when payment is found" do
+      subject{ create :payment, sender: user, recipient: idea, paypal_id: '12345678' }
+      context "and it is successful" do
+        before { allow_any_instance_of(Payment).to receive(:process_paypal_payment).and_return true }
+        it 'redirects to idea' do
+          get :callback, paymentId: subject.paypal_id
+          expect(response).to redirect_to idea
+        end
+      end
+      context "and it is not successful" do
+        before { allow_any_instance_of(Payment).to receive(:process_paypal_payment).and_return false }
+        it 'redirects to idea' do
+          get :callback, paymentId: subject.paypal_id
+          expect(response).to redirect_to idea
+        end
+      end
+    end
   end
 end

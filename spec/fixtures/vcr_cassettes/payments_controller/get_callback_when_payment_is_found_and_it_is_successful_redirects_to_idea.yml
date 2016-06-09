@@ -24,22 +24,22 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 09 Jun 2016 09:41:16 GMT
+      - Thu, 09 Jun 2016 13:50:17 GMT
       Server:
       - Apache
       Proxy-Server-Info:
-      - host=slcsbplatformapiserv3001.slc.paypal.com;threadId=287
+      - host=slcsbplatformapiserv3002.slc.paypal.com;threadId=601
       Paypal-Debug-Id:
-      - 213fdbaceae7
-      - 213fdbaceae7
+      - 7fe339f2281f
+      - 7fe339f2281f
       Correlation-Id:
-      - 213fdbaceae7
+      - 7fe339f2281f
       X-Paypal-Token-Service:
       - IAAS
       Set-Cookie:
       - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
-      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D3157875031%26HTTP_X_PP_AZ_LOCATOR%3D;
-        Expires=Thu, 09 Jun 2016 10:11:17 GMT; domain=.paypal.com; path=/; Secure;
+      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D427055447%26HTTP_X_PP_AZ_LOCATOR%3D;
+        Expires=Thu, 09 Jun 2016 14:20:17 GMT; domain=.paypal.com; path=/; Secure;
         HttpOnly
       Vary:
       - Authorization
@@ -53,9 +53,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.*
         https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks
-        openid https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","nonce":"2016-06-09T09:41:17ZZe5YV3so2GIhrlQSbiCWO70IEW6qnm98tfYryaKLnRw","access_token":"A101.Wz-Wxtd2vejFOAbjd2_vQV3e_XQymTZ-LkXgFwh_BwWTSDUgr1q5GDFCjpCDd_7q.TFuq14fRI9SXtVIvxSrJDKXdF_u","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":32400}'
+        openid https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","nonce":"2016-06-09T13:35:14ZIQ216SfMMeOoNLUnvBDOFrpk3EUZW6QXky7L8Xr2BBI","access_token":"A101.B3AX0AfBdfnOJYoITZFaMlGTH6-jrvZYAUamuQjiTz75S1Ofo1ATW4YNCRDlrdwu._WPI2_6vi1FKY1_yxkbSj4_scum","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":31497}'
     http_version: 
-  recorded_at: Thu, 09 Jun 2016 09:41:17 GMT
+  recorded_at: Thu, 09 Jun 2016 13:50:17 GMT
 - request:
     method: post
     uri: https://api.sandbox.paypal.com/v1/payments/payment
@@ -66,14 +66,14 @@ http_interactions:
         1","price":"5.00","currency":"USD","sku":"idea_1"}]}}],"redirect_urls":{"return_url":"http://ideadash.dev:3000/payments/callback","cancel_url":"http://ideadash.dev:3000/ideas/1?status=canceled"}}'
     headers:
       Authorization:
-      - Bearer A101.Wz-Wxtd2vejFOAbjd2_vQV3e_XQymTZ-LkXgFwh_BwWTSDUgr1q5GDFCjpCDd_7q.TFuq14fRI9SXtVIvxSrJDKXdF_u
+      - Bearer A101.B3AX0AfBdfnOJYoITZFaMlGTH6-jrvZYAUamuQjiTz75S1Ofo1ATW4YNCRDlrdwu._WPI2_6vi1FKY1_yxkbSj4_scum
       Content-Type:
       - application/json
       User-Agent:
       - PayPalSDK/PayPal-Ruby-SDK 1.4.5 (paypal-sdk-core 1.4.5; ruby 2.3.1p112-x86_64-darwin15;OpenSSL
         1.0.2g  1 Mar 2016)
       Paypal-Request-Id:
-      - 90b49611-3787-445e-a164-6d6a141c478c
+      - 58305e6a-97df-4d3a-b941-a27316c6c55e
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -84,22 +84,22 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 09 Jun 2016 09:41:18 GMT
+      - Thu, 09 Jun 2016 13:50:18 GMT
       Server:
       - Apache
       Proxy-Server-Info:
-      - host=slcsbplatformapiserv3001.slc.paypal.com;threadId=489
+      - host=slcsbplatformapiserv3002.slc.paypal.com;threadId=419
       Paypal-Debug-Id:
-      - fd989fca485d5
-      - fd989fca485d5
+      - af88db4f8e9a
+      - af88db4f8e9a
       Correlation-Id:
-      - fd989fca485d5
+      - af88db4f8e9a
       Content-Language:
       - "*"
       Set-Cookie:
       - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
-      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D3191429463%26HTTP_X_PP_AZ_LOCATOR%3D;
-        Expires=Thu, 09 Jun 2016 10:11:18 GMT; domain=.paypal.com; path=/; Secure;
+      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D443832663%26HTTP_X_PP_AZ_LOCATOR%3D;
+        Expires=Thu, 09 Jun 2016 14:20:18 GMT; domain=.paypal.com; path=/; Secure;
         HttpOnly
       Vary:
       - Authorization
@@ -111,8 +111,8 @@ http_interactions:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"id":"PAY-98E69787SF176421TK5MTTPQ","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"5.00","currency":"USD"},"description":"IdeaDash
-        idea funding.","item_list":{"items":[{"name":"Funding of Idea 1","sku":"idea_1","price":"5.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2016-06-09T09:41:18Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-98E69787SF176421TK5MTTPQ","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-1B123566X01195920","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-98E69787SF176421TK5MTTPQ/execute","rel":"execute","method":"POST"}]}'
+      string: '{"id":"PAY-0AS50237SA200481EK5MXIGQ","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"5.00","currency":"USD"},"description":"IdeaDash
+        idea funding.","item_list":{"items":[{"name":"Funding of Idea 1","sku":"idea_1","price":"5.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2016-06-09T13:50:18Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-0AS50237SA200481EK5MXIGQ","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-9LJ19954J3590591R","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-0AS50237SA200481EK5MXIGQ/execute","rel":"execute","method":"POST"}]}'
     http_version: 
-  recorded_at: Thu, 09 Jun 2016 09:41:18 GMT
+  recorded_at: Thu, 09 Jun 2016 13:50:18 GMT
 recorded_with: VCR 3.0.3

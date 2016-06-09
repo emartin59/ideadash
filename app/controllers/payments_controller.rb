@@ -19,7 +19,7 @@ class PaymentsController < ApplicationController
 
   def callback
     @payment = Payment.where(paypal_id: params[:paymentId]).first
-    redirect_to root_path, warning: 'Something went wrong' if @payment.nil?
+    return redirect_to root_path, warning: 'Something went wrong' if @payment.nil? || params[:paymentId].nil?
 
     if @payment.process_paypal_payment(:payer_id => params[:PayerID])
       redirect_to @payment.recipient, success: 'Funding is successful! Thank you for taking part in it!'
