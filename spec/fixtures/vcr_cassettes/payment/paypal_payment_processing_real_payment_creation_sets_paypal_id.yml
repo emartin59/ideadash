@@ -2,22 +2,78 @@
 http_interactions:
 - request:
     method: post
+    uri: https://api.sandbox.paypal.com/v1/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      User-Agent:
+      - PayPalSDK/PayPal-Ruby-SDK 1.4.5 (paypal-sdk-core 1.4.5; ruby 2.3.1p112-x86_64-darwin15;OpenSSL
+        1.0.2g  1 Mar 2016)
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Basic QVYtcGYxMXhySTg5QUJpckUyV0hub1RpN1pxVWFpXzJWS2daLWRra2k1OGxKenVIT2IwNW5oRHlkMVV0VW5WLXFkeUI0X21DaDNfREd5dHE6RUZwakpkOEdXTzFUNHJDZXhXZjQ5XzRZcFJfRE10SGQtdlBJcXpiZHlNWEc4M0haakEtMHdHWGdaSjI4NER3RGlIbHBaODZrZnlOSjhORU8=
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 10 Jun 2016 08:27:36 GMT
+      Server:
+      - Apache
+      Proxy-Server-Info:
+      - host=slcsbplatformapiserv3001.slc.paypal.com;threadId=630
+      Paypal-Debug-Id:
+      - d70ff26ed118
+      - d70ff26ed118
+      Correlation-Id:
+      - d70ff26ed118
+      X-Paypal-Token-Service:
+      - IAAS
+      Set-Cookie:
+      - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D4168702551%26HTTP_X_PP_AZ_LOCATOR%3D;
+        Expires=Fri, 10 Jun 2016 08:57:36 GMT; domain=.paypal.com; path=/; Secure;
+        HttpOnly
+      Vary:
+      - Authorization
+      Content-Length:
+      - '550'
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.*
+        https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks
+        openid https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","nonce":"2016-06-10T08:14:30Ze_ZdDS6tzWbIoG6-MKt3UPuaHvjDua55mObGvki1tWc","access_token":"A101.8O-s_2z1ZaWwCcJxWKcK3rmGZiSiapU8SRjIf85kTxeSnMswvBdTUR6bTZUnoBSH.4LKNW3a-5qX1xRQMxn_669AmQw8","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":31614}'
+    http_version: 
+  recorded_at: Fri, 10 Jun 2016 08:27:36 GMT
+- request:
+    method: post
     uri: https://api.sandbox.paypal.com/v1/payments/payment
     body:
       encoding: UTF-8
       string: '{"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"5.00"},"description":"IdeaDash
         idea funding.","item_list":{"items":[{"quantity":"1","name":"Funding of Idea
-        25","price":"5.00","currency":"USD","sku":"idea_15"}]}}],"redirect_urls":{"return_url":"http://ideadash.dev:3000/payments/callback","cancel_url":"http://ideadash.dev:3000/ideas/15?status=canceled"}}'
+        3","price":"5.00","currency":"USD","sku":"idea_3"}]}}],"redirect_urls":{"return_url":"http://ideadash.dev:3000/payments/callback","cancel_url":"http://ideadash.dev:3000/ideas/3?status=canceled"}}'
     headers:
       Authorization:
-      - Bearer A101.QE4xm7gFrB6rrVuFiM5Fg5108d6V8JpCR6g1eSek_-hNPU-Gi6PWYtRL0uQv732q.BrhIPAx8sMm0fwxustEJ1UhpdhS
+      - Bearer A101.8O-s_2z1ZaWwCcJxWKcK3rmGZiSiapU8SRjIf85kTxeSnMswvBdTUR6bTZUnoBSH.4LKNW3a-5qX1xRQMxn_669AmQw8
       Content-Type:
       - application/json
       User-Agent:
       - PayPalSDK/PayPal-Ruby-SDK 1.4.5 (paypal-sdk-core 1.4.5; ruby 2.3.1p112-x86_64-darwin15;OpenSSL
         1.0.2g  1 Mar 2016)
       Paypal-Request-Id:
-      - fda33495-bba4-4775-bc7e-9e8c13454f52
+      - 651d9d2c-faf6-4685-ba32-7ac2a99ad407
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,35 +84,35 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 09 Jun 2016 14:54:18 GMT
+      - Fri, 10 Jun 2016 08:27:36 GMT
       Server:
       - Apache
       Proxy-Server-Info:
-      - host=slcsbplatformapiserv3002.slc.paypal.com;threadId=209
+      - host=slcsbplatformapiserv3001.slc.paypal.com;threadId=312
       Paypal-Debug-Id:
-      - d7e2c7df5c2cb
-      - d7e2c7df5c2cb
+      - 33bc41f64d9
+      - 33bc41f64d9
       Correlation-Id:
-      - d7e2c7df5c2cb
+      - 33bc41f64d9
       Content-Language:
       - "*"
       Set-Cookie:
       - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
-      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D444815703%26HTTP_X_PP_AZ_LOCATOR%3D;
-        Expires=Thu, 09 Jun 2016 15:24:18 GMT; domain=.paypal.com; path=/; Secure;
+      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D4185479767%26HTTP_X_PP_AZ_LOCATOR%3D;
+        Expires=Fri, 10 Jun 2016 08:57:37 GMT; domain=.paypal.com; path=/; Secure;
         HttpOnly
       Vary:
       - Authorization
       Content-Length:
-      - '790'
+      - '788'
       Connection:
       - close
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"id":"PAY-86G76358NN0311040K5MYGGQ","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"5.00","currency":"USD"},"description":"IdeaDash
-        idea funding.","item_list":{"items":[{"name":"Funding of Idea 25","sku":"idea_15","price":"5.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2016-06-09T14:54:18Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-86G76358NN0311040K5MYGGQ","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-89614039391097640","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-86G76358NN0311040K5MYGGQ/execute","rel":"execute","method":"POST"}]}'
+      string: '{"id":"PAY-21683037W8294271GK5NHT6I","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"5.00","currency":"USD"},"description":"IdeaDash
+        idea funding.","item_list":{"items":[{"name":"Funding of Idea 3","sku":"idea_3","price":"5.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2016-06-10T08:27:37Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-21683037W8294271GK5NHT6I","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-1HS74479MY5654820","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-21683037W8294271GK5NHT6I/execute","rel":"execute","method":"POST"}]}'
     http_version: 
-  recorded_at: Thu, 09 Jun 2016 14:54:18 GMT
+  recorded_at: Fri, 10 Jun 2016 08:27:37 GMT
 recorded_with: VCR 3.0.3

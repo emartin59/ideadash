@@ -42,7 +42,7 @@ RSpec.describe Payment, type: :model do
     end
   end
 
-  describe "paypal payment processing" do
+  describe "paypal payment processing", vcr: { match_requests_on: [:method, :uri] } do
     let(:user){ create :user }
     let(:idea){ create :idea }
     subject{ build :payment, recipient: idea, sender: user }
@@ -69,7 +69,7 @@ RSpec.describe Payment, type: :model do
     end
   end
 
-  describe "#paypal_payment" do
+  describe "#paypal_payment", vcr: { match_requests_on: [:method, :uri] } do
     let(:user){ create :user }
     let(:idea){ create :idea }
     let(:payment){ create :payment, recipient: idea, sender: user }
