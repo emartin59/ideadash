@@ -7,7 +7,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"5.00"},"description":"IdeaDash
         idea funding.","item_list":{"items":[{"quantity":"1","name":"Funding of Idea
-        119","price":"5.00","currency":"USD","sku":"idea_105"}]}}],"redirect_urls":{"return_url":"http://ideadash.dev:3000/payments/callback","cancel_url":"http://ideadash.dev:3000/ideas/105?status=canceled"}}'
+        87","price":"5.00","currency":"USD","sku":"idea_75"}]}}],"redirect_urls":{"return_url":"http://ideadash.dev:3000/payments/callback","cancel_url":"http://ideadash.dev:3000/ideas/75?status=canceled"}}'
     headers:
       Authorization:
       - Bearer A101.8O-s_2z1ZaWwCcJxWKcK3rmGZiSiapU8SRjIf85kTxeSnMswvBdTUR6bTZUnoBSH.4LKNW3a-5qX1xRQMxn_669AmQw8
@@ -17,7 +17,7 @@ http_interactions:
       - PayPalSDK/PayPal-Ruby-SDK 1.4.5 (paypal-sdk-core 1.4.5; ruby 2.3.1p112-x86_64-darwin15;OpenSSL
         1.0.2g  1 Mar 2016)
       Paypal-Request-Id:
-      - c5d57eef-6d5f-4377-ad1f-baa9ac6c7723
+      - 6d4c0c65-eabc-4c21-8f4b-877fcab421e4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,35 +28,35 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 10 Jun 2016 08:30:34 GMT
+      - Fri, 10 Jun 2016 08:40:26 GMT
       Server:
       - Apache
       Proxy-Server-Info:
-      - host=slcsbplatformapiserv3002.slc.paypal.com;threadId=417
+      - host=slcsbplatformapiserv3001.slc.paypal.com;threadId=300
       Paypal-Debug-Id:
-      - a218c0014db3d
-      - a218c0014db3d
+      - d93030b9fb2d
+      - d93030b9fb2d
       Correlation-Id:
-      - a218c0014db3d
+      - d93030b9fb2d
       Content-Language:
       - "*"
       Set-Cookie:
       - X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
-      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D2860145239%26HTTP_X_PP_AZ_LOCATOR%3D;
-        Expires=Fri, 10 Jun 2016 09:00:34 GMT; domain=.paypal.com; path=/; Secure;
+      - X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dplatformapiserv%26TIME%3D4202453591%26HTTP_X_PP_AZ_LOCATOR%3D;
+        Expires=Fri, 10 Jun 2016 09:10:26 GMT; domain=.paypal.com; path=/; Secure;
         HttpOnly
       Vary:
       - Authorization
       Content-Length:
-      - '792'
+      - '790'
       Connection:
       - close
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"id":"PAY-8TN770883K409294DK5NHVKQ","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"5.00","currency":"USD"},"description":"IdeaDash
-        idea funding.","item_list":{"items":[{"name":"Funding of Idea 119","sku":"idea_105","price":"5.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2016-06-10T08:30:34Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-8TN770883K409294DK5NHVKQ","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-72K38258N4625640P","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-8TN770883K409294DK5NHVKQ/execute","rel":"execute","method":"POST"}]}'
+      string: '{"id":"PAY-8T295439AE5205219K5NHZ6Q","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"5.00","currency":"USD"},"description":"IdeaDash
+        idea funding.","item_list":{"items":[{"name":"Funding of Idea 87","sku":"idea_75","price":"5.00","currency":"USD","quantity":1}]},"related_resources":[]}],"create_time":"2016-06-10T08:40:26Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-8T295439AE5205219K5NHZ6Q","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-3DY723243S048490W","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-8T295439AE5205219K5NHZ6Q/execute","rel":"execute","method":"POST"}]}'
     http_version: 
-  recorded_at: Fri, 10 Jun 2016 08:30:34 GMT
+  recorded_at: Fri, 10 Jun 2016 08:40:27 GMT
 recorded_with: VCR 3.0.3

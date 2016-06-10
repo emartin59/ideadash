@@ -63,7 +63,7 @@ RSpec.describe PaymentsController, type: :controller do
     end
   end
 
-  describe "GET callback" do
+  describe "GET callback", vcr: { match_requests_on: [:method, :uri] } do
     it 'redirects to root if no payment found' do
       get :callback
       expect(response).to redirect_to root_path
