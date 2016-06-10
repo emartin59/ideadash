@@ -19,17 +19,7 @@
         - else
           th.hidden-xs User
     tbody
-      - @ideas.each do |idea|
-        = content_tag_for :tr, idea do
-          td= link_to idea.title, idea
-          td= idea.summary.truncate_words 12
-          - if @user
-            td= link_to 'Edit', edit_idea_path(idea), class: 'btn btn-warning btn-xs' if can? :edit, idea
-            td= link_to 'Delete', idea_path(idea), method: :delete,
-                    data: { confirm: 'Are you sure? This action is irreversible.' },
-                    class: 'btn btn-danger btn-xs' if can? :destroy, idea
-          - else
-            td.hidden-xs= idea.user.name
+      = render @ideas
       - if @ideas.empty?
         tr
           - if @user

@@ -12,7 +12,7 @@ class Ability
       can :manage, Idea, { user_id: user.id }
       can :manage, Payment
       cannot [:edit, :destroy], Idea do |idea|
-        idea.positive_votes_count * 3 > idea.negative_votes_count
+        idea.positive_votes_count * 3 > idea.negative_votes_count || idea.balance > 0
       end
       can :manage, Vote
     end

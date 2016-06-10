@@ -6,25 +6,40 @@
     p.lead= link_to 'Discover new ideas', ideas_path(order: :newest, filter: :current)
     p.lead= link_to 'Rate ideas and earn DashNuts!', start_votes_path
 
-  p.lead How it works (simplified):
-  p.lead
-    ' 1. You post an idea.
-    br
-    ' 2. The community raises funds for it.
-    br
-    ' 3. People propose to implement the idea.
-    br
-    ' 4. Backers vote on the best proposal.
-    br
-    ' 5. You get 10% of the funds.
-    br
-    ' 6. Winning proposal gets 85%.
-    br
-    ' 7. Winner implements the idea.
-    br
-    ' 8. Your idea is now a reality.
+    h3 Top ideas this month
+    table.table#ideas.text-left
+      thead
+        tr
+          th #
+          th Title
+          th Rating
+      tbody
+        - @ideas.each_with_index do |idea, i|
+          = content_tag_for :tr, idea do
+            td= i+1
+            td= link_to idea.title, idea
+            td= idea.formatted_rating
+        tr
+          td[colspan=3]= link_to 'See more ideas...', ideas_path
 
-  - unless user_signed_in?
+  - else
+    p.lead How it works (simplified):
+    p.lead
+      ' 1. You post an idea.
+      br
+      ' 2. The community raises funds for it.
+      br
+      ' 3. People propose to implement the idea.
+      br
+      ' 4. Backers vote on the best proposal.
+      br
+      ' 5. You get 10% of the funds.
+      br
+      ' 6. Winning proposal gets 85%.
+      br
+      ' 7. Winner implements the idea.
+      br
+      ' 8. Your idea is now a reality.
     .btn-group
       = link_to 'Sign Up', user_facebook_omniauth_authorize_path, class: 'btn btn-primary'
       = link_to 'Explore Ideas', ideas_path, class: 'btn btn-info'
