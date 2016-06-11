@@ -2,9 +2,11 @@
   h1 ideas unleashed
   - if user_signed_in?
     p.lead Wondering what to do next?
-    p.lead= link_to 'Post an idea', new_idea_path
+    - if can? :create, Idea
+      p.lead= link_to 'Post an idea', new_idea_path
     p.lead= link_to 'Discover new ideas', ideas_path(order: :newest, filter: :current)
-    p.lead= link_to 'Rate ideas and earn DashNuts!', start_votes_path
+    - if can? :create, Vote
+      p.lead= link_to 'Rate ideas and earn DashNuts!', start_votes_path
 
     h3 Top ideas this month
     table.table#ideas.text-left

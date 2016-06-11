@@ -10,8 +10,10 @@
     = nav class: 'navbar-right' do
       = link_to 'How it works', about_path
       = link_to 'Explore Ideas', ideas_path
-      = link_to 'Post an Idea', new_idea_path
-      = link_to 'Rate Ideas', start_votes_path
+      - if can? :create, Idea
+        = link_to 'Post an Idea', new_idea_path
+      - if can? :create, Vote
+        = link_to 'Rate Ideas', start_votes_path
       = link_to 'My Ideas', user_ideas_path(current_user), class: 'visible-xs-block' if user_signed_in?
       = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'visible-xs-block' if user_signed_in?
       - if user_signed_in?

@@ -8,7 +8,7 @@ class Ability
     can :read, User
     can :read, :main
 
-    if user.persisted?
+    if user.persisted? && user.active
       can :manage, Idea, { user_id: user.id }
       can :manage, Payment
       cannot [:edit, :destroy], Idea do |idea|
