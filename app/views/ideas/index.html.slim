@@ -32,3 +32,4 @@
               h5
                 ' During this month, nobody posted his idea yet.
                 = link_to 'Be the first!', new_idea_path
+  = will_paginate @ideas, renderer: BootstrapPagination::Rails

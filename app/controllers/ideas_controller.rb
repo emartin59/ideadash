@@ -5,6 +5,7 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
+    @ideas = @ideas.paginate(:page => params[:page])
     @ideas = @ideas.includes(:user) unless @user
     @ideas = @ideas.current if params[:filter] != 'all'
     @ideas = @ideas.safe_order(params.fetch(:order){ :rating }.to_sym)
