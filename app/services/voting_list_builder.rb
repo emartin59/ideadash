@@ -11,12 +11,12 @@ class VotingListBuilder
   end
 
   def current_ideas
-    @current_ideas ||= Idea.current.where('user_id != ?', @current_user.id).unscope(:order)
+    @current_ideas ||= Idea.visible.current.where('user_id != ?', @current_user.id).unscope(:order)
                            .order('(positive_votes_count + negative_votes_count) ASC').limit(5)
   end
 
   def all_ideas
-    @all_ideas ||= Idea.where('id NOT IN(?) AND user_id != ?', current_ideas_ids, @current_user.id).unscope(:order).order('random()').limit(5)
+    @all_ideas ||= Idea.visible.where('id NOT IN(?) AND user_id != ?', current_ideas_ids, @current_user.id).unscope(:order).order('random()').limit(5)
   end
 
   def current_ideas_ids

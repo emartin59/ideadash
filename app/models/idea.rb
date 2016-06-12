@@ -10,6 +10,8 @@ class Idea < ActiveRecord::Base
   has_many :negative_votes, class_name: 'Vote',
            inverse_of: :negative_idea, foreign_key: 'negative_idea_id'
 
+  has_many :flags, as: :flaggable
+
   MAX_SUMMARY_LENGTH = 200
 
   SAFE_ORDERS = {
@@ -28,6 +30,7 @@ class Idea < ActiveRecord::Base
 
   scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str){ SAFE_ORDERS[:rating] }) }
+  scope :visible, -> { where('ideas.flags_count < ? OR approved = ?', 5, true) }
 
 
   def rating

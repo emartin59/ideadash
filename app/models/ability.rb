@@ -15,6 +15,7 @@ class Ability
         idea.positive_votes_count * 3 > idea.negative_votes_count || idea.balance > 0
       end
       can(:manage, Vote) if user.more_votes_allowed?
+      can :create, Flag
     end
   end
 end

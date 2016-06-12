@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   resources :ideas do
     resources :payments, only: :create
+    resources :flags, only: :create
   end
+
   resources :votes, only: [] do
     get :start, on: :collection
     post :finish, on: :collection

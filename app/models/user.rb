@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :ideas
   has_many :votes
+  has_many :flags
   has_many :outgoing_payments, as: :sender, class_name: 'Payment'
 
   def self.from_omniauth(auth)
@@ -22,5 +23,9 @@ class User < ActiveRecord::Base
 
   def more_votes_allowed?
     @more_votes_allowed ||= (votes.recent.count < 25)
+  end
+
+  def can_flag?(flaggable)
+    flags.where(flaggable: flaggable).empty?
   end
 end

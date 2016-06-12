@@ -1,0 +1,10 @@
+table.index_table
+  thead
+    tr
+      th Title
+      th Flags count
+  tbody
+    - Idea.where(approved: false).where('ideas.flags_count > 1').order(flags_count: :desc).each do |idea|
+      = content_tag_for :tr, idea do
+        td= link_to idea.title, send("#{ active_admin }_idea_path", idea)
+        td= idea.flags_count

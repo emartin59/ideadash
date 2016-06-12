@@ -1,5 +1,14 @@
 .col-xs-12.col-md-8.col-md-offset-2
   .jumbotron.text-center
+    - if user_signed_in? && current_user.can_flag?(@idea)
+      .dropdown.flag
+        a.dropdown-toggle[href='javascript:void(0);' data-toggle='dropdown']
+          i.fa.fa-flag-o
+        .dropdown-menu.flag-form
+          = simple_form_for [@idea, Flag.new], remote: true do |f|
+            = f.input :kind, as: :radio_buttons, collection: Flag::KINDS.map{|k,v| [v,k]}, label: false
+            = f.input :description, placeholder: 'Comment, link...', label: false
+            = f.submit 'Report', class: 'btn btn-small btn-info'
     h1= @idea.title
     p
       ' By
