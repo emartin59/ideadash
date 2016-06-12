@@ -3,5 +3,6 @@
     = image_tag 'dashnut.png'
     p For diligently rating 5 sets of ideas, you've just earned 1 dashNut. Congratulations!
 
-    = link_to 'Rate more', start_votes_path, class: 'btn btn-primary'
+    - if can? :start, Vote
+      = link_to 'Rate more', start_votes_path, class: 'btn btn-primary'
     = link_to 'Homepage', root_path, class: 'btn btn-info pull-right'
