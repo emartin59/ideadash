@@ -14,7 +14,7 @@ class Ability
       cannot [:edit, :destroy], Idea do |idea|
         idea.positive_votes_count * 3 > idea.negative_votes_count || idea.balance > 0
       end
-      can :manage, Vote
+      can(:manage, Vote) if user.more_votes_allowed?
     end
   end
 end

@@ -5,7 +5,7 @@
     - if can? :create, Idea
       p.lead= link_to 'Post an idea', new_idea_path
     p.lead= link_to 'Discover new ideas', ideas_path(order: :newest, filter: :current)
-    - if can? :create, Vote
+    - if can? :start, Vote
       p.lead= link_to 'Rate ideas and earn DashNuts!', start_votes_path
 
     h3 Top ideas this month

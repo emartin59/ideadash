@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
     end
   end
+
+  def more_votes_allowed?
+    @more_votes_allowed ||= (votes.recent.count < 25)
+  end
 end

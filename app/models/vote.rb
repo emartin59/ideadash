@@ -8,4 +8,6 @@ class Vote < ActiveRecord::Base
   validates :positive_idea, presence: true
   validates :negative_idea, presence: true
   validates :user, presence: true
+
+  scope :recent, -> { where('created_at > ?', Time.now - 1.hour) }
 end
