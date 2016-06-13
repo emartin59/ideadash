@@ -7,6 +7,7 @@ RSpec.describe Idea, type: :model do
   it { is_expected.to belong_to :user }
   it { is_expected.to have_many(:positive_votes).with_foreign_key(:positive_idea_id) }
   it { is_expected.to have_many(:negative_votes).with_foreign_key(:negative_idea_id) }
+  it { is_expected.to have_many(:flags) }
   it { is_expected.to validate_presence_of :title }
   it { is_expected.to validate_uniqueness_of :title }
   it { is_expected.to validate_presence_of :summary }

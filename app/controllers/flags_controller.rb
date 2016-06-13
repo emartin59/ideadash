@@ -4,7 +4,6 @@ class FlagsController < ApplicationController
 
   def create
     @flag = current_user.flags.build(flag_params)
-    puts @idea.id
     if @flag.save
       @message = 'Thank you for reporting! We will review this report as soon as possible'
     else
