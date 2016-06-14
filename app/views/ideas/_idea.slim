@@ -1,5 +1,5 @@
 = content_tag_for :tr, idea do
-  td= link_to idea.title.truncate(60), idea
+  td= link_to idea.title, idea
   td= idea.summary.truncate_words 12
   - if @user
     td= link_to 'Edit', edit_idea_path(idea), class: 'btn btn-warning btn-xs' if can? :edit, idea
