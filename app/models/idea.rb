@@ -20,7 +20,7 @@ class Idea < ActiveRecord::Base
       rating: '(positive_votes_count::float / (positive_votes_count + negative_votes_count + 1)) DESC'
   }
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true, length: { maximum: 60 }
   validates :summary, presence: true, length: { maximum: MAX_SUMMARY_LENGTH }
   validates :user, presence: true
   validates :tos_accepted, acceptance: { accept: '1' }

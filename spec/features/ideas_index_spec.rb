@@ -23,4 +23,3 @@ describe 'ideas index' do
     expect(page).to have_text(approved_idea.title)
   end
 end
-
