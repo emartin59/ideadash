@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def more_votes_allowed?
-    @more_votes_allowed ||= (votes.recent.count < 25)
+    @more_votes_allowed ||= (votes.recent.count < 100)
   end
 
   def can_flag?(flaggable)
