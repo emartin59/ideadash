@@ -21,6 +21,8 @@ class Payment < ActiveRecord::Base
         recipient.lock!
         recipient.balance += amount
         recipient.save!
+        self.paypal_status = paypal_payment.state
+        save
       end
     end
     result
