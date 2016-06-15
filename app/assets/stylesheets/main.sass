@@ -18,3 +18,11 @@
 .photo-wrapper
   margin-right: 20px
   margin-bottom: 20px
+
+$google-color: #4285f4
+$facebook-color: #3b5998
+.btn-google
+  @include button-variant($btn-primary-color, $google-color, $google-color)
+.btn-facebook
+  @include button-variant($btn-primary-color, $facebook-color, $facebook-color)
+

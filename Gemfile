@@ -29,6 +29,8 @@ gem 'slim'
 gem 'redcarpet'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 gem 'cancancan', '~> 1.10'
 
 gem 'email_validator'

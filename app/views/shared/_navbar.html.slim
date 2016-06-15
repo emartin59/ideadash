@@ -26,5 +26,3 @@
             - if current_user.balance > 0
               li= link_to "My balance: $#{ sprintf('%.2f', current_user.balance) }", 'javascript:void(0);'
             li= link_to 'Logout', destroy_user_session_path, method: :delete
-      - else
-        = link_to 'Login with Facebook', user_facebook_omniauth_authorize_path

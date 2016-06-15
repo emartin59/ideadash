@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_merit
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-         :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+         :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   validates :email, presence: true, uniqueness: true, email: true
   validates :name, presence: true
