@@ -13,14 +13,14 @@ describe 'root page' do
       before { mock_user(user) }
       it 'shows success message' do
         visit root_path
-        click_link 'Login with Facebook'
+        find(:css, '.btn.btn-facebook').click
         expect(page).to have_text 'Successfully authenticated from Facebook account.'
         expect(page).to have_text "Welcome, #{user.name}"
       end
       it 'creates user' do
         visit root_path
         expect{
-          click_link 'Login with Facebook'
+          find(:css, '.btn.btn-facebook').click
         }.to change(User, :count).by(1)
       end
     end
@@ -29,14 +29,14 @@ describe 'root page' do
       before { mock_user(user) }
       it 'shows success message' do
         visit root_path
-        click_link 'Login with Facebook'
+        find(:css, '.btn.btn-facebook').click
         expect(page).to have_text 'Successfully authenticated from Facebook account.'
         expect(page).to have_text "Welcome, #{user.name}"
       end
       it 'does not create user' do
         visit root_path
         expect{
-          click_link 'Login with Facebook'
+          find(:css, '.btn.btn-facebook').click
         }.to_not change(User, :count)
       end
     end
