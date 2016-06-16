@@ -16,6 +16,11 @@ class Ability
       end
       can(:manage, Vote) if user.more_votes_allowed?
       can :create, Flag
+      can :manage, Implementation, { user_id: user.id }
+
+      cannot :create, Implementation do |implementation|
+        Implementation.where(user_id: user.id, idea_id: implementation.idea_id).present? || !implementation.idea.in_proposals_phase?
+      end
     end
   end
 end

@@ -1,0 +1,4 @@
+= content_tag_for :tr, implementation do
+  td= link_to implementation.title, [@idea, implementation]
+  td= implementation.summary.truncate_words 12
+  td.hidden-xs= implementation.user.name

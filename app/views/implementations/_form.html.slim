@@ -1,0 +1,19 @@
+= simple_form_for([@idea, @implementation], html: { class: 'with_short_fields') } do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :title, hint: '{{ titleLength }}', input_html: { 'v-model' => 'title' }, hint_html: { 'v-if' => 'showTitleHint' }
+    = f.input :summary, as: :text, hint: '{{ summaryLength }}', input_html: { 'v-model' => 'summary' }, hint_html: { 'v-if' => 'showSummaryHint' }
+    = f.input :description
+    = f.input :tos_accepted, as: :boolean, label: 'I agree to the following terms, conditions, and contract(s), as well as any current terms of use and privacy policy for ideadash.com, as amended from time to time.'
+  .form-actions
+    .btn-group
+      = f.button :submit, class: 'btn btn-primary', data: { confirm: "Are you sure that you want to submit this implementation proposal? The proposal cannot be modified once submitted. If chosen, your proposal will become part of a legal contract between you and the funding backer(s) of this idea." }
+      = link_to 'Back', :back, class: 'btn btn-default'
+
+.terms.text-muted.small
+  markdown:
+    The implementation proposal you submit is part of a potential legal contract between the funding backer(s) of the listed idea and you. If you get the most votes from the backer(s) for this idea during the voting period, you become the "chosen" implementer and you need to make a good faith effort to implement this idea according to your submitted implementation proposal.
+    In order to post your proposal you must be 18 years old or have attained the age of majority in the country where you are located.
+    If you become the "chosen" implementer, it is at that time that you enter into the following legal contract with the idea's backer(s) (ideaDash inc. is in no way a party to this contract, and reserves the right to ignore any requests by the users of ideaDash inc., or requests by anyone else, to help enforce this contract or take action upon any implementation proposal submitter. ideaDash inc. will not be held liable, under any circumstances, for any failure of a chosen implementer to carry out an implementation proposal.):
+    "I am the chosen implementer for a particular idea on ideadash.com, and I agree to make a good faith effort to carry out the idea based on the details specified in the implementation proposal that I posted for this idea on ideadash.com.  In the event that I cannot carry out this implementation, I need to notify the backer(s) of this idea promptly as such, and then make my best effort to satisfy their desires in an alternate way, or refund to them all of the money that I received from ideadash.com to carry out this implementation. In any event, if any backer feels that I have not met my obligations to make a good faith effort to carry out my implementation as proposed, to carry out a satisfactory alternative implementation, or to fully refund the money received from ideadash.com back to the backer(s), the backer(s) may take any and all legal action against me, and only against me, to recoup from me the money I received from ideadash.com to carry out my posted implementation proposal and give it back to the backer(s) in proportion to the amount that an individual backer supported the idea."
+    By posting your implementation proposal you agree to these terms and agree to be subject to the above contract between you and the backer(s).

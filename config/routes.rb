@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :ideas do
     resources :payments, only: :create
     resources :flags, only: :create
+    resources :implementations, only: [:index, :create, :new, :show]
   end
 
   resources :votes, only: [] do

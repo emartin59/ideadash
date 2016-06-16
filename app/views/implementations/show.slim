@@ -1,0 +1,8 @@
+.col-xs-12.col-md-8.col-md-offset-2
+  .jumbotron.text-center
+    h1= @implementation.title
+    p
+      ' By
+      = @implementation.user.name
+    p.lead= @implementation.summary
+  p= simple_format @idea.description

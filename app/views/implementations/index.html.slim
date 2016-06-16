@@ -1,0 +1,15 @@
+.col-xs-12.col-md-offset-1.col-md-10
+  table.table#implementations
+    thead
+      tr
+        th Title
+        th.hidden-xs User
+    tbody
+      = render @implementations
+      - if @implementations.empty?
+        tr
+          td[colspan="3"]
+            h5
+              ' Nobody posted his implementation proposal yet.
+              = link_to 'Be the first!', new_idea_implementation_path(@idea)
+  = will_paginate @implementations, renderer: BootstrapPagination::Rails

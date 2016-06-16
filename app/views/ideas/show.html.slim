@@ -14,7 +14,7 @@
       ' By
       = @idea.user.name
     p.lead= @idea.summary
-    - if can?(:manage, Payment) && @idea.in_first_phase?
+    - if can?(:manage, Payment) && @idea.in_voting_phase?
       .row
         .col-xs-12.col-md-6.col-md-offset-3
           = simple_form_for [@idea, Payment.new] do |f|
@@ -30,4 +30,6 @@
       span.funded
         i.fa.fa-dollar
         = @idea.balance
+    .votes
+      = link_to 'Propose an implementation', new_idea_implementation_path(@idea), class: 'btn btn-success' if can? :create, current_user.implementations.build(idea: @idea)
   p= simple_format @idea.description

@@ -11,6 +11,7 @@ class Idea < ActiveRecord::Base
            inverse_of: :negative_idea, foreign_key: 'negative_idea_id'
 
   has_many :flags, as: :flaggable
+  has_many :implementations
 
   MAX_SUMMARY_LENGTH = 200
 
@@ -41,7 +42,12 @@ class Idea < ActiveRecord::Base
     sprintf('%.1f', rating * 10)
   end
 
-  def in_first_phase?
-    created_at > Time.now.beginning_of_month
+  def in_voting_phase?
+    created_at > Date.today.beginning_of_month && created_at < Date.today.end_of_month
+  end
+
+  def in_proposals_phase?
+    return false if in_voting_phase?
+    Date.today.day.between?(1, 21) && created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
   end
 end

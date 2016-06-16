@@ -1,7 +1,7 @@
 $ ->
-  if $('.simple_form.new_idea, .simple_form.edit_idea').length
+  if $('.simple_form.with_short_fields').length
     new Vue
-      el: '.simple_form.new_idea, .simple_form.edit_idea'
+      el: '.simple_form'
       data:
         summary: ''
         title: ''

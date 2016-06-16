@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612171100) do
+ActiveRecord::Schema.define(version: 20160616153607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 20160612171100) do
   end
 
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
+
+  create_table "implementations", force: :cascade do |t|
+    t.string   "title",       default: "", null: false
+    t.string   "summary",     default: "", null: false
+    t.text     "description", default: "", null: false
+    t.integer  "user_id",                  null: false
+    t.integer  "idea_id",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "implementations", ["idea_id"], name: "index_implementations_on_idea_id", using: :btree
+  add_index "implementations", ["user_id", "idea_id"], name: "index_implementations_on_user_id_and_idea_id", unique: true, using: :btree
+  add_index "implementations", ["user_id"], name: "index_implementations_on_user_id", using: :btree
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
@@ -158,5 +172,7 @@ ActiveRecord::Schema.define(version: 20160612171100) do
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
   add_foreign_key "flags", "users"
+  add_foreign_key "implementations", "ideas"
+  add_foreign_key "implementations", "users"
   add_foreign_key "votes", "users"
 end

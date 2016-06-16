@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :ideas
   has_many :votes
   has_many :flags
+  has_many :implementations
   has_many :outgoing_payments, as: :sender, class_name: 'Payment'
 
   def self.from_omniauth(auth)
