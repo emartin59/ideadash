@@ -16,18 +16,21 @@ May 28th, 2016
 
 #### The process you and your idea go through (simplified):
 
-Starting on the first of each month and going through the end of month one
+Starting on the first of each month and going through the end of month one:
 
 1. You post an idea.
 
 2. The community (backers) raises funds for it.
-Starting on the first of the second month and going through the 21st day of month two
+ 
+Starting on the first of the second month and going through the 21st day of month two:
 
 3. People submit proposals to implement the idea.
-Starting on the first of the second month and going through the end of month two
+ 
+Starting on the first of the second month and going through the end of month two:
 
 4. Backers vote on the best proposal.
-After the end of the second month (and after transaction fees are taken out)
+ 
+After the end of the second month (and after transaction fees are taken out):
 
 5. You get 10% of the funds, ideadash keeps 5%.
 
