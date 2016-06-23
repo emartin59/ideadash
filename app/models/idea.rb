@@ -49,6 +49,7 @@ class Idea < ActiveRecord::Base
 
   def in_proposals_phase?
     return false if in_voting_phase?
-    Date.today.day.between?(1, 21) && created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
+    # TODO: change back to 21 on June 27
+    Date.today.day.between?(1, 27) && created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
   end
 end
