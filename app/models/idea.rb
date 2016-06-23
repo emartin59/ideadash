@@ -30,6 +30,7 @@ class Idea < ActiveRecord::Base
   default_scope { order(created_at: :desc) }
 
   scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
+  scope :previous, -> { where('extract(month from ideas.created_at) = extract(month from current_date) - 1') }
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str){ SAFE_ORDERS[:rating] }) }
   scope :visible, -> { where('ideas.flags_count < ? OR approved = ?', 5, true) }
 

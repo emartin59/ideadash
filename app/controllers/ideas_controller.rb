@@ -7,7 +7,7 @@ class IdeasController < ApplicationController
   def index
     @ideas = @ideas.paginate(:page => params[:page]).visible
     @ideas = @ideas.includes(:user) unless @user
-    @ideas = @ideas.current if params[:filter] != 'all'
+    @ideas = @ideas.send(params.fetch(:filter){ :current })
     @ideas = @ideas.safe_order(params.fetch(:order){ :rating }.to_sym)
   end
 

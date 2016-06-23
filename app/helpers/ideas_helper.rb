@@ -1,26 +1,28 @@
 module IdeasHelper
   ORDER_MAPPING = {
+      rating: 'Highest rated',
       newest: 'Newest first',
-      oldest: 'Oldest first',
-      rating: 'Highest rated'
+      oldest: 'Oldest first'
   }
   FILTER_MAPPING = {
-      all: 'All',
-      current: 'Current month'
+      current: 'Current month',
+      previous: 'Previous month',
+      all: 'All'
   }
 
   def order_dropdown
     dropdown ORDER_MAPPING.fetch(params[:order].try(:to_sym)){ 'Highest rated' } do
-      ORDER_MAPPING.inject('') do |tmp, itm|
-        tmp + link_to(itm[1], current_ideas_path(filter: params[:filter], order: itm[0]))
-      end.html_safe
+      ORDER_MAPPING.map do |k, v|
+        link_to(v, current_ideas_path(filter: params[:filter], order: k))
+      end.join('').html_safe
     end
   end
 
   def filter_dropdown
     dropdown FILTER_MAPPING.fetch(params[:filter].try(:to_sym)){ 'Current month' } do
-      link_to('All', current_ideas_path(filter: :all, order: params[:order])) +
-          link_to('Current month', current_ideas_path(filter: nil, order: params[:order]))
+      FILTER_MAPPING.map do |k, v|
+        link_to(v, current_ideas_path(filter: k, order: params[:order]))
+      end.join('').html_safe
     end
   end
 

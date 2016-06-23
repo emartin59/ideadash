@@ -33,3 +33,13 @@
     .votes
       = link_to 'Propose an implementation', new_idea_implementation_path(@idea), class: 'btn btn-success' if can? :create, current_user.implementations.build(idea: @idea)
   p= simple_format @idea.description
+  - if @idea.implementations.any?
+    h3 Implementation proposals submitted:
+    table.table#implementations
+      thead
+        tr
+          th Title
+          th Summary
+          th.hidden-xs User
+      tbody
+        = render @idea.implementations

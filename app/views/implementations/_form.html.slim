@@ -1,4 +1,4 @@
-= simple_form_for([@idea, @implementation], html: { class: 'with_short_fields') } do |f|
+= simple_form_for([@idea, @implementation], html: { class: 'with_short_fields' }) do |f|
   = f.error_notification
   .form-inputs
     = f.input :title, hint: '{{ titleLength }}', input_html: { 'v-model' => 'title' }, hint_html: { 'v-if' => 'showTitleHint' }
