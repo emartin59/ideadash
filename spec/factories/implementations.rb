@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :implementation do
-    title "MyString"
-    summary "MyString"
-    description "MyString"
-    user nil
-    idea nil
+    title Faker::Company.name
+    summary Faker::Company.catch_phrase
+    user
+    idea
   end
 end

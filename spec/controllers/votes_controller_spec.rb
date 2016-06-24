@@ -40,7 +40,9 @@ RSpec.describe VotesController, type: :controller do
       crypt.encrypt_and_sign(str.to_s)
     end
 
-    let(:valid_attributes){ { votes: [{negative_idea_id: negative_idea.id, positive_idea_id: positive_idea.id}], signed_str: signed_str } }
+    let(:ds_protect){ session[:ds_protect] = SecureRandom.base64 }
+
+    let(:valid_attributes){ { ds_protect: ds_protect, votes: [{negative_idea_id: negative_idea.id, positive_idea_id: positive_idea.id}], signed_str: signed_str } }
 
     it "returns success" do
       post :finish, valid_attributes
@@ -69,7 +71,7 @@ RSpec.describe VotesController, type: :controller do
         end
         it "skips invalid points" do
           expect{
-            post :finish, { votes: [{
+            post :finish, { ds_protect: ds_protect, votes: [{
                                         negative_idea_id: negative_idea.id,
                                         positive_idea_id: positive_idea.id
                                     }, {
@@ -108,6 +110,15 @@ RSpec.describe VotesController, type: :controller do
             post :finish, attributes
           }.to_not change(Vote, :count)
           expect(response).to redirect_to start_votes_path
+        end
+      end
+      describe "double-submit protection" do
+        context "when ds_protect is invalid" do
+          let(:ds_protect){ SecureRandom.base64 }
+          it "redirects to root" do
+            post :finish, valid_attributes
+            expect(response).to redirect_to root_path
+          end
         end
       end
     end

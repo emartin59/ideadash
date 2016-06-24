@@ -6,6 +6,7 @@ class Ability
 
     can :read, Idea
     can :read, User
+    can :read, Implementation
     can :read, :main
 
     if user.persisted? && user.active

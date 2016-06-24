@@ -3,7 +3,7 @@ class VotesController < ApplicationController
   authorize_resource
 
   before_filter :verify_signature, only: :finish
-  before_filter :verify_ds_protect, only: :finish, unless: 'Rails.env.test?'
+  before_filter :verify_ds_protect, only: :finish
 
   def start
     @ideas, @signed_str = VotingListBuilder.new(current_user).generate
