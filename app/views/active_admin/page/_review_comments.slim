@@ -1,0 +1,13 @@
+h3 Comments
+table.index_table
+  thead
+    tr
+      th Body
+      th Idea
+      th Flags count
+  tbody
+    - Comment.where('comments.flags_count > 0').order(flags_count: :desc).each do |comment|
+      = content_tag_for :tr, comment do
+        td= link_to comment.body, send("#{ active_admin }_comment_path", comment)
+        td= link_to comment.commentable.title, send("#{ active_admin }_#{ comment.commentable_type.downcase }_path", comment.commentable)
+        td= comment.flags_count
