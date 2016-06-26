@@ -1,5 +1,6 @@
 class FlagsController < ApplicationController
   load_resource :idea
+  load_resource :comment
   authorize_resource :flag
 
   def create
@@ -7,7 +8,7 @@ class FlagsController < ApplicationController
     if @flag.save
       @message = 'Thank you for reporting! We will review this report as soon as possible'
     else
-      @message = 'There was an error processing your report. Please, try again'
+      @message = 'You have already reported this issue'
     end
     respond_to do |format|
       format.html { redirect_to @idea, info: @message }
@@ -18,6 +19,6 @@ class FlagsController < ApplicationController
   private
 
     def flag_params
-      params.require(:flag).permit(:kind, :description).merge(flaggable: @idea)
+      params.require(:flag).permit(:kind, :description).merge(flaggable: @idea.presence || @comment.presence)
     end
 end

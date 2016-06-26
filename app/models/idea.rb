@@ -1,6 +1,8 @@
 class Idea < ActiveRecord::Base
   attr_accessor :tos_accepted
 
+  acts_as_commentable
+
   belongs_to :user
   has_many :incoming_payments, as: :recipient, class_name: 'Payment'
 

@@ -1,0 +1,30 @@
+- comments.each do |comment|
+  = content_tag_for :div, comment, class: "comment-depth-#{depth}" do
+    .panel.panel-default
+      .panel-heading
+        = comment.user.name
+        span.pull-right
+          = time_ago_in_words comment.created_at
+          '  ago
+          - if defined? parent
+            = link_to "#comment_#{ parent.id }" do
+              i.fa.fa-level-up
+      .panel-body
+        = comment.body
+        .comment-nav
+          a.comment-reply href="javascript:void(0);"  reply
+          .dropdown.comment-flag( class="flag-Comment-#{comment.id}" )
+            a.dropdown-toggle[href='javascript:void(0);' data-toggle='dropdown']
+              ' flag
+            .dropdown-menu.flag-form
+              = simple_form_for [comment, Flag.new], remote: true do |f|
+                = f.input :kind, as: :radio_buttons, collection: Flag::COMMENT_KINDS.map{|k,v| [v,k]}, label: false
+                = f.submit 'Report', class: 'btn btn-small btn-info'
+    .reply-form.panel.panel-default
+      .panel-heading Reply
+      .panel-body
+        = simple_form_for [commentable, @new_comment] do |f|
+          = f.hidden_field :comment_id, value: comment.id
+          = f.input :body, label: false, placeholder: 'Body'
+          = f.submit "Post Reply", class: 'btn btn-primary'
+  = render partial: "comments/reply", locals: {comments: comment.children, commentable: commentable, depth: depth + 1, parent: comment}

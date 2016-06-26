@@ -1,0 +1,28 @@
+.comments-header
+  border-bottom: 1px dotted gray
+  margin-bottom: 10px
+
+.comments-container
+  .comment-nav
+    a
+      font-size: 10px
+      font-weight: bold
+      color: #888
+
+.reply-form
+  display: none
+  margin-left: 25px
+
+.comment
+  margin-top: 20px
+  margin-left: 150px
+
+  @for $i from 0 through 5
+    &.comment-depth-#{$i}
+      margin-left: $i * 25px
+
+.comment-flag
+  display: inline-block
+  margin-left: 10px
+  .flag-form
+    padding: 10px

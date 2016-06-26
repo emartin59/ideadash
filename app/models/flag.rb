@@ -6,6 +6,10 @@ class Flag < ActiveRecord::Base
       duplicate: 'It is duplicate',
       dislike: 'I do not like it'
   }
+  COMMENT_KINDS = {
+      spam: 'Spam',
+      tos_violation: 'It violates ToS'
+  }
 
   belongs_to :user
   belongs_to :flaggable, polymorphic: true, counter_cache: true

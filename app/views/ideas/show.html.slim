@@ -1,7 +1,7 @@
 .col-xs-12.col-md-8.col-md-offset-2
   .jumbotron.text-center
     - if user_signed_in? && current_user.can_flag?(@idea)
-      .dropdown.flag
+      .dropdown.flag( class="flag-Idea-#{@idea.id}" )
         a.dropdown-toggle[href='javascript:void(0);' data-toggle='dropdown']
           i.fa.fa-flag-o
         .dropdown-menu.flag-form
@@ -43,3 +43,4 @@
           th.hidden-xs User
       tbody
         = render @idea.implementations
+  = render partial: 'comments/template', locals: { commentable: @idea, new_comment: @comment }

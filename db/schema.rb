@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616153607) do
+ActiveRecord::Schema.define(version: 20160626090645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,24 @@ ActiveRecord::Schema.define(version: 20160616153607) do
   add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id", using: :btree
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "title"
+    t.text     "body"
+    t.string   "subject"
+    t.integer  "user_id",                      null: false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "flags_count",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "flags", force: :cascade do |t|
     t.integer  "user_id"
@@ -171,6 +189,7 @@ ActiveRecord::Schema.define(version: 20160616153607) do
   add_index "votes", ["positive_idea_id"], name: "index_votes_on_positive_idea_id", using: :btree
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
+  add_foreign_key "comments", "users"
   add_foreign_key "flags", "users"
   add_foreign_key "implementations", "ideas"
   add_foreign_key "implementations", "users"

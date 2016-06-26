@@ -45,6 +45,8 @@ gem 'activeadmin', github: 'activeadmin'
 
 gem 'paypal-sdk-rest'
 
+gem 'acts_as_commentable_with_threading'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'

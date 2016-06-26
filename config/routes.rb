@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     resources :payments, only: :create
     resources :flags, only: :create
     resources :implementations, only: [:index, :create, :new, :show]
+    resources :comments, only: :create
+  end
+
+  resources :comments, only: [] do
+    resources :flags, only: :create
   end
 
   resources :votes, only: [] do
