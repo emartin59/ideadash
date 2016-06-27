@@ -1,16 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :load_parent, only: :create
-
   def create
-    @comment = Comment.build_from(@idea, current_user.id, body)
+    @comment = Comment.build_from(parent, current_user.id, body)
 
-    respond_to do |format|
-      if @comment.save
-        make_child_comment
-        format.html  { redirect_to(:back, :notice => 'Comment was successfully added.') }
-      else
-        format.html  { render :action => "new" }
-      end
+    if @comment.save
+      make_child_comment if comment_id.present?
+      redirect_to :back, success: 'Comment was successfully added.'
+    else
+      redirect_to :back, success: 'There was an error, please try again.'
     end
   end
 
@@ -29,13 +25,11 @@ class CommentsController < ApplicationController
   end
 
   def make_child_comment
-    return "" if comment_id.blank?
-
-    parent_comment = Comment.find comment_id
+    parent_comment = Comment.find(comment_id)
     @comment.move_to_child_of(parent_comment)
   end
 
-  def load_parent
-    @idea = Idea.find(params[:idea_id])
+  def parent
+    return @parent ||= Idea.find(params[:idea_id]) if params[:idea_id]
   end
 end

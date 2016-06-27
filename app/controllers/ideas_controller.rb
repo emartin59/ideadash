@@ -2,8 +2,6 @@ class IdeasController < ApplicationController
   load_and_authorize_resource :user, only: [:index]
   load_and_authorize_resource :idea, through: :user, shallow: true
 
-  around_action :skip_bullet, if: -> { Rails.env.development? }
-
   # GET /ideas
   # GET /ideas.json
   def index
@@ -71,11 +69,4 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(:title, :summary, :description, :tos_accepted)
     end
-
-  def skip_bullet
-    Bullet.enable = false
-    yield
-  ensure
-    Bullet.enable = true
-  end
 end
