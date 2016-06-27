@@ -41,7 +41,7 @@ RSpec.describe Comment, type: :model do
       user.save
       comment.save
     end
-    let(:other_comment){ create :comment, commentable: commentable }
+    let!(:other_comment){ create :comment, commentable: commentable }
     subject(:result){ Comment.find_comments_by_user user }
     it { is_expected.to match_array [comment] }
   end
@@ -51,7 +51,7 @@ RSpec.describe Comment, type: :model do
       user.save
       comment.save
     end
-    let(:other_comment){ create :comment, user: user }
+    let!(:other_comment){ create :comment, user: user }
     subject(:result){ Comment.find_comments_for_commentable 'Idea', commentable.id }
     it { is_expected.to match_array [comment] }
   end
