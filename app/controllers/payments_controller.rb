@@ -22,6 +22,7 @@ class PaymentsController < ApplicationController
     return redirect_to root_path, warning: 'Something went wrong' if @payment.nil? || params[:paymentId].nil?
 
     if @payment.process_paypal_payment(:payer_id => params[:PayerID])
+      session[:fbq] = [ '"Purchase"', { value: @payment.amount.to_f, currency: 'USD' }.to_json ].join(', ')
       redirect_to @payment.recipient, success: 'Funding is successful! Thank you for taking part in it!'
     else
       redirect_to @payment.recipient, warning: 'Funding is not successful!'

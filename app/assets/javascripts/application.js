@@ -18,4 +18,7 @@
 //= require bootstrap/dropdown
 //= require bootstrap/collapse
 //= require vue
-//= require_tree .
+//= require comments
+//= require ideas
+//= require main
+//= require votes

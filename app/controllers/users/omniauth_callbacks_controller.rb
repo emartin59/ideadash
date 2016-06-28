@@ -9,6 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
+      session[:fbq] = '"CompleteRegistration"' if @user.created_at > 10.seconds.ago
       sign_in_and_redirect @user
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     else
@@ -20,6 +21,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
+      session[:fbq] = '"CompleteRegistration"' if @user.created_at > 10.seconds.ago
       sign_in_and_redirect @user
       set_flash_message(:notice, :success, :kind => "Google") if is_navigational_format?
     else
