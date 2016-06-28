@@ -20,6 +20,8 @@ class Idea < ActiveRecord::Base
   SAFE_ORDERS = {
       newest: 'ideas.created_at DESC',
       oldest: 'ideas.created_at ASC',
+      backers: 'ideas.backers_count DESC',
+      balance: 'ideas.balance DESC',
       rating: '(positive_votes_count::float / (positive_votes_count + negative_votes_count + 1)) DESC'
   }
 
@@ -51,7 +53,18 @@ class Idea < ActiveRecord::Base
 
   def in_proposals_phase?
     return false if in_voting_phase?
-    # TODO: change back to 21 on June 27
-    Date.today.day.between?(1, 27) && created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
+    Date.today.day.between?(1, 21) && created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
+  end
+
+  def increment_backers_count!(sender)
+    increment!(:backers_count) if incoming_payments.successful.where(sender: sender).count == 1
+  end
+
+  def calculate_backers_count
+    update_column :backers_count, unique_backers_count
+  end
+
+  def unique_backers_count
+    incoming_payments.successful.select(:sender_id).distinct.count
   end
 end

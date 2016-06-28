@@ -28,7 +28,7 @@ RSpec.describe ImplementationsController, type: :controller do
   context "for logged in user" do
     before do
       sign_in user
-      idea.update(created_at: Date.today.beginning_of_month - 1.month)
+      allow_any_instance_of(Idea).to receive(:in_proposals_phase?).and_return(true)
     end
     describe "GET #new" do
       it 'renders new' do

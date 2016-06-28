@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
   def create
     @payment = current_user.outgoing_payments.build(payment_params)
     if @payment.save
-      if @payment.paypal_payment?
+      if @payment.process_by_paypal?
         @payment = @payment.paypal_payment
         @redirect_url = @payment.links.find{|v| v.method == "REDIRECT" }.href
         redirect_to @redirect_url

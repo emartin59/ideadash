@@ -1,6 +1,8 @@
 module IdeasHelper
   ORDER_MAPPING = {
       rating: 'Highest rated',
+      backers: 'Most backers',
+      balance: 'Total funds raised',
       newest: 'Newest first',
       oldest: 'Oldest first'
   }

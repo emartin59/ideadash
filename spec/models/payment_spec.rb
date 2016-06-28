@@ -8,12 +8,12 @@ RSpec.describe Payment, type: :model do
   it { is_expected.to belong_to :sender }
   it { is_expected.to validate_numericality_of(:amount) }
 
-  describe "#paypal_payment?" do
+  describe "#process_by_paypal?" do
     context "when user is a sender and recipient is idea and user balance is 0" do
       let(:user){ build(:user) }
       let(:idea){ build(:idea) }
       subject(:payment){ build :payment, sender: user, recipient: idea }
-      subject{ payment.send :paypal_payment? }
+      subject{ payment.send :process_by_paypal? }
 
       it{ is_expected.to be_truthy }
     end
@@ -21,14 +21,14 @@ RSpec.describe Payment, type: :model do
       let(:user){ build(:user, balance: 10) }
       let(:idea){ build(:idea) }
       subject(:payment){ build :payment, sender: user, recipient: idea }
-      subject{ payment.send :paypal_payment? }
+      subject{ payment.send :process_by_paypal? }
 
       it{ is_expected.to be_falsey }
     end
     context "when idea is a sender" do
       let(:idea){ build(:idea) }
       subject(:payment){ build :payment, sender: idea, recipient: idea }
-      subject{ payment.send :paypal_payment? }
+      subject{ payment.send :process_by_paypal? }
 
       it{ is_expected.to be_falsey }
     end
@@ -36,7 +36,7 @@ RSpec.describe Payment, type: :model do
       let(:user){ build(:user) }
       let(:idea){ build(:idea) }
       subject(:payment){ build :payment, sender: idea, recipient: user }
-      subject{ payment.send :paypal_payment? }
+      subject{ payment.send :process_by_paypal? }
 
       it{ is_expected.to be_falsey }
     end

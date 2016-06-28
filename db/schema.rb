@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626090645) do
+ActiveRecord::Schema.define(version: 20160628105122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,10 @@ ActiveRecord::Schema.define(version: 20160626090645) do
     t.decimal  "balance",              precision: 8, scale: 2, default: 0.0
     t.integer  "flags_count",                                  default: 0,     null: false
     t.boolean  "approved",                                     default: false, null: false
+    t.integer  "backers_count",                                default: 0
   end
 
+  add_index "ideas", ["balance"], name: "index_ideas_on_balance", using: :btree
   add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
 
   create_table "implementations", force: :cascade do |t|

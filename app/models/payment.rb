@@ -8,8 +8,10 @@ class Payment < ActiveRecord::Base
 
   delegate :url_helpers, to: 'Rails.application.routes'
 
-  before_create :create_paypal_payment, if: :paypal_payment?
-  before_create :process_payment, unless: :paypal_payment?
+  before_create :create_paypal_payment, if: :process_by_paypal?
+  before_create :process_payment, unless: :process_by_paypal?
+
+  scope :successful, -> { where("paypal_status = 'approved' OR paypal_id IS NULL") }
 
   def paypal_payment
     @payment ||= PaypalSdk::Payment.find(paypal_id)
@@ -23,13 +25,18 @@ class Payment < ActiveRecord::Base
         recipient.save!
         self.paypal_status = paypal_payment.state
         save
+        recipient.increment_backers_count!(sender) if recipient.respond_to? :increment_backers_count!
       end
     end
     result
   end
 
-  def paypal_payment?
+  def process_by_paypal?
     sender_type == 'User' && recipient_type == 'Idea' && sender.balance < amount
+  end
+
+  def paypal_payment?
+    paypal_id.present? && paypal_status == 'approved'
   end
 
   private
@@ -41,6 +48,7 @@ class Payment < ActiveRecord::Base
       sender.balance -= amount
       sender.save!
       recipient.balance += amount
+      recipient.increment_backers_count! sender if recipient.respond_to? :increment_backers_count!
       recipient.save!
     end
   end

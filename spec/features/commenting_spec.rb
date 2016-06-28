@@ -7,7 +7,7 @@ describe 'ideas index' do
   describe 'regular commenting' do
     before { visit idea_path idea }
     it 'shows normal idea' do
-      expect(page).to have_text('no comments')
+      expect(page).to have_text('0 comments')
       expect(page).to have_button('Post comment')
       expect(page).to have_field('Body')
     end

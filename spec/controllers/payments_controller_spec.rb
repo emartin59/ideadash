@@ -29,7 +29,7 @@ RSpec.describe PaymentsController, type: :controller do
       end
       context "with not enough money" do
         let(:user){ create :user }
-        before { allow_any_instance_of(Payment).to receive(:paypal_payment?).and_return(false) }
+        before { allow_any_instance_of(Payment).to receive(:process_by_paypal?).and_return(false) }
         it 'does not create payment' do
           expect{
             post :create, idea_id: idea.id, payment: { amount: 5 }
