@@ -158,11 +158,7 @@ If there are any questions or requests regarding this privacy policy you may con
 
 www.ideadash.com
 
-Attn: Privacy
-ideaDash
-PO Box 309
-Dallastown, PA 17313
-USA
+Attn: Privacy - ideaDash - PO Box 309 - Dallastown, PA 17313 - USA
 
 privacy@ideadash.com
 
