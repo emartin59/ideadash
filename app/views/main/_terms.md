@@ -2,7 +2,7 @@
 
 #### IDEADASH INC.
 
-##### Effective June 29, 2016
+##### Effective June 30, 2016
 
 BETA WARNING: This site is currently in a beta launch. Please be aware that site policies are fluid and may change at any time. We may not strictly adhere to the processes, procedures, policies, and systems set forth in this Terms of Service due to technical issues, unforeseen circumstances, or simply something we overlooked. Also, be aware that site service and functionality may be sporadic, unreliable, buggy, and/or slow. This early launch is an opportunity for you to experience this brand new platform, and is a huge help for us because we're getting valuable usage trends and/or feedback from you or people like you. Please email comments, feedback, or suggestions to feedback@ideadash.com - Please email questions, issues, or anything else to help@ideadash.com - Thank you for making ideaDash a success.
 
@@ -178,7 +178,7 @@ Attn: Privacy - ideaDash - PO Box 309 - Dallastown, PA 17313 - USA
 
 privacy@ideadash.com
 
-There have been Terms of Service changes. This page was Last Updated on 2016-06-29
+There have been Terms of Service changes. This page was Last Updated on 2016-06-30
 
 You can see older version(s) of our Terms of Service here:
 
