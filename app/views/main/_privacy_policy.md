@@ -1,4 +1,4 @@
-### www.ideadash.com Privacy Policy
+### ideaDash.com's Privacy Policy
 
 This privacy policy has been compiled to better serve those who are concerned with how their 'Personally identifiable information' (PII) is being used online. PII, as used in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
 
@@ -23,16 +23,14 @@ We may use the information we collect from you when you register, make a purchas
 - To quickly process your transactions.
 - To ask for ratings and reviews of services or products
 - To follow up with them after correspondence (live chat, email or phone inquiries)
+- To send marketing emails to you (you may "unsubscribe" from these at any time), to market to you on Facebook, Google's Display Network, or through any other targeting or advertising methods. Please use the contact information at the bottom of this page to opt out of any of the methods of marketing, advertising, or targeting listed in this point.
+- We may also use tracking codes and/or tracking pixels to understand your behavior on the site in conjunction with or separate from your behavior on other sites. An example of this includes but is not limited to a Facebook tracking pixel which lets us know when you register or make a payment on our site after you click on one of our Facebook ads. Another example is Google Analytics, where we may gather anonymized data about you, such as your activity, off-site interests, and other details while potentially having this anonymized data shared anonymously with others if you visit another site, based on your actions on our site.
 
 ### How do we protect visitor information?
 
-We do not or may not use vulnerability scanning and/or scanning to PCI standards.
+We do collect credit card information, but only through a third party payment provider.
 
-We do collect credit card information, but only through a third party payment providor.
-
-We do not or may not use Malware Scanning.
-
-Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems. In addition, all sensitive/credit information you supply is encrypted via a third-party payment provider.
+Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems. In addition, all credit information you supply is encrypted via a third-party payment provider.
 
 Our third-party payment provider implements a variety of security measures when a user places an order enters, submits, or accesses their information to maintain the safety of your personal information.
 
@@ -42,23 +40,22 @@ All credit card transaction data are processed through a gateway provider and ar
 
 Yes, we may. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow) that enables the site's or service provider's systems to recognize your browser and capture and remember certain information. For instance, we use cookies to help us remember and process the items in your shopping cart. They are also used to help us understand your preferences based on previous or current site activity, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.
 
-We use cookies to:
+We may use cookies to:
       • Help remember and process the items in the shopping cart.
+      • Help remember user login state information.
       • Understand and save user's preferences for future visits.
       • Keep track of advertisements.
       • Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third-party services that track this information on our behalf.
 
 You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser (like Internet Explorer) settings. Each browser is a little different, so look at your browser's Help menu to learn the correct way to modify your cookies.
 
-If users disable cookies in their browser:
-
-If you disable cookies off, some features may be disabled.
+If you disable cookies, some features may be disabled.
 
 You may not be able to login to our site.
 
 ### Third-party disclosure
 
-We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information unless we provide users with advance notice. This does not include website hosting partners, third-party payment providors, and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential. We may also release information when it's release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property or safety.
+We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information unless we provide users with advance notice. This does not include website hosting partners, third-party payment providers, and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential. We may also release information when it's release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property or safety.
 
 However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.
 
@@ -70,7 +67,7 @@ Occasionally, at our discretion, we may include or offer third-party products or
 
 Google's advertising requirements can be summed up by Google's Advertising Principles. They are put in place to provide a positive experience for users. https://support.google.com/adwordspolicy/answer/1316548?hl=en
 
-### We use Google AdSense Advertising on our website.
+### We may use Google AdSense Advertising on our website.
 
 Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of the DART cookie enables it to serve ads to our users based on previous visits to our site and other sites on the Internet. Users may opt-out of the use of the DART cookie by visiting the Google Ad and Content Network privacy policy.
 
@@ -83,6 +80,10 @@ We along with third-party vendors, such as Google use first-party cookies (such 
 ### Opting out:
 
 Users can set preferences for how Google advertises to you using the Google Ad Settings page. Alternatively, you can opt out by visiting the Network Advertising initiative opt out page or permanently using the Google Analytics Opt Out Browser add on.
+
+### Facebook
+
+We may use Facebook ads to direct people to our site. Facebook's advertising policies are summarized here: https://www.facebook.com/policies/ads/
 
 ### California Online Privacy Protection Act
 
@@ -102,8 +103,7 @@ Users are able to change their personal information:
 
 ### How does our site handle do not track signals?
 
-We don't honor do not track signals and do not track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place. We don't honor them because:
-We may honor the signals; however, if a user does not want to be tracked they can leave our site.
+We reserve the right to not honor do not track signals and do not track, plant cookies, or use advertising when a Do Not Track (DNT) browser mechanism is in place. We may honor the signals; however, if a user does not want to be tracked they can leave our site.
 
 ### Does our site allow third-party behavioral tracking?
 
@@ -143,13 +143,9 @@ To be in accordance with CAN-SPAM we agree to the following:
 - Include the physical address of our business or site headquarters.
 - Monitor third-party email marketing services for compliance, if one is used.
 - Honor opt-out/unsubscribe requests quickly.
-- Allow users to unsubscribe by using the link at the bottom of each email.
+- Allow users to unsubscribe by using the instruction and/or link at the bottom of each email.
 
-If at any time you would like to unsubscribe from receiving future emails, you can email us at
-
-      • Follow the instructions at the bottom of each email.
-
-and we will remove you from ALL marketing related correspondence within 10 business days. This does not remove you from transactional correspondence such as funds in your account.
+If at any time you would like to unsubscribe from receiving future emails, you can follow the instructions at the bottom of each email and we will remove you from ALL marketing related correspondence within 10 business days. This does not remove you from transactional correspondence such as emails about funds in your account.
 
 
 ### Disputes and Location of Laws of Resolution
@@ -158,12 +154,20 @@ If there are any questions or disputes regarding this privacy policy, the Englis
 
 ### Contacting Us
 
-If there are any questions regarding this privacy policy you may contact us using the information below.
+If there are any questions or requests regarding this privacy policy you may contact us using the information below.
 
 www.ideadash.com
-2088 Springwood Rd.
-York, PA 17403
+
+Attn: Privacy
+ideaDash
+PO Box 309
+Dallastown, PA 17313
 USA
+
 privacy@ideadash.com
 
-Last Edited on 2016-05-28
+### There have been Privacy Policy changes. This page was Last Updated on 2016-06-29
+
+You can see older version(s) of our Privacy Policy here:
+
+Last Edited on 2016-05-28: https://medium.com/@ideaDash/www-ideadash-com-privacy-policy-ac28e6ed20e6#.f79tag13n
