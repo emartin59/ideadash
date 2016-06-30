@@ -2,7 +2,7 @@
 
 #### IDEADASH INC.
 
-##### Effective May 31, 2016
+##### Effective June 29, 2016
 
 BETA WARNING: This site is currently in a beta launch. Please be aware that site policies are fluid and may change at any time. We may not strictly adhere to the processes, procedures, policies, and systems set forth in this Terms of Service due to technical issues, unforeseen circumstances, or simply something we overlooked. Also, be aware that site service and functionality may be sporadic, unreliable, buggy, and/or slow. This early launch is an opportunity for you to experience this brand new platform, and is a huge help for us because we're getting valuable usage trends and/or feedback from you or people like you. Please email comments, feedback, or suggestions to feedback@ideadash.com - Please email questions, issues, or anything else to help@ideadash.com - Thank you for making ideaDash a success.
 
@@ -15,6 +15,10 @@ Those posting ideas are "idea posters" and ideas raising funds are "ideas". Thos
 ### IDEADASH is a platform
 
 IDEADASH is platform for those seeking to raise funds for their ideas, to raise funds towards the ideas of others, and to implement others" posted ideas or their own posted ideas. At any time throughout a month, people may post an idea (restrictions apply, as described below), and during that month the idea raises funds from backers. After that month the idea can no longer raise funds on the platform. During the first twenty-one days of the second month the idea can receive implementation proposals from implementation proposers. Throughout the second month and until the end of the second month, backers each have one vote that they may put towards an implementation proposal or other options. They may be able to change their vote during this time. After the end of the second month, the option with more votes than any other, if there is one, is proceeded with. After funds are collected and up to the fortieth day after the second month some or all of the funds will be dispersed into users accounts. At that time the funds may be automatically sent to users, or a request may be required from the user, in which case IDEADASH has up to ten business day to pay out those funds. Typically, 2.9% + 30 cents (USD) or 5% + 5 cents (USD) will go to the payment provider for each transaction processed as a transaction fee. After this, percentages of the raised funds, after any and all transactions fees, will be given out in the following ways: the idea poster will receive 10% of the funds, IDEADASH will receive 5% of the funds, and the eventual implementer, if any is successfully voted to become an implementer, will receive 85% of the funds. When receiving paid out funds, idea posters and implementers may incur additional transaction fees that can lessen the funds that they will receive. People who post ideas are not necessarily the ones who implement the idea; rather, all backers of an idea get one vote towards an implementation proposal and the one implementation proposal that gets more votes than any other option gets most of the money and the implementation proposer who is now the implementer must implement the idea according to their implementation proposal. IDEADASH may not and will not be held responsible if an implementer does or does not, in whole or in part, execute their implementation proposal. IDEADASH is not responsible for any ideas posted, comments posted, implementation proposals posted, or any implementation or implementation attempt of anything posted on the site. Please note that the implementation proposal can be quite different from the original idea, and this is allowed and even encouraged in some cases. An implementer needs to follow the implementation proposal that they have submitted, not the original idea. After the second month, the voting month, the following can happen depending on whether one option gets more votes than all of the others or not. If no votes are cast, or if there is a tie in the top option for the number of votes, no one will become the implementer at that time and the idea will keep its funds for the next month to see if it gets proposals or votes on those proposals, and then the idea progresses as before if an implementation proposal receives more votes than any other option. If no option receives more votes than any other than the idea can continue to revert to the implementation proposal phase at the beginning of each new month for multiple months. IDEADASH reserves the right to stop this process of continually waiting for the idea to get an implementer after the end of any given month, at which time IDEADASH will return only the portion of the funds, or an equivalent virtual currency, that is equal to the amount of funds that would have gone to an implementer, to the backers. The voting may also have two other options for backers who are not satisfied with any of a given idea"s implementation proposal(s). Backers may also vote to extend the idea for another month for more, other, existing, or updated implementation proposals to be submitted, or backers may vote to cancel the idea"s backing and get back part of the funds they gave, either real or as virtual currency. They will only get funds back in the amount that would have gone to an implementer of the idea. In any event, if any of these two options or one of the implementation proposals gets more votes than any other option, that is the option that will be proceeded with. IDEADASH makes no claims about the usefulness, value, veracity, soundness, goodness, rightness, legality, viability, or marketability of any Idea, Implementation Proposal, Funding Vehicle, Comment, or Funds or claims therein. IDEADASH does not claim that implementer(s), or for that matter, idea poster(s), user(s), or implementation proposer(s), will carry out any or all implementation proposal(s), idea(s), or comment(s); or that funds will or will not be used in any particular way. Any use of the site and/or service is at one's own risk.
+
+### Time Zones
+
+Days begin and end according Coordinated Universal Time, also called UTC. This means that days and months start and end at midnight UTC time. Certain functions of the site, potentially including funding periods and contest periods, will be controlled by this timing, and those controls will happen on or near UTC time standards.
 
 ### Restrictions and Requirements for Use
 
@@ -39,6 +43,22 @@ IDEADASH is meant to be a positive platform. Please obey the golden rule with al
 5. Claim that something is yours when it is not.
 
 IDEADASH may delete or pause Ideas, Comments, Implementation Proposals, or any other user content, and/or delete or pause Users and their Accounts for doing any of these prohibited things, or for any other reason or for no reason.
+
+### User Rights and Duties
+
+Users may retain any and all previously obtained rights, such as copyrights or patents, that they had before they published any content on IDEADASH. However, when a user posts content to IDEADASH, they may choose to put a copyright notice with that content at that time: this may help give the poster of the content copyright protection for the text of the content; however, it is in no way IDEADASH's responsibility or obligation to enforce any of those copyrights except where required by law. In regards to concepts revealed in user content: ideas cannot be patented per se; however, when ideas are posted to the site, to the extent that concepts within the idea may be patented, they may no longer be patentable if not previously patented, because they may become part of something called "prior art" which deems them not patentable. (please see https://en.wikipedia.org/wiki/Prior_art for details on the concept of prior art) Prior art typically includes anything published, and under U.S. patent law things previously published may no longer be patented if not already patented. Once you post content or an idea to the site, your content or idea has no protection in regards to who can use the content or idea other than protections you obtained for the content or idea prior to you posting (and thereby publishing) such content or idea. If you do not want others to use your idea or content, we highly recommend that you do not post it on IDEADASH. When you post your content or idea on IDEADASH, you are agreeing that anyone can use the idea, owing nothing to you in return, unless you have a prior patent or other protection on the idea. If you have a prior patent or other protection on the idea, you have a duty to disclose this protection in textual form alongside or within the text and/or other media of the protected content or protected idea.
+
+### Implementer Agreement
+
+In posting an implementation proposal, all potential implementers are agreeing to the following:
+
+'I agree to the following terms, conditions, and agreement(s), as well as any current terms of use and privacy policy for ideadash.com, as amended from time to time.
+
+This is the one and only proposal that you can submit this month for this particular idea. The implementation proposal you submit is part of a potential legal agreement between the funding backer(s) of the listed idea and you. If your proposal gets more votes from the backer(s) than any other option for this idea during the voting period, you become the "chosen" implementer and you need to make a good faith effort to implement this idea according to your submitted implementation proposal.
+In order to post your proposal you must be 18 years old or older.
+If and when you become the "chosen" implementer, it is at that time that you enter into the following legal agreement with the idea's backer(s) (ideaDash inc. is in no way a party to this agreement. ideaDash inc. will not be held liable, under any circumstances, for any failure of a chosen implementer to carry out an implementation proposal.):
+"I am the chosen implementer for a particular idea on ideadash.com, and I agree to make a good faith effort to carry out the idea based on the details specified in the implementation proposal that I posted for this idea on ideadash.com. In the event that I cannot carry out this implementation, I need to notify the backer(s) of this idea promptly as such, and then make my best effort to satisfy their desires in an alternate way, or refund to them all of the money that I received from ideadash.com to carry out this implementation. I agree to try as best I can to faithfully carry out my implementation proposal before I seek any of the previously mentioned alternatives. In any event, if any backer feels that I have not met my obligations to do one of the following: to make a good faith effort to carry out my implementation as proposed, to carry out a satisfactory alternative implementation, or to fully refund the money received from ideadash.com back to the backer(s); the backer(s) may take any and all legal action against me, and only against me, to recoup from me the money I received from ideadash.com to carry out my posted implementation proposal, and I must give it back to the backer(s) in proportion to the amount that an individual backer supported the idea."
+By posting your implementation proposal you agree to these terms and, in the event that you are the chosen implementer, agree to be subject to the above agreement between you and the backer(s).'
 
 ### Disputes between Implementers and Backers
 
@@ -106,7 +126,7 @@ IDEADASH makes no warranties about the performance of the site or services. This
 
 ### Limitation of Liability
 
-IDEADASH and any of its employees or related persons do not have liability to any users of the site or service in any circumstances, as that liability is restrictable to the fullest extent under the law. Users agree not to sue or take legal action against IDEADASH or any related person in any event or for any reason related to the functions of IDEADASH. In any event, if any court deems IDEADASH liable for anything, the amount that we can be made liable for anything shall not exceed one hundred U.S. dollars ($100.00) in total for any and all suits, combined.
+IDEADASH and any of its employees or related persons do not have liability to any users of the site or service in any circumstances, as that liability is restrictable to the fullest extent under the law. In any event, if any court deems IDEADASH liable for anything, the amount that we can be made liable for anything shall not exceed one hundred U.S. dollars ($100.00) in total for any and all suits, combined.
 
 ### Assignment
 
@@ -122,7 +142,7 @@ The user agrees that this site and its functions are only headquartered in Penns
 
 ### Disputes
 
-The user and IDEADASH agree that any and all disputes shall not be resolved through any court or arbitration; but rather, all disputes shall be resolved at the sole discretion and decision of IDEADASH, and not through any arbitration, courts, legal venue, or by any legal or other means.
+The user and IDEADASH agree that any and all disputes shall be resolved outside of the courts and without interference from any third parties if at all possible. If no other resolution can be found, any issues arising from this Terms of Service shall be settled in the courts of and according to the laws of the State of Delaware, in the United States of America.
 
 ### Disclaimers
 
@@ -134,7 +154,7 @@ In the event that there are any non-English language versions of this Terms of S
 
 ### Information given to IDEADASH
 
-Any time any person gives any content, ideas, or information to IDEADASH in any form or to any of its related people (such as employees) or in any way, IDEADASH has the full right to directly use, add to, subtract from, and modify that content, ideas, and/or information to improve, add to, or modify IDEADASH, at IDEADASH"s sole discretion, with no credit, payment, money, or attribution owed to the person who sent IDEADASH the content, ideas, or information, even if the user says that such information is confidential or requiring any payment or fee of any kind from IDEADASH.
+Any time any person posts, sends, emails, or otherwise discloses any content, ideas, or information to IDEADASH in any form or to any of its related people (such as employees) or in any way, these content, ideas, and/or information are considered unsolicited, and IDEADASH has the full right to directly use, add to, subtract from, and modify those content, ideas, and/or information to improve, add to, or modify IDEADASH, at IDEADASH's sole discretion, with no credit, payment, money, or attribution owed to the person who sent IDEADASH the content, ideas, or information, even if the user says that such information is confidential or requiring any payment or fees of any kind from IDEADASH. However, IDEADASH will try to credit the originator of such content in many or most cases, at its sole discretion. Also, while IDEADASH has the freedom to use the content as it wishes, the person who originated the content retains all other protections for the content, such as any copyright protections, other than those protections which would prohibit IDEADASH's use of the content.
 
 ### Entire Agreement
 
@@ -146,10 +166,20 @@ If any part of this agreement is declared unenforceable or invalid, the remainde
 
 ### Changes to Terms of Service
 
-IDEADASH may change these Terms of Service at any time without warning, and when it does so the user shall be bound by the updated terms. The updated terms shall be posted in IDEADASH"s Terms page on its website.
+IDEADASH may change these Terms of Service at any time without warning, and when it does so the user shall be bound by the updated terms. The updated terms shall be posted in IDEADASH's Terms page on its website.
 
 ### Contact
 
-IDEADASH INC.
-terms@ideadash.com
-Attention: Terms
+If there are any questions regarding this Terms of Service you may contact us using the information below.
+
+www.ideadash.com
+
+Attn: Privacy - ideaDash - PO Box 309 - Dallastown, PA 17313 - USA
+
+privacy@ideadash.com
+
+There have been Terms of Service changes. This page was Last Updated on 2016-06-29
+
+You can see older version(s) of our Terms of Service here:
+
+Last Edited on 2016-05-31: https://medium.com/@ideaDash/terms-of-service-ea3c58a3b3fc#.907pqzliz
