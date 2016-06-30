@@ -25,6 +25,7 @@ We may use the information we collect from you when you register, make a purchas
 - To follow up with them after correspondence (live chat, email or phone inquiries)
 - To send marketing emails to you (you may "unsubscribe" from these at any time), to market to you on Facebook, Google's Display Network, or through any other targeting or advertising methods. Please use the contact information at the bottom of this page to opt out of any of the methods of marketing, advertising, or targeting listed in this point.
 - We may also use tracking codes and/or tracking pixels to understand your behavior on the site in conjunction with or separate from your behavior on other sites. An example of this includes but is not limited to a Facebook tracking pixel which lets us know when you register or make a payment on our site after you click on one of our Facebook ads. Another example is Google Analytics, where we may gather anonymized data about you, such as your activity, off-site interests, and other details while potentially having this anonymized data shared anonymously with others if you visit another site, based on your actions on our site.
+- To identify your associated registered name or other name to others when you post information to the site. This would be the same name associated with the account you used to register/log in to the site. We may disclose and use other name(s) if you, the user, provides that to us. This means, for example, that when you post an idea, proposal, comment, or other content we may include your name near or within that content or in reference to that content or in reference to perfomance you achieved regarding your account or activity on the site, such as if you were the person who posted the most ideas in a month.
 
 ### How do we protect visitor information?
 
@@ -162,7 +163,7 @@ Attn: Privacy - ideaDash - PO Box 309 - Dallastown, PA 17313 - USA
 
 privacy@ideadash.com
 
-### There have been Privacy Policy changes. This page was Last Updated on 2016-06-29
+### There have been Privacy Policy changes. This page was Last Updated on 2016-06-30
 
 You can see older version(s) of our Privacy Policy here:
 
