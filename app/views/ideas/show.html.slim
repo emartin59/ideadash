@@ -31,7 +31,7 @@
         i.fa.fa-dollar
         = @idea.balance
     .votes
-      = link_to 'Propose an implementation', new_idea_implementation_path(@idea), class: 'btn btn-success' if user_signed_in? && can? :create, current_user.implementations.build(idea: @idea)
+      = link_to 'Propose an implementation', new_idea_implementation_path(@idea), class: 'btn btn-success' if user_signed_in? && can?(:create, current_user.implementations.build(idea: @idea))
   p= simple_format @idea.description
   - if @idea.implementations.any?
     h3 Implementation proposals submitted:
