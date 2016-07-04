@@ -15,7 +15,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1.json
   def show
     flash.now[:warning] = 'Funding was canceled' if params[:status] == 'canceled'
-    @new_comment = Comment.build_from(@idea, current_user.id, "")
+    @new_comment = Comment.build_from(@idea, current_user.id, "") if user_signed_in?
   end
 
   # GET /ideas/new

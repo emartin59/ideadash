@@ -1,7 +1,8 @@
 div class="comments-header"
   h4= pluralize(commentable.comment_threads.count, 'comment')
 
-= render partial: "comments/form", locals: {new_comment: new_comment, commentable: commentable}
+- if user_signed_in?
+  = render partial: "comments/form", locals: {new_comment: new_comment, commentable: commentable}
 
 div class="comments-container"
   = render partial: "comments/reply", locals: {comments: commentable.root_comments.includes(:user, children: :user), commentable: commentable, depth: 0}
