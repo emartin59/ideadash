@@ -1,6 +1,7 @@
 = content_tag_for :tr, idea do
   td= link_to idea.title, idea
   td= idea.summary.truncate_words 12
+  td= idea.backers_count
   - if @user
     td= link_to 'Edit', edit_idea_path(idea), class: 'btn btn-warning btn-xs' if can? :edit, idea
     td= link_to 'Delete', idea_path(idea), method: :delete,

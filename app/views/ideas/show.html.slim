@@ -30,11 +30,14 @@
       span.funded
         i.fa.fa-dollar
         = @idea.balance
-    .votes
+      span.backers
+        i.fa.fa-user
+        = @idea.backers_count
+    .votes.btn-group
       - if user_signed_in? && can?(:create, current_user.implementations.build(idea: @idea))
         = link_to 'Propose an implementation', new_idea_implementation_path(@idea), class: 'btn btn-success'
       - if user_signed_in? && can?(:create, BackerVote.new(user: current_user, idea: @idea))
-        = link_to 'Vote for implementation', new_idea_backer_vote_path(@idea), class: 'btn btn-success'
+        = link_to 'Vote for implementation', new_idea_backer_vote_path(@idea), class: 'btn btn-info'
   p= simple_format @idea.description
   - if @idea.implementations.any?
     h3 Implementation proposals submitted:
