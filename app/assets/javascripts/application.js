@@ -22,3 +22,4 @@
 //= require ideas
 //= require main
 //= require votes
+//= require backer_votes

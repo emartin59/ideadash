@@ -17,6 +17,9 @@ class Ability
       end
       can(:manage, Vote) if user.more_votes_allowed?
       can :create, Flag
+      can :create, BackerVote do |backer_vote|
+        backer_vote.idea.in_backer_voting_phase? && backer_vote.user_backed_idea?
+      end
       can :manage, Implementation, { user_id: user.id }
 
       cannot :create, Implementation do |implementation|

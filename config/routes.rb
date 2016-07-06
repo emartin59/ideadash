@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :flags, only: :create
     resources :implementations, only: [:index, :create, :new, :show]
     resources :comments, only: :create
+    resources :backer_votes, only: [:new, :create]
   end
 
   resources :comments, only: [] do

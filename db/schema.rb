@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628105122) do
+ActiveRecord::Schema.define(version: 20160628125015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "backer_votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "idea_id"
+    t.integer  "implementation_id"
+    t.string   "kind",              default: "extend"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "backer_votes", ["idea_id"], name: "index_backer_votes_on_idea_id", using: :btree
+  add_index "backer_votes", ["implementation_id"], name: "index_backer_votes_on_implementation_id", using: :btree
+  add_index "backer_votes", ["kind"], name: "index_backer_votes_on_kind", using: :btree
+  add_index "backer_votes", ["user_id", "idea_id"], name: "index_backer_votes_on_user_id_and_idea_id", unique: true, using: :btree
+  add_index "backer_votes", ["user_id"], name: "index_backer_votes_on_user_id", using: :btree
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -191,6 +206,9 @@ ActiveRecord::Schema.define(version: 20160628105122) do
   add_index "votes", ["positive_idea_id"], name: "index_votes_on_positive_idea_id", using: :btree
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
+  add_foreign_key "backer_votes", "ideas"
+  add_foreign_key "backer_votes", "implementations"
+  add_foreign_key "backer_votes", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "flags", "users"
   add_foreign_key "implementations", "ideas"

@@ -15,6 +15,8 @@ class Idea < ActiveRecord::Base
   has_many :flags, as: :flaggable
   has_many :implementations
 
+  has_many :backer_votes
+
   MAX_SUMMARY_LENGTH = 200
 
   SAFE_ORDERS = {
@@ -54,6 +56,11 @@ class Idea < ActiveRecord::Base
   def in_proposals_phase?
     return false if in_voting_phase?
     Date.today.day.between?(1, 21) && created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
+  end
+
+  def in_backer_voting_phase?
+    return false if in_voting_phase?
+    created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
   end
 
   def increment_backers_count!(sender)

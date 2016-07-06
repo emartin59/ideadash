@@ -1,0 +1,25 @@
+.col-xs-12.col-md-8.col-md-offset-2
+  h3.text-center Voting for implementation proposal for "#{ @idea.title }"
+  = simple_form_for [@idea, @backer_vote], url: idea_backer_votes_path(@idea), method: :post, html: { class: 'backer-voting', 'v-on:submit' => 'confirmVote' } do |f|
+    = hidden_field_tag :previous_kind, @backer_vote.kind, 'v-model' => :previous_kind
+    .kind-select
+      = f.radio_button :kind, :vote, 'v-model' => :kind
+      label.votable-item-horizontal(for="backer_vote_kind_vote")
+        h4 Vote
+        p.text-muted I have chosen an implementation proposal and will vote for it
+      = f.radio_button :kind, :extend, 'v-model' => :kind, disabled: @backer_vote.kind == 'vote'
+      label.votable-item-horizontal(for="backer_vote_kind_extend")
+        h4 Extend
+        p.text-muted None of these proposals are up to my standards, please keep the funds here for next month to see who else will submit a proposal.
+      = f.radio_button :kind, :refund, 'v-model' => :kind, disabled: @backer_vote.kind == 'vote'
+      label.votable-item-horizontal(for="backer_vote_kind_refund")
+        h4 Refund
+        p.text-muted None of these proposals are up to my standards, please refund the portion that would have gone to the implementer as a credit back to me.
+    .implementation-select(v-if='showImplementations')
+      h4 Implementation vote
+      - @idea.implementations.each do |implementation|
+        = f.radio_button :implementation_id, implementation.id, 'v-model' => :implementation_id
+        label.votable-item-horizontal(for="backer_vote_implementation_id_#{ implementation.id }")
+          h4= implementation.title
+          p.text-muted= implementation.summary
+    = f.submit 'Submit vote', class: 'btn btn-primary'

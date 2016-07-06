@@ -1,0 +1,15 @@
+.backer-voting
+  input[type="radio"]
+    display: none
+  input[type="radio"] + label.votable-item-horizontal
+    border: 1px #ffcc00 solid
+    margin-bottom: 10px
+    padding: 10px
+    text-align: center
+    cursor: pointer
+    width: 100%
+  input[type="radio"]:checked + label.votable-item-horizontal
+    background-color: #ffccaa
+  input[type="radio"]:disabled + label.votable-item-horizontal
+    color: #aaa
+    border: 1px #fff5cc solid

@@ -31,7 +31,10 @@
         i.fa.fa-dollar
         = @idea.balance
     .votes
-      = link_to 'Propose an implementation', new_idea_implementation_path(@idea), class: 'btn btn-success' if user_signed_in? && can?(:create, current_user.implementations.build(idea: @idea))
+      - if user_signed_in? && can?(:create, current_user.implementations.build(idea: @idea))
+        = link_to 'Propose an implementation', new_idea_implementation_path(@idea), class: 'btn btn-success'
+      - if user_signed_in? && can?(:create, BackerVote.new(user: current_user, idea: @idea))
+        = link_to 'Vote for implementation', new_idea_backer_vote_path(@idea), class: 'btn btn-success'
   p= simple_format @idea.description
   - if @idea.implementations.any?
     h3 Implementation proposals submitted:
@@ -42,5 +45,5 @@
           th Summary
           th.hidden-xs User
       tbody
-        = render @idea.implementations
+        = render @idea.implementations.includes(:user)
   = render partial: 'comments/template', locals: { commentable: @idea, new_comment: @comment }

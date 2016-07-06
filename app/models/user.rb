@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :implementations
   has_many :outgoing_payments, as: :sender, class_name: 'Payment'
 
+  has_many :backer_votes
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

@@ -3,6 +3,8 @@ class Implementation < ActiveRecord::Base
   belongs_to :user
   belongs_to :idea
 
+  has_many :backer_votes
+
   validates :title, presence: true, uniqueness: { scope: :idea_id }, length: { maximum: 60 }
   validates :summary, presence: true, length: { maximum: 200 }
   validates :user, presence: true
