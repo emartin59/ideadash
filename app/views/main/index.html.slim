@@ -8,21 +8,22 @@
     - if can? :start, Vote
       p.lead= link_to 'Rate ideas and earn DashNuts!', start_votes_path
 
-    h3 Top ideas this month
-    table.table#ideas.text-left
-      thead
-        tr
-          th #
-          th Title
-          th Rating
-      tbody
-        - @ideas.each_with_index do |idea, i|
-          = content_tag_for :tr, idea do
-            td= i+1
-            td= link_to idea.title, idea
-            td= idea.formatted_rating
-        tr
-          td[colspan=3]= link_to 'See more ideas...', ideas_path
+    - cache :top_ideas, expire: 1.hour do
+      h3 Top ideas this month
+      table.table#ideas.text-left
+        thead
+          tr
+            th #
+            th Title
+            th Rating
+        tbody
+          - @ideas.each_with_index do |idea, i|
+            = content_tag_for :tr, idea do
+              td= i+1
+              td= link_to idea.title, idea
+              td= idea.formatted_rating
+          tr
+            td[colspan=3]= link_to 'See more ideas...', ideas_path
 
   - else
     p.lead How it works (simplified):
