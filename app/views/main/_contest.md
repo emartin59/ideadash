@@ -10,7 +10,6 @@ Any of the following will be grounds for immediate disqualification for this con
 a.	Eligible ideas may be posted from July 1, 2016 through July 31, 2016, regardless of the time of day, except for the following conditions: the month and days will begin and end based on the Coordinated Universal Time (UTC) time standard.
 b.	All ideas, in order to be eligible, may be subject to review by ideaDash to be sure that they comply with applicable laws, and are approximately between “G” and “PG-13” in nature. Also, ideaDash may disqualify any idea for any reason, including, but not limited to, a participant going against the spirit of this competition.
 c.	The winner will be notified on or before 40 days after the end of the submission period.
-2.	...
 3.	To be eligible, participants must agree to these rules and meet the following, if they are requirements:
 a.	Participants must contractually and legally be allowed to participate in this contest.
 b.	Participants must be an individual, may only have one account on ideaDash.com, may only fund ideas from one account on the site, and may only post ideas from one account on the site.
