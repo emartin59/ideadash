@@ -26,23 +26,10 @@
             td[colspan=3]= link_to 'See more ideas...', ideas_path
 
   - else
-    p.lead How it works (simplified):
-    p.lead
-      ' 1. You post an idea.
-      br
-      ' 2. The community raises funds for it.
-      br
-      ' 3. People propose to implement the idea.
-      br
-      ' 4. Backers vote on the best proposal.
-      br
-      ' 5. You get 10% of the funds.
-      br
-      ' 6. Winning proposal gets 85%.
-      br
-      ' 7. Winner implements the idea.
-      br
-      ' 8. Your idea is now a reality.
+    p.lead Learn how it works and about this month's $1,000 contest in 1.8 minutes
+    .embed-responsive.embed-responsive-16by9
+      iframe src="https://www.youtube.com/embed/M8yS-KO8E08?autohide=2&rel=0&cc_load_policy=1&modestbranding=1&showinfo=0&controls=0" allowfullscreen=""
+    p.small= link_to 'Official Contest Rules, Terms, and Conditions', contest_path
     .btn-group
       = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn btn-google' do
         ' Login with

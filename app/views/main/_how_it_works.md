@@ -1,4 +1,4 @@
-# How it works
+## How it works
 Welcome to ideadash! We are a platform for people who have great ideas but don’t have the time or resources to implement them.
 
 We want you to post great ideas on the site, the world can see and fund those ideas, and others can submit proposals to implement those ideas. The person who posts the proposal with the most backer votes gets most of the funds that were raised in order to carry out their proposal, and the idea poster keeps a small cut.

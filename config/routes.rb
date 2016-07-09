@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   get :terms, to: 'main#terms'
   get :about, to: 'main#about'
+  get :contest, to: 'main#contest'
   get :privacy_policy, to: 'main#privacy_policy'
   root to: 'main#index'
 end
