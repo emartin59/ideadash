@@ -1,6 +1,6 @@
 .subscribe-header
-  h1 ideas unleashed
   - if user_signed_in?
+    h1 ideas unleashed
     p.lead Wondering what to do next?
     - if can? :create, Idea
       p.lead= link_to 'Post an idea', new_idea_path
