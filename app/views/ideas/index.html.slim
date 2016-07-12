@@ -5,16 +5,14 @@
     '  ideas sorted by
     = order_dropdown
   h5.visible-xs
-    ' Showing
-    = filter_dropdown
-    '  ideas sorted by
-    = order_dropdown
+    .pull-left= filter_dropdown
+    .pull-right= order_dropdown
   table.table#ideas
     thead
       tr
         th Title
         th Summary
-        th Backers
+        th.hidden-xs Backers
         - if @user
           th[colspan=2]
         - else
