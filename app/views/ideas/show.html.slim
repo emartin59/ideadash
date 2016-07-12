@@ -25,13 +25,13 @@
               .input-group-btn= f.submit 'Donate', class: 'btn btn-primary'
     .votes
       span.votes-up
-        i.fa.fa-line-chart
+        i.fa.fa-line-chart(title='Rating out of 10.0')
         = @idea.formatted_rating
       span.funded
-        i.fa.fa-dollar
+        i.fa.fa-dollar(title='Amount Raised')
         = @idea.balance
       span.backers
-        i.fa.fa-user
+        i.fa.fa-user(title='Total Backers')
         = @idea.backers_count
     .votes.btn-group
       - if user_signed_in? && can?(:create, current_user.implementations.build(idea: @idea))
