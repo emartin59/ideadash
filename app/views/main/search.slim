@@ -15,5 +15,5 @@
         td[colspan=2 v-if="showNoItems"] Please try to refine your search
 
 javascript:
-  var client = algoliasearch("#{ ENV['ALGOLIASEARCH_APP_ID'] }", "#{ ENV['ALGOLIASEARCH_CLIENT_API_KEY'] }");
-  window.algolia_index = client.initIndex('Idea_development');
+  var client = algoliasearch("#{ ENV['ALGOLIASEARCH_APPLICATION_ID'] }", "#{ ENV['ALGOLIASEARCH_API_KEY_SEARCH'] }");
+  window.algolia_index = client.initIndex("Idea_#{ Rails.env }");
