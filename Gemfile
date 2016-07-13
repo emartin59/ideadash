@@ -49,6 +49,8 @@ gem 'acts_as_commentable_with_threading'
 
 gem 'dalli'
 
+gem 'algoliasearch-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
@@ -78,5 +80,6 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-vue'
+  gem 'rails-assets-algoliasearch'
 end
 

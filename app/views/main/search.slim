@@ -1,0 +1,17 @@
+#idea_search.col-xs-12.col-md-8.col-md-offset-2
+  = simple_form_for :search, url: search_path do |f|
+    = f.input :query, label: false, placeholder: 'Search...', input_html: { 'v-model' => 'query', 'v-on:keyup' => 'loadResults' }
+  table.table.search-results
+    tbody
+      template[v-for="item in results" track-by="objectID"]
+        tr
+          td.title
+            a[href="/ideas/{{item.objectID}}" target="_blank"] {{{ item._highlightResult.title.value }}}
+          td
+            ' {{{ item._highlightResult.summary.value }}}
+      tr
+        td[colspan=2 v-if="showNoItems"] Please try to refine your search
+
+javascript:
+  var client = algoliasearch("#{ ENV['ALGOLIASEARCH_APP_ID'] }", "#{ ENV['ALGOLIASEARCH_CLIENT_API_KEY'] }");
+  window.algolia_index = client.initIndex('Idea_development');
