@@ -9,6 +9,8 @@
             a[href="/ideas/{{item.objectID}}" target="_blank"] {{{ item._highlightResult.title.value }}}
           td
             ' {{{ item._highlightResult.summary.value }}}
+            p.small[v-if="item._snippetResult.description.value.length > 0"]
+              ' …{{{ item._snippetResult.description.value }}}…
       tr
         td[colspan=2 v-if="showNoItems"] Please try to refine your search
 

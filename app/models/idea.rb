@@ -3,7 +3,7 @@ class Idea < ActiveRecord::Base
 
   include AlgoliaSearch
 
-  algoliasearch per_environment: true do
+  algoliasearch per_environment: true, disable_indexing: Rails.env.test? do
     attribute :title, :summary, :description
   end
 
