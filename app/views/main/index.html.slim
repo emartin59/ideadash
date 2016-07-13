@@ -7,6 +7,10 @@
     p.lead= link_to 'Discover new ideas', ideas_path(order: :newest, filter: :current)
     - if can? :start, Vote
       p.lead= link_to 'Rate ideas and earn DashNuts!', start_votes_path
+    p.lead
+      strong= link_to 'See ideaDash\'s new video', about_path
+    p.lead
+      strong= link_to 'Learn about this month\'s $1000 contest', contest_path
 
     - cache :top_ideas, expire: 1.hour do
       h3 Top ideas this month
