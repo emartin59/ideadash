@@ -1,4 +1,9 @@
 ##Overview
+
+#### Post your idea and you could win $1,000. To win, your idea needs to get more backers this month than anyone else's idea. Rules below. Good luck!
+
+### I've got an idea I'd like to post!
+
 Thank you for your interest in ideaDash's July idea contest. Our hope is that you post great idea(s), get a lot of unique backers for those idea(s), and even promote those idea(s) to your friends, family, and the public at large to increase your chances of winning. One $1,000 (USD) cash prize will be awarded to the person who posts the idea in July that receives the most unique paying backers throughout the month of July. By posting your idea in July, you have entered the contest. To be clear, it does not matter how much money your idea raises, per se; what matters is that your idea gets the most unique paying backers. A backer is someone who puts funds towards an idea. Right now, there is a $1.00 minimum for a backer to fund an idea, unless under special circumstances where a user may use credit to fund an idea. However, credits may not be available during the contest. May the best idea win!
 
 Any of the following will be grounds for immediate disqualification for this contest and prize, as well as grounds for removing your user account and sequestering any funds owed to you: 
