@@ -1,11 +1,18 @@
 = content_tag_for :tr, idea do
-  td= link_to idea.title, idea
-  td= idea.summary.truncate_words 12
-  td= idea.backers_count
+  td
+    h4
+      = link_to idea.title.gsub(/\W$/, ''), idea
+      span.idea-author
+        '  by
+        = idea.user.name
+        '
+        i.fa.fa-dollar[title="Total Funds"]
+        '  #{ idea.balance.to_f }
+        i.fa.fa-user[title="Total Backers"]
+        '  #{ idea.backers_count }
+    = idea.summary
   - if @user
     td= link_to 'Edit', edit_idea_path(idea), class: 'btn btn-warning btn-xs' if can? :edit, idea
     td= link_to 'Delete', idea_path(idea), method: :delete,
             data: { confirm: 'Are you sure? This action is irreversible.' },
             class: 'btn btn-danger btn-xs' if can? :destroy, idea
-  - else
-    td.hidden-xs= idea.user.name

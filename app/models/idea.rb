@@ -1,6 +1,12 @@
 class Idea < ActiveRecord::Base
   attr_accessor :tos_accepted
 
+  include AlgoliaSearch
+
+  algoliasearch per_environment: true, disable_indexing: Rails.env.test? do
+    attribute :title, :summary, :description
+  end
+
   acts_as_commentable
 
   belongs_to :user

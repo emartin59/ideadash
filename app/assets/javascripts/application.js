@@ -18,6 +18,7 @@
 //= require bootstrap/dropdown
 //= require bootstrap/collapse
 //= require vue
+//= require algoliasearch/algoliasearchLite
 //= require comments
 //= require ideas
 //= require main

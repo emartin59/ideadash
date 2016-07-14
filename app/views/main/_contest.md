@@ -1,14 +1,19 @@
 ##Overview
+
+#### Post your idea and you could win $1,000. To win, your idea needs to get more backers this month than anyone else's idea. Rules below. Good luck!
+
+<%= link_to "I've got an idea I'd like to post", new_idea_path, class: 'btn btn-primary' %>
+
 Thank you for your interest in ideaDash's July idea contest. Our hope is that you post great idea(s), get a lot of unique backers for those idea(s), and even promote those idea(s) to your friends, family, and the public at large to increase your chances of winning. One $1,000 (USD) cash prize will be awarded to the person who posts the idea in July that receives the most unique paying backers throughout the month of July. By posting your idea in July, you have entered the contest. To be clear, it does not matter how much money your idea raises, per se; what matters is that your idea gets the most unique paying backers. A backer is someone who puts funds towards an idea. Right now, there is a $1.00 minimum for a backer to fund an idea, unless under special circumstances where a user may use credit to fund an idea. However, credits may not be available during the contest. May the best idea win!
 
-Any of the following will be grounds for immediate disqualification for this contest and prize, as well as grounds for removing your user account and sequestering any funds owed to you: 
+Any of the following will be grounds for immediate disqualification for this contest and prize, as well as grounds for removing your user account and sequestering any funds owed to you:
 
-1. Using stolen, lost, or any other credit card, debit card, or other funds or funding method that is not your own. This is also illegal and may be prosecuted according to the fullest extent of the law. 
-2. Creating more that one user account for yourself for any reason, but especially in order to fund the same idea multiple times. 
-3. Encouraging anyone else to create more than one user account to fund your idea or any other idea more than once per person. 
-4. Doing anything illegal or fraudulent related to this contest. 
-5. Encouraging anyone else to do any of the the things relating to this contest or to ideaDash that a participant is not allowed to do, even if that other person does not participate in the contest. 
-6. Doing anything else to try to unethically game this contest that goes against the spirit of the contest. Remember, the spirit of the contest is to post an idea that gets the most unique, human backers. 
+1. Using stolen, lost, or any other credit card, debit card, or other funds or funding method that is not your own. This is also illegal and may be prosecuted according to the fullest extent of the law.
+2. Creating more that one user account for yourself for any reason, but especially in order to fund the same idea multiple times.
+3. Encouraging anyone else to create more than one user account to fund your idea or any other idea more than once per person.
+4. Doing anything illegal or fraudulent related to this contest.
+5. Encouraging anyone else to do any of the the things relating to this contest or to ideaDash that a participant is not allowed to do, even if that other person does not participate in the contest.
+6. Doing anything else to try to unethically game this contest that goes against the spirit of the contest. Remember, the spirit of the contest is to post an idea that gets the most unique, human backers.
 
 ideaDash, in its sole discretion, can disqualify any contestant for any reason, including, but not limited to, the following reasons: a participant not following the spirit of the competition as described in this document. In the event that ideaDash suspects there are multiple users funding the same idea, ideaDash may, in its sole discretion and for the purposes of this contest, disqualify a user from the contest. ideaDash may choose to disqualify or discount any or all unique backers which it suspects is a duplicate person or the original user of a duplicate person in the final count towards the number of unique backers that an idea receives.
 
@@ -54,36 +59,36 @@ If you have any questions about this contest, about the ideas you will or have p
     d.	ideaDash reserves the right to disqualify any user from being an eligible participant if that user posts content that is hateful, may be harmful to other(s), negative, illegal, or otherwise inappropriate. Also, any users who purposefully or accidentally disrupt ideaDash’s service or site, spam the service or site in any way, or do not follow the spirit of this competition, may be disqualified.
     e.	The spirit of this competition is for great, positive ideas to be posted, and ultimately for one great, positive idea to win, with the winning idea poster getting the $1,000 (USD) prize.
     f.	Participants must agree to comply with any reasonable requests by ideaDash for where the inspiration for any ideas came from, and for information on how success in the contest was achieved.
-7.	Limitation of Liability: 
+7.	Limitation of Liability:
     IDEADASH and any of its employees or related persons do not have liability to any contest participants or any users of the site or service in any circumstances, as that liability is restrictable to the fullest extent under the law. In any event, if any court deems IDEADASH liable for anything, the amount that IDEADASH can be made liable for anything shall not exceed one hundred U.S. dollars ($100.00) in total for any and all suits, combined.
 8.	Rights of Sponsor:
     a.	We may adjust entry times and timeframes referenced as necessary due to technical issues and unforeseen circumstances.
     b.	We may suspend or cancel the contest at any time for any reason.
     c.	We may make errors in notifying people of prizes or rewards: any such errors do not mean that we are obligated to pay out such prizes or rewards.
     d.	We make all judgements as to the winner(s) of the contest and as to all idea and participant eligibility, and all of our judgements are binding.
-9.	Tax Responsibility: 
+9.	Tax Responsibility:
     In order to make payouts to any users or contest winner(s), either with real or virtual currency, IDEADASH may be required to request tax identification numbers of any user so that we may pass this and any required payout information to necessary governmental entities. IDEADASH reserves the right to restrict payouts to users or winner(s) if they do not supply requested tax identification numbers.
-10.	Content Agreement: 
+10.	Content Agreement:
     Any content, whether text, image, video, or any other content, posted by a user on IDEADASH's site or service, may be used by IDEADASH or anyone IDEADASH transfers this right to, in any way, in perpetuity, and throughout the whole world and universe. A user may use the content elsewhere and retains all rights to the content except the right to restrict IDEADASH and its assigns from using it in any way that they see fit. A user may not post any content which he or she does not have the right and/or copyright to post, and a user may not post anything illegal.
-11.	Service and Contest Limitations: 
+11.	Service and Contest Limitations:
     IDEADASH is committed to obeying U.S. law. Any of our service, contest, and site is subject to change, blockage, or disruption at any time and in any way, including for the purposes of remaining in compliance with U.S. law, and possibly the laws of other countries. In any cases when the U.S. mandates or has mandated that IDEADASH and/or U.S.-based companies can or cannot do something, IDEADASH can restrict or end service to certain peoples or geographies at any time, without liability. Due to U.S. trade and/or other U.S. laws and/or IDEADASH's discretion, IDEADASH cannot trade with and is forbidden to service the countries of and people within Cuba, Iran, Lebanon, Syria, North Korea, Libya, Sudan, and Somalia. Also, IDEADASH may exclude other countries and/or peoples at any time at its sole discretion. There may be certain individuals that IDEADASH will not service or payout to for legal reasons or discretionary reasons. In addition, IDEADASH may choose to only service no more than those countries serviceable by PayPal's or another third-party payment provider's payment system. IDEADASH is limited to servicing in U.S. dollars and certain countries according to the capabilities of PayPal and the discretion of IDEADASH, but IDEADASH may choose to include other currencies or countries in the future as they desire, if serviceable by the systems that IDEADASH employs. IDEADASH reserves the right to not provide a list of all of the countries that they will service, as it is fluid and potentially changing at any time. As a minumum, IDEADASH will always attempt to service the United States of America.
-12.	Indemnification: 
+12.	Indemnification:
     If IDEADASH is ever involved in a lawsuit due to any actions of any of its users (including contest participants), that user must fully defend and not allow IDEADASH to be held liable for any damages, compensation, or any other monetary or non-monetary reward or punishment as required from any courts to any person.
-13.	No Warranty: 
+13.	No Warranty:
     IDEADASH makes no warranties about the performance of the site, contest, or services. This site and contest is provided "as is" and may not perform in any particular way, ever. We make efforts to have it perform well, but it may not. This site and contest may not be useful for any purpose and any and all risk of using this site lies with the user, not with IDEADASH. There will never be a warranty from IDEADASH or any other party for use of the site or services, or participation in the contest, even if another agreement may say otherwise.
-14.	Termination and Survival: 
+14.	Termination and Survival:
     If a user terminates their user account for any reason, this Official Contest Rules, Terms, and Conditions shall still survive and bind the user in regards to the contest, in any and all circumstances; however, IDEADASH reserves the right to free a user from such binding in its sole discretion.
-15.	Governing Law: 
+15.	Governing Law:
     The user agrees that this contest, this site, and its functions are only headquartered in Pennsylvania, as it is situated in the United States of America. The user agrees that in any and all circumstances, except at the exception solely of IDEADASH's accord and decision, this Official Contest Rules, Terms, and Conditions shall be governed by the laws of the Commonwealth of Pennsylvania, without respect to its conflict of laws principles.
-16.	Disputes: 
+16.	Disputes:
     The user and IDEADASH agree that any and all disputes shall be resolved outside of the courts and without interference from any third parties if at all possible. If no other resolution can be found, any issues arising from this Official Contest Rules, Terms, and Conditions shall be settled in the courts of and according to the laws of the State of Delaware, in the United States of America.
-17.	Disclaimers: 
+17.	Disclaimers:
     In using ideadash.com and/or participating in this contest, users/participants are solely responsible to obey all applicable laws, including but not limited to paying any applicable taxes on any funds received from the contest, site, and/or service.
-18.	English Language: 
+18.	English Language:
     In the event that there are any non-English language versions of this Official Contest Rules, Terms, and Conditions, the English language version will always be the only and final authority for any questions or issues regarding the Official Contest Rules, Terms, and Conditions.
-19.	Information Disclosed to IDEADASH: 
+19.	Information Disclosed to IDEADASH:
     Any time any person posts, sends, emails, or otherwise discloses any content, ideas, or information to IDEADASH in any form or to any of its related people (such as employees) or in any way, these content, ideas, and/or information are considered unsolicited, and IDEADASH has the full right to directly use, add to, subtract from, and modify those content, ideas, and/or information to improve, add to, or modify IDEADASH, at IDEADASH's sole discretion, with no credit, payment, money, or attribution owed to the person who sent IDEADASH the content, ideas, or information, even if the user says that such information is confidential or requiring any payment or fees of any kind from IDEADASH. However, IDEADASH will try to credit the originator of such content in many or most cases, at its sole discretion. Also, while IDEADASH has the freedom to use the content as it wishes, the person who originated the content retains all other protections for the content, such as any copyright protections, other than those protections which would prohibit IDEADASH's use of the content.
-20.	Severability: 
+20.	Severability:
     If any part of this Official Contest Rules, Terms, and Conditions is declared unenforceable or invalid, the remainder will continue to be valid and enforceable. If IDEADASH does not act upon any part of this Official Contest Rules, Terms, and Conditions, that part of the Official Contest Rules, Terms, and Conditions shall still be in full force along with all other parts of the Official Contest Rules, Terms, and Conditions.
-21.	Official Rules: 
+21.	Official Rules:
     These Official Contest Rules, Terms, and Conditions are the final terms for this contest. They cannot be changed except by the sponsor. The sponsor may communicate additional rules or guidelines to participants that should be followed by participants, but in any event, these are the final rules and if any additional communicated rules contradict these rules, these are the rules that should be followed, and these are the rules which shall be binding.

@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get '/.well-known/acme-challenge/EDRa5RfvqS71twzPAfvzzAcnNSi4BhaalAld5Y5SVHQ' => 'main#letsencrypt'
 
   get :terms, to: 'main#terms'
+  get :search, to: 'main#search'
   get :about, to: 'main#about'
   get :contest, to: 'main#contest'
   get :privacy_policy, to: 'main#privacy_policy'

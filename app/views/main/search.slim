@@ -1,0 +1,19 @@
+#idea_search.col-xs-12.col-md-8.col-md-offset-2
+  = simple_form_for :search, url: search_path, html: { 'v-on:submit.prevent' => true } do |f|
+    = f.input :query, label: false, placeholder: 'Search...', input_html: { 'v-model' => 'query', 'v-on:keyup' => 'loadResults' }
+  table.table.search-results
+    tbody
+      template[v-for="item in results" track-by="objectID"]
+        tr
+          td
+            h4: a[href="/ideas/{{item.objectID}}" target="_blank"] {{{ item._highlightResult.title.value }}}
+            p
+              ' {{{ item._highlightResult.summary.value }}}
+            p.small[v-if="item._snippetResult.description.value.length > 0"]
+              ' …{{{ item._snippetResult.description.value }}}…
+      tr
+        td[colspan=2 v-if="showNoItems"] Please try to refine your search
+
+javascript:
+  var client = algoliasearch("#{ ENV['ALGOLIASEARCH_APPLICATION_ID'] }", "#{ ENV['ALGOLIASEARCH_API_KEY_SEARCH'] }");
+  window.algolia_index = client.initIndex("Idea_#{ Rails.env }");
