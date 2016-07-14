@@ -5,8 +5,6 @@ We want you to post great ideas on the site, the world can see and fund those id
 
 So you can post an idea, sit back, and your idea could make you some money while changing the world. Oh, and you can rate ideas, too. Rating ideas helps the best ideas rise to the top of the homepage.
 
-To hear what’s on my mind and for a little Q&A if you have any questions, please join me on Periscope this Tuesday and Thursday at 10:00 PM EST. Find me here: @ideaDash
-
 Happy posting, rating, funding, and implementing ideas!
 
 Eric Martin
