@@ -1,3 +1,4 @@
+- provide :title, 'Backer voting'
 .col-xs-12.col-md-8.col-md-offset-2
   h3.text-center Voting for implementation proposal for "#{ @idea.title }"
   = simple_form_for [@idea, @backer_vote], url: idea_backer_votes_path(@idea), method: :post, html: { class: 'backer-voting', 'v-on:submit' => 'confirmVote' } do |f|

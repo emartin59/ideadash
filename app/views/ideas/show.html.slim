@@ -1,3 +1,4 @@
+- provide :title, @idea.title
 .col-xs-12.col-md-8.col-md-offset-2
   .jumbotron.text-center
     - if user_signed_in? && current_user.can_flag?(@idea)
