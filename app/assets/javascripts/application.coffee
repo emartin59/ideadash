@@ -1,0 +1,15 @@
+#= require jquery
+#= require jquery.turbolinks
+#= require jquery_ujs
+#= require turbolinks
+#= require bootstrap/alert
+#= require bootstrap/dropdown
+#= require bootstrap/collapse
+#= require vue
+#= require algoliasearch/algoliasearchLite
+#= require comments
+#= require ideas
+#= require main
+#= require votes
+#= require backer_votes
+#= require_self
