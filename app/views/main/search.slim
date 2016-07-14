@@ -1,5 +1,5 @@
 #idea_search.col-xs-12.col-md-8.col-md-offset-2
-  = simple_form_for :search, url: search_path do |f|
+  = simple_form_for :search, url: search_path, html: { 'v-on:submit.prevent' => true } do |f|
     = f.input :query, label: false, placeholder: 'Search...', input_html: { 'v-model' => 'query', 'v-on:keyup' => 'loadResults' }
   table.table.search-results
     tbody
