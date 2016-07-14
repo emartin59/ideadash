@@ -13,7 +13,7 @@ $(document).ready ->
         loadResults: ->
           if @query.length > 2
             @searchInProgress = true
-            algolia_index.search @query, { attributesToSnippet: ['description:15'] }, (err, content) =>
+            algolia_index.search @query, { attributesToSnippet: ['description:20'] }, (err, content) =>
               @searchInProgress = false
               if err
                 console.log(err)

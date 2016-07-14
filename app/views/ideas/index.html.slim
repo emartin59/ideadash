@@ -1,4 +1,4 @@
-.col-xs-12.col-md-offset-1.col-md-10
+.col-xs-12.col-md-offset-2.col-md-8
   h3.hidden-xs
     ' Showing
     = filter_dropdown
@@ -8,15 +8,6 @@
     .pull-left= filter_dropdown
     .pull-right= order_dropdown
   table.table#ideas
-    thead
-      tr
-        th Title
-        th Summary
-        th.hidden-xs Backers
-        - if @user
-          th[colspan=2]
-        - else
-          th.hidden-xs User
     tbody
       = render @ideas
       - if @ideas.empty?

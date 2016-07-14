@@ -5,10 +5,10 @@
     tbody
       template[v-for="item in results" track-by="objectID"]
         tr
-          td.title
-            a[href="/ideas/{{item.objectID}}" target="_blank"] {{{ item._highlightResult.title.value }}}
           td
-            ' {{{ item._highlightResult.summary.value }}}
+            h4: a[href="/ideas/{{item.objectID}}" target="_blank"] {{{ item._highlightResult.title.value }}}
+            p
+              ' {{{ item._highlightResult.summary.value }}}
             p.small[v-if="item._snippetResult.description.value.length > 0"]
               ' …{{{ item._snippetResult.description.value }}}…
       tr
