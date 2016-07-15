@@ -14,10 +14,11 @@
         = link_to 'Post an Idea', new_idea_path
       - if can? :start, Vote
         = link_to 'Rate Ideas', start_votes_path
-      = link_to 'My Ideas', user_ideas_path(current_user), class: 'visible-xs-block' if user_signed_in?
-      = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'visible-xs-block' if user_signed_in?
       - if user_signed_in?
+        = link_to 'My Ideas', user_ideas_path(current_user), class: 'visible-xs-block'
+        = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'visible-xs-block'
         li.hidden-xs: p.navbar-text Welcome, #{current_user.name}!
+      - else
       = link_to search_path do
         i.fa.fa-search
       - if user_signed_in?
@@ -29,3 +30,12 @@
             - if current_user.balance > 0
               li= link_to "My balance: $#{ sprintf('%.2f', current_user.balance) }", 'javascript:void(0);'
             li= link_to 'Logout', destroy_user_session_path, method: :delete
+      - else
+        li.dropdown.hidden-xs
+          a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Login"
+            i.fa.fa-sign-in
+          ul.dropdown-menu.login
+            li= link_to user_google_oauth2_omniauth_authorize_path do
+              i.fa.fa-google[title="Google"]
+            li= link_to user_facebook_omniauth_authorize_path do
+              i.fa.fa-facebook[title="Facebook"]
