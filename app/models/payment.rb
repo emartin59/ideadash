@@ -24,6 +24,8 @@ class Payment < ActiveRecord::Base
         recipient.balance += amount
         recipient.save!
         self.paypal_status = paypal_payment.state
+        self.transaction_fee = pp_transaction_fee
+        self.paypal_payer_id = pp_payer_id
         save
         recipient.increment_backers_count!(sender) if recipient.respond_to? :increment_backers_count!
       end
@@ -94,5 +96,17 @@ class Payment < ActiveRecord::Base
 
   def paypal_amount
     sprintf('%.2f', amount)
+  end
+
+  def pp_transaction_fee
+    tr = paypal_payment.transactions.first
+    return 0 if tr.nil?
+    related = tr.related_resources.first
+    return 0 if related.nil?
+    related.sale.transaction_fee.value.to_f
+  end
+
+  def pp_payer_id
+    paypal_payment.payer.payer_info.payer_id
   end
 end
