@@ -4,7 +4,7 @@
   = simple_form_for [@idea, @backer_vote], url: idea_backer_votes_path(@idea), method: :post, html: { class: 'backer-voting', 'v-on:submit' => 'confirmVote' } do |f|
     = hidden_field_tag :previous_kind, @backer_vote.kind, 'v-model' => :previous_kind
     .kind-select
-      = f.radio_button :kind, :vote, 'v-model' => :kind
+      = f.radio_button :kind, :vote, 'v-model' => :kind, disabled: @idea.implementations.empty?
       label.votable-item-horizontal(for="backer_vote_kind_vote")
         h4 Vote
         p.text-muted I have chosen an implementation proposal and will vote for it
