@@ -7,6 +7,7 @@ class BackerVote < ActiveRecord::Base
 
   validates :user, presence: true
   validates :idea, presence: true, uniqueness: { scope: :user_id }
+  validates :implementation, presence: true, if: :is_vote?
 
   validate :user_backed_idea?
 
@@ -16,5 +17,9 @@ class BackerVote < ActiveRecord::Base
       return false
     end
     return true
+  end
+
+  def is_vote?
+    kind == 'vote'
   end
 end
