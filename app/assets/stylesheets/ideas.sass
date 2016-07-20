@@ -4,13 +4,51 @@
     margin: 0 10px
     display: inline-block
     font-size: 20px
-    i
+    > i
       margin-right: 3px
 
 .idea
   .idea-author
     color: #aaa
     font-size: 70%
+
+.share
+  position: relative
+  min-width: 30px
+  &:hover
+    .share-popup
+      width: 90px
+      visibility: visible
+      -webkit-transition-delay: 0s
+      -moz-transition-delay: 0s
+      transition-delay: 0s
+  .share-popup
+    -webkit-transition: all .1s
+    -moz-transition: all .1s
+    transition: all .1s
+    -webkit-transition-delay: .3s
+    -moz-transition-delay: .3s
+    transition-delay: .3s
+    position: absolute
+    visibility: hidden
+    width: 0
+    top: 0
+    left: 30px
+    height: 30px
+    a.share-link
+      height: 30px
+      line-height: 30px
+      width: 33.3333%
+      color: #fff
+      display: inline-block
+      text-align: center
+      overflow: hidden
+      &.twitter
+        background-color: #55acee
+      &.facebook
+        background-color: #3b5998
+      &.email
+        background-color: #ffcc00
 
 .flag
   top: 10px
