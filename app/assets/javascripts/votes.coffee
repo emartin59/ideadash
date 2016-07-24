@@ -19,28 +19,30 @@ $(document).ready ->
           vote_4:
             positive_idea_id: null
             negative_idea_id: null
+        skipped_idea_ids: []
         currentIdx: 0
+        skips: 0
       computed:
-        nextPossible: ->
+        nextPossible: -> @notLastVote and !@voteNotSelected
+        skipPossible: -> @notLastVote and @voteNotSelected and @skips < 2
+        notLastVote: -> @currentIdx < 4
+        voteNotSelected: ->
           currentVote = @votes["vote_#{@currentIdx}"]
-          !!(@currentIdx < 4 and currentVote.positive_idea_id and currentVote.negative_idea_id)
+          !(currentVote.positive_idea_id or currentVote.negative_idea_id)
         prevPossible: -> @currentIdx > 0
-        submitPossible: ->
-          return false if @currentIdx < 4
-          for i in [0..4]
-            vote = @votes["vote_#{@currentIdx}"]
-            return false unless vote.positive_idea_id and vote.negative_idea_id
-          return true
+        submitPossible: -> @currentIdx is 4 and @skips <= 2 and @skipped_idea_ids.length <= 4
       methods:
         updateSelect: (event) ->
           tgt = event.currentTarget
-          @votes["vote_#{@currentIdx}"].positive_idea_id = tgt.dataset.id
-          @votes["vote_#{@currentIdx}"].negative_idea_id = tgt.dataset.vs_id
+          positive = @votes["vote_#{@currentIdx}"].positive_idea_id = tgt.dataset.id
+          negative = @votes["vote_#{@currentIdx}"].negative_idea_id = tgt.dataset.vs_id
+          _.pull(@skipped_idea_ids, positive, negative)
           $(tgt.parentElement).find('.selected-idea').removeClass('selected-idea')
           $(tgt).addClass('selected-idea')
-        nextVote: (event) ->
-          event.preventDefault()
-          @currentIdx++ if @currentIdx < 4
-        prevVote: (event) ->
-          event.preventDefault()
+        nextVote: -> @currentIdx++ if @currentIdx < 4
+        skipVote: ->
+          @skips++
+          @nextVote()
+        prevVote: ->
           @currentIdx-- if @currentIdx > 0
+          @skips-- if @votes["vote_#{@currentIdx}"].positive_idea_id is null

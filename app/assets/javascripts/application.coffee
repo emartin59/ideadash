@@ -5,7 +5,9 @@
 #= require bootstrap/alert
 #= require bootstrap/dropdown
 #= require bootstrap/collapse
+#= require lodash
 #= require vue
+#= require vue_extensions
 #= require algoliasearch/algoliasearchLite
 #= require comments
 #= require ideas

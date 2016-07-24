@@ -11,8 +11,12 @@ describe 'idea creation', js: true do
     visit start_votes_path
     expect(page).to have_text('Select the idea you prefer')
 
+    expect(page).to have_text("1/5")
+    expect(page).to have_css('.vote-select')
+    click_button 'Skip'
+
     # we walk from first till last page
-    (1..4).each do |i|
+    (2..4).each do |i|
       expect(page).to have_text("#{i}/5")
       expect(page).to have_css('.vote-select')
       first('.voted-idea').click
@@ -30,7 +34,7 @@ describe 'idea creation', js: true do
     first('.voted-idea').click
     expect{
       click_button 'Save Votes'
-    }.to change(Vote, :count).by 5
+    }.to change(Vote, :count).by 4 # we have one skipped
     expect(page).to have_text 'For diligently rating 5 sets of ideas, you\'ve just earned 1 dashNut. Congratulations!'
   end
 end

@@ -81,5 +81,6 @@ end
 source 'https://rails-assets.org' do
   gem 'rails-assets-vue'
   gem 'rails-assets-algoliasearch'
+  gem 'rails-assets-lodash'
 end
 

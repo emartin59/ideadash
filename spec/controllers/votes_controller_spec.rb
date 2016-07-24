@@ -37,15 +37,17 @@ RSpec.describe VotesController, type: :controller do
     let(:signed_str) do
       crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
       str = positive_idea.id * negative_idea.id
-      crypt.encrypt_and_sign(str.to_s)
+      crypt.encrypt_and_sign(str)
     end
 
     let(:ds_protect){ session[:ds_protect] = SecureRandom.base64 }
 
-    let(:valid_attributes){ { ds_protect: ds_protect, votes: [{negative_idea_id: negative_idea.id, positive_idea_id: positive_idea.id}], signed_str: signed_str } }
+    let(:valid_attributes){ { ds_protect: ds_protect, skipped_idea_ids: '', votes: [{negative_idea_id: negative_idea.id, positive_idea_id: positive_idea.id}], signed_str: signed_str } }
 
     it "returns success" do
       post :finish, valid_attributes
+      puts valid_attributes
+      puts positive_idea.id * negative_idea.id
       expect(response).to have_http_status(:success)
     end
     it "renders finish template" do
@@ -66,8 +68,8 @@ RSpec.describe VotesController, type: :controller do
       describe "with non-existent idea" do
         let(:signed_str) do
           crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-          str = [negative_idea.id, 9999].zip([positive_idea.id, negative_idea.id]).map{|x, y| x * y}.join
-          crypt.encrypt_and_sign(str.to_s)
+          str = [9999, negative_idea.id].concat([positive_idea.id, negative_idea.id]).reduce(:*)
+          crypt.encrypt_and_sign(str)
         end
         it "skips invalid points" do
           expect{
@@ -77,7 +79,7 @@ RSpec.describe VotesController, type: :controller do
                                     }, {
                                         negative_idea_id: 9999,
                                         positive_idea_id: negative_idea.id
-                                    }], signed_str: signed_str }
+                                    }], signed_str: signed_str, skipped_idea_ids: '' }
           }.to change(Vote, :count).by 1
           expect(response).to be_success
         end
@@ -92,7 +94,7 @@ RSpec.describe VotesController, type: :controller do
                                     }, {
                                         negative_idea_id: 9999,
                                         positive_idea_id: negative_idea.id
-                                    }], signed_str: signed_str }
+                                    }], signed_str: signed_str, skipped_idea_ids: '' }
           }.to_not change(Vote, :count)
           expect(response).to redirect_to start_votes_path
         end
@@ -104,7 +106,7 @@ RSpec.describe VotesController, type: :controller do
           crypt.encrypt_and_sign(str.to_s)
         end
 
-        let(:attributes){ { votes: [{negative_idea_id: negative_idea.id, positive_idea_id: positive_idea.id}], signed_str: signed_str } }
+        let(:attributes){ { votes: [{negative_idea_id: negative_idea.id, positive_idea_id: positive_idea.id}], signed_str: signed_str, skipped_idea_ids: '' } }
         it "does not create points" do
           expect{
             post :finish, attributes

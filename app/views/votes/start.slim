@@ -2,6 +2,7 @@
 = simple_form_for :votes, url: finish_votes_path, html: { id: 'voting_list', class: 'col-xs-12' } do |f|
   = hidden_field_tag :signed_str, @signed_str
   = hidden_field_tag :ds_protect, @ds_protect
+  = hidden_field_tag :skipped_idea_ids, @voting_list_builder.ideas_ids.join(', '), 'v-array' => 'skipped_idea_ids'
   .hidden-xs
     h2.text-center
       | ({{currentIdx + 1}}/5) Select the idea you prefer:
@@ -33,6 +34,7 @@
         = v.input :positive_idea_id, input_html: { 'v-model' => "votes.vote_#{idx}.positive_idea_id" }, as: :hidden
         = v.input :negative_idea_id, input_html: { 'v-model' => "votes.vote_#{idx}.negative_idea_id" }, as: :hidden
   .btn-group.center-block
-    = f.submit 'Back', class: 'btn btn-warning', 'v-on:click' => 'prevVote', 'v-if' => 'prevPossible'
-    = f.submit 'Next', class: 'btn btn-info', 'v-on:click' => 'nextVote', 'v-if' => 'nextPossible'
+    = f.submit 'Back', class: 'btn btn-warning', 'v-on:click.prevent' => 'prevVote', 'v-if' => 'prevPossible'
+    = f.submit 'Next', class: 'btn btn-info', 'v-on:click.prevent' => 'nextVote', 'v-if' => 'nextPossible'
+    = f.submit 'Skip', class: 'btn btn-danger', 'v-on:click.prevent' => 'skipVote', 'v-if' => 'skipPossible'
     = f.submit class: 'btn btn-primary', 'v-if' => 'submitPossible'

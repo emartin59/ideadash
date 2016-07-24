@@ -3,6 +3,8 @@ class VotingListBuilder
 
   def initialize(current_user)
     @current_user = current_user
+    current_ideas
+    all_ideas
   end
 
   def generate
@@ -27,9 +29,13 @@ class VotingListBuilder
     all_ideas.map(&:id)
   end
 
+  def ideas_ids
+    current_ideas_ids.concat(all_ideas_ids)
+  end
+
   def signed_str
     crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base)
-    str = current_ideas_ids.zip(all_ideas_ids).map{|x, y| x * y}.join
+    str = current_ideas_ids.concat(all_ideas_ids).reduce(:*)
     crypt.encrypt_and_sign(str)
   end
 
