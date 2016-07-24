@@ -35,15 +35,23 @@
       span.backers
         i.fa.fa-user(title='Total Backers')
         = @idea.backers_count
-      span.share
+      span.share.hidden-xs
         i.fa.fa-share-alt(title='Share')
         .share-popup
-          a.share-link.twitter href="https://twitter.com/intent/tweet?text=#{ url_encode("Check this out: #{ @idea.title }") }&url=#{ idea_url(@idea) }"
+          a.share-link.twitter target="_blank" href="https://twitter.com/intent/tweet?text=#{ url_encode("Check this out: #{ @idea.title }") }&url=#{ idea_url(@idea) }"
             i.fa.fa-twitter
-          a.share-link.facebook href="https://www.facebook.com/sharer/sharer.php?u=#{ idea_url(@idea) }"
+          a.share-link.facebook target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=#{ idea_url(@idea) }"
             i.fa.fa-facebook
           a.share-link.email href="mailto:?subject=#{ url_encode("Check this out: #{ @idea.title }") }&body=#{ idea_url(@idea) }"
             i.fa.fa-envelope-o
+      .share.share-block.visible-xs
+        a.share-link.twitter target="_blank" href="https://twitter.com/intent/tweet?text=#{ url_encode("Check this out: #{ @idea.title }") }&url=#{ idea_url(@idea) }"
+          i.fa.fa-twitter
+        a.share-link.facebook target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=#{ idea_url(@idea) }"
+          i.fa.fa-facebook
+        a.share-link.email href="mailto:?subject=#{ url_encode("Check this out: #{ @idea.title }") }&body=#{ idea_url(@idea) }"
+          i.fa.fa-envelope-o
+
 
     .votes.btn-group
       - if user_signed_in? && can?(:create, current_user.implementations.build(idea: @idea))
