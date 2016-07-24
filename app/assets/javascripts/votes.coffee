@@ -30,13 +30,13 @@ $(document).ready ->
           currentVote = @votes["vote_#{@currentIdx}"]
           !(currentVote.positive_idea_id or currentVote.negative_idea_id)
         prevPossible: -> @currentIdx > 0
-        submitPossible: -> @currentIdx is 4 and @skips <= 2 and @skipped_idea_ids.length <= 4
+        submitPossible: -> (@currentIdx is 4) and (@skips <= 2) and (@skipped_idea_ids.length <= 4)
       methods:
         updateSelect: (event) ->
           tgt = event.currentTarget
           positive = @votes["vote_#{@currentIdx}"].positive_idea_id = tgt.dataset.id
           negative = @votes["vote_#{@currentIdx}"].negative_idea_id = tgt.dataset.vs_id
-          _.pull(@skipped_idea_ids, positive, negative)
+          @skipped_idea_ids = _.without(@skipped_idea_ids, positive, negative)
           $(tgt.parentElement).find('.selected-idea').removeClass('selected-idea')
           $(tgt).addClass('selected-idea')
         nextVote: -> @currentIdx++ if @currentIdx < 4
