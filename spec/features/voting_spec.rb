@@ -11,6 +11,7 @@ describe 'idea creation', js: true do
     visit start_votes_path
     expect(page).to have_text('Select the idea you prefer')
 
+    # skip the first comparison
     expect(page).to have_text("1/5")
     expect(page).to have_css('.vote-select')
     click_button 'Skip'
