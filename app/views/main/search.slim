@@ -7,7 +7,7 @@
       template[v-for="item in results" track-by="objectID"]
         tr
           td
-            h4: a[href="/ideas/{{item.objectID}}" target="_blank"] {{{ item._highlightResult.title.value }}}
+            h4: a[href="/ideas/{{item.objectID}}"] {{{ item._highlightResult.title.value }}}
             p
               ' {{{ item._highlightResult.summary.value }}}
             p.small[v-if="item._snippetResult.description.value.length > 0"]
