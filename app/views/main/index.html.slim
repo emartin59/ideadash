@@ -1,8 +1,7 @@
 - provide :title, 'Home'
 .subscribe-header
   - if user_signed_in?
-    h1 ideas unleashed
-    p.lead Wondering what to do next?
+    p.lead Wondering what to do?
     - if can? :create, Idea
       p.lead= link_to 'Post an idea', new_idea_path
     p.lead= link_to 'Discover new ideas', ideas_path(order: :newest, filter: :current)
