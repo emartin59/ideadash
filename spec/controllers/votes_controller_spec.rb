@@ -46,8 +46,6 @@ RSpec.describe VotesController, type: :controller do
 
     it "returns success" do
       post :finish, valid_attributes
-      puts valid_attributes
-      puts positive_idea.id * negative_idea.id
       expect(response).to have_http_status(:success)
     end
     it "renders finish template" do
