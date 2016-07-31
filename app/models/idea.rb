@@ -56,7 +56,7 @@ class Idea < ActiveRecord::Base
   end
 
   def in_voting_phase?
-    created_at > Date.today.beginning_of_month && created_at < Date.today.end_of_month
+    created_at > Date.today.beginning_of_month && created_at < Date.today.end_of_month + 1.day
   end
 
   def in_proposals_phase?
