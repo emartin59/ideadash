@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  get '/.well-known/acme-challenge/EDRa5RfvqS71twzPAfvzzAcnNSi4BhaalAld5Y5SVHQ' => 'main#letsencrypt'
+  get '/.well-known/acme-challenge/WYPUBmuNdE8H8DWR03bj2QPerfNGIa2AYW3XpdLiYQU' => 'main#letsencrypt'
 
   get :terms, to: 'main#terms'
   get :search, to: 'main#search'

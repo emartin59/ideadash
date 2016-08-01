@@ -21,6 +21,6 @@ class MainController < ApplicationController
   end
 
   def letsencrypt
-    render text: 'EDRa5RfvqS71twzPAfvzzAcnNSi4BhaalAld5Y5SVHQ.RxQRd4Fobz-EYXXu2uCEebPb8NjiQNF8r1w4uX0Jxwc'
+    render text: 'WYPUBmuNdE8H8DWR03bj2QPerfNGIa2AYW3XpdLiYQU.RxQRd4Fobz-EYXXu2uCEebPb8NjiQNF8r1w4uX0Jxwc'
   end
 end
