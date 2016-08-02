@@ -59,6 +59,8 @@
       - if user_signed_in? && can?(:create, BackerVote.new(user: current_user, idea: @idea))
         = link_to 'Vote for implementation', new_idea_backer_vote_path(@idea), class: 'btn btn-info'
   p= simple_format @idea.description
+  - if @idea.backer_voting_result == 'refund'
+    p.lead Idea backers have voted to refund money back to their accounts; no proposal has been selected.
   - if @idea.backer_voting_result == 'vote' && @idea.implementation
     p.lead
       ' This idea will be implemented according to
