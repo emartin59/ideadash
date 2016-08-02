@@ -68,7 +68,7 @@ class Idea < ActiveRecord::Base
 
   def in_backer_voting_phase?
     return false if in_voting_phase?
-    created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
+    backer_voting_result == 'extend'
   end
 
   def increment_backers_count!(sender)
