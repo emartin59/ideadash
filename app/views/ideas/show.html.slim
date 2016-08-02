@@ -59,14 +59,21 @@
       - if user_signed_in? && can?(:create, BackerVote.new(user: current_user, idea: @idea))
         = link_to 'Vote for implementation', new_idea_backer_vote_path(@idea), class: 'btn btn-info'
   p= simple_format @idea.description
-  - if @idea.implementations.any?
-    h3 Implementation proposals submitted:
-    table.table#implementations
-      thead
-        tr
-          th Title
-          th Summary
-          th.hidden-xs User
-      tbody
-        = render @idea.implementations.includes(:user)
+  - if @idea.backer_voting_result == 'vote' && @idea.implementation
+    p.lead
+      ' This idea will be implemented according to
+      = link_to @idea.implementation.title, idea_implementation_path(@idea, @idea.implementation)
+      '  by
+      = @idea.implementation.user.name
+  - else
+    - if @idea.implementations.any?
+      h3 Implementation proposals submitted:
+      table.table#implementations
+        thead
+          tr
+            th Title
+            th Summary
+            th.hidden-xs User
+        tbody
+          = render @idea.implementations.includes(:user)
   = render partial: 'comments/template', locals: { commentable: @idea, new_comment: @comment }

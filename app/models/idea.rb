@@ -10,6 +10,7 @@ class Idea < ActiveRecord::Base
   acts_as_commentable
 
   belongs_to :user
+  belongs_to :implementation
   has_many :incoming_payments, as: :recipient, class_name: 'Payment'
 
   has_many :positive_votes, class_name: 'Vote',
@@ -98,7 +99,6 @@ class Idea < ActiveRecord::Base
     return unless backer_vote
     attrs = { backer_voting_result: backer_vote.kind }
     attrs.merge!(implementation_id: backer_vote.implementation_id) if backer_vote.implementation_id
-    puts attrs.as_json
     update(attrs)
   end
 
