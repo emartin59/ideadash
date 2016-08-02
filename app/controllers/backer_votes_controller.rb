@@ -17,8 +17,8 @@ class BackerVotesController < ApplicationController
 
   private
   def backer_vote_params
-    paras = params.require(:backer_vote).permit(:implementation_id)
-    paras.merge!(kind: params[:backer_vote][:kind]) if @backer_vote.kind != 'vote'
+    paras = params.require(:backer_vote).permit(:kind)
+    paras.merge!(implementation_id: params[:backer_vote][:implementation_id]) if @backer_vote.kind == 'vote'
     paras
   end
 
