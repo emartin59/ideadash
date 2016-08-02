@@ -45,6 +45,7 @@ class Idea < ActiveRecord::Base
   scope :previous, -> { where('extract(month from ideas.created_at) = extract(month from current_date) - 1') }
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str){ SAFE_ORDERS[:rating] }) }
   scope :visible, -> { where('ideas.flags_count < ? OR approved = ?', 5, true) }
+  scope :pending_for_backer_voting, -> { where(backer_voting_result: 'extend').where('ideas.created_at < ?', Date.today.beginning_of_month) }
 
 
   def rating
@@ -61,7 +62,7 @@ class Idea < ActiveRecord::Base
 
   def in_proposals_phase?
     return false if in_voting_phase?
-    Date.today.day.between?(1, 21) && created_at.between?(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
+    Date.today.day.between?(1, 21) && backer_voting_result == 'extend'
   end
 
   def in_backer_voting_phase?
@@ -79,5 +80,31 @@ class Idea < ActiveRecord::Base
 
   def unique_backers_count
     incoming_payments.successful.select(:sender_id).distinct.count
+  end
+
+  def top_backer_vote
+    backer_votes_counts = backer_votes.select('MAX(backer_votes.kind) AS kind, max(backer_votes.implementation_id) as implementation_id, COUNT(backer_votes.id) AS count').group('backer_votes.kind')
+    maximums = backer_votes_counts.max_by(2){|bv| bv.count}
+    case
+      when maximums.length == 0                   then return false
+      when maximums.length == 1                   then return maximums[0]
+      when maximums[0].count == maximums[1].count then return false
+      else                                             return maximums[0]
+    end
+  end
+
+  def set_voting_result
+    backer_vote = top_backer_vote
+    return unless backer_vote
+    attrs = { backer_voting_result: backer_vote.kind }
+    attrs.merge!(implementation_id: backer_vote.implementation_id) if backer_vote.implementation_id
+    puts attrs.as_json
+    update(attrs)
+  end
+
+  def self.count_backer_voting_results
+    pending_for_backer_voting.find_each do |idea|
+      idea.set_voting_result
+    end
   end
 end
