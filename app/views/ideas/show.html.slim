@@ -52,7 +52,6 @@
         a.share-link.email href="mailto:?subject=#{ url_encode("Check this out: #{ @idea.title }") }&body=#{ idea_url(@idea) }"
           i.fa.fa-envelope-o
 
-
     .votes.btn-group
       - if user_signed_in? && can?(:create, current_user.implementations.build(idea: @idea))
         = link_to 'Propose an implementation', new_idea_implementation_path(@idea), class: 'btn btn-success'
