@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730133848) do
+ActiveRecord::Schema.define(version: 20160805125747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160730133848) do
     t.integer  "backers_count",                                default: 0
     t.string   "backer_voting_result",                         default: "extend"
     t.integer  "implementation_id"
+    t.decimal  "amount_raised",        precision: 9, scale: 2, default: 0.0,      null: false
   end
 
   add_index "ideas", ["balance"], name: "index_ideas_on_balance", using: :btree

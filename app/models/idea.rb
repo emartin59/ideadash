@@ -30,7 +30,7 @@ class Idea < ActiveRecord::Base
       newest: 'ideas.created_at DESC',
       oldest: 'ideas.created_at ASC',
       backers: 'ideas.backers_count DESC',
-      balance: 'ideas.balance DESC',
+      balance: 'ideas.amount_raised DESC',
       rating: '(positive_votes_count::float / (positive_votes_count + negative_votes_count + 1)) DESC'
   }
 
@@ -48,6 +48,7 @@ class Idea < ActiveRecord::Base
   scope :visible, -> { where('ideas.flags_count < ? OR approved = ?', 5, true) }
   scope :pending_for_backer_voting, -> { where(backer_voting_result: 'extend').where('ideas.created_at < ?', Date.today.beginning_of_month) }
 
+  before_update :update_amount_raised, if: :balance_changed?
 
   def rating
     positive_votes_count.to_f / ( positive_votes_count + negative_votes_count + 1 )
@@ -100,6 +101,11 @@ class Idea < ActiveRecord::Base
     attrs = { backer_voting_result: backer_vote.kind }
     attrs.merge!(implementation_id: backer_vote.implementation_id) if backer_vote.implementation_id
     update(attrs)
+  end
+
+  def update_amount_raised
+    return if balance <= balance_was
+    self.amount_raised = balance
   end
 
   def self.count_backer_voting_results

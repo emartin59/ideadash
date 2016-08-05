@@ -22,6 +22,7 @@ ActiveAdmin.register Idea do
     div "Updated: " + idea.updated_at.to_formatted_s
     div "Rating: #{ idea.rating.round(2) } (+#{ idea.positive_votes_count } / -#{ idea.negative_votes_count })"
     div "Balance: #{ idea.balance.to_f }"
+    div "Amount raised: #{ idea.amount_raised.to_f }"
     div "Approved: #{ idea.approved }"
     div "Backers count: #{ idea.backers_count }"
 
