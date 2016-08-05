@@ -4,7 +4,8 @@ class Payment < ActiveRecord::Base
   belongs_to :sender, polymorphic: true
   belongs_to :recipient, polymorphic: true
 
-  validates :amount, numericality: { greater_than_or_equal_to: 1 }
+  validates :amount, numericality: { greater_than_or_equal_to: 0.01 }, unless: :process_by_paypal?
+  validates :amount, numericality: { greater_than_or_equal_to: 1 }, if: :process_by_paypal?
 
   delegate :url_helpers, to: 'Rails.application.routes'
 
@@ -50,7 +51,7 @@ class Payment < ActiveRecord::Base
       sender.balance -= amount
       sender.save!
       recipient.balance += amount
-      recipient.increment_backers_count! sender if recipient.respond_to? :increment_backers_count!
+      recipient.increment_backers_count!(sender) if recipient.respond_to? :increment_backers_count!
       recipient.save!
     end
   end

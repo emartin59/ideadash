@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805125747) do
+ActiveRecord::Schema.define(version: 20160805132937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,21 +75,25 @@ ActiveRecord::Schema.define(version: 20160805125747) do
   add_index "flags", ["user_id"], name: "index_flags_on_user_id", using: :btree
 
   create_table "ideas", force: :cascade do |t|
-    t.string   "title",                                        default: "",       null: false
-    t.string   "summary",                                      default: "",       null: false
-    t.text     "description",                                  default: "",       null: false
-    t.integer  "user_id",                                                         null: false
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
-    t.integer  "positive_votes_count",                         default: 0
-    t.integer  "negative_votes_count",                         default: 0
-    t.decimal  "balance",              precision: 8, scale: 2, default: 0.0
-    t.integer  "flags_count",                                  default: 0,        null: false
-    t.boolean  "approved",                                     default: false,    null: false
-    t.integer  "backers_count",                                default: 0
-    t.string   "backer_voting_result",                         default: "extend"
+    t.string   "title",                                             default: "",       null: false
+    t.string   "summary",                                           default: "",       null: false
+    t.text     "description",                                       default: "",       null: false
+    t.integer  "user_id",                                                              null: false
+    t.datetime "created_at",                                                           null: false
+    t.datetime "updated_at",                                                           null: false
+    t.integer  "positive_votes_count",                              default: 0
+    t.integer  "negative_votes_count",                              default: 0
+    t.decimal  "balance",                   precision: 8, scale: 2, default: 0.0
+    t.integer  "flags_count",                                       default: 0,        null: false
+    t.boolean  "approved",                                          default: false,    null: false
+    t.integer  "backers_count",                                     default: 0
+    t.string   "backer_voting_result",                              default: "extend"
     t.integer  "implementation_id"
-    t.decimal  "amount_raised",        precision: 9, scale: 2, default: 0.0,      null: false
+    t.decimal  "amount_raised",             precision: 9, scale: 2, default: 0.0,      null: false
+    t.boolean  "ideadash_fee_processed",                            default: false
+    t.boolean  "author_fee_processed",                              default: false
+    t.boolean  "implementer_fee_processed",                         default: false
+    t.boolean  "refund_fee_processed",                              default: false
   end
 
   add_index "ideas", ["balance"], name: "index_ideas_on_balance", using: :btree

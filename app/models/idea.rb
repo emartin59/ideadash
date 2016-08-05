@@ -12,6 +12,7 @@ class Idea < ActiveRecord::Base
   belongs_to :user
   belongs_to :implementation
   has_many :incoming_payments, as: :recipient, class_name: 'Payment'
+  has_many :outgoing_payments, as: :sender, class_name: 'Payment'
 
   has_many :positive_votes, class_name: 'Vote',
            inverse_of: :positive_idea, foreign_key: 'positive_idea_id'
@@ -47,6 +48,7 @@ class Idea < ActiveRecord::Base
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str){ SAFE_ORDERS[:rating] }) }
   scope :visible, -> { where('ideas.flags_count < ? OR approved = ?', 5, true) }
   scope :pending_for_backer_voting, -> { where(backer_voting_result: 'extend').where('ideas.created_at < ?', Date.today.beginning_of_month) }
+  scope :fee_processing_eligible, -> { where('created_at < ? AND balance > 0', Date.today.beginning_of_month - 1.month) }
 
   before_update :update_amount_raised, if: :balance_changed?
 
@@ -108,9 +110,29 @@ class Idea < ActiveRecord::Base
     self.amount_raised = balance
   end
 
+  def process_payments
+    process_ideadash_fee
+    process_author_fee
+  end
+
   def self.count_backer_voting_results
     pending_for_backer_voting.find_each do |idea|
       idea.set_voting_result
     end
+  end
+
+  private
+  def process_ideadash_fee
+    return if ideadash_fee_processed
+    ideadash_fee = amount_raised * 0.05
+    outgoing_payments.create!(amount: ideadash_fee, recipient: User.find(ENV['IDEADASH_ADMIN_ID']))
+    update_column :ideadash_fee_processed, true
+  end
+
+  def process_author_fee
+    return if author_fee_processed
+    ideadash_fee = amount_raised * 0.1
+    outgoing_payments.create!(amount: ideadash_fee, recipient: user)
+    update_column :author_fee_processed, true
   end
 end
