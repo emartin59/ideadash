@@ -115,6 +115,10 @@ class Idea < ActiveRecord::Base
     process_author_fee
   end
 
+  def self.process_eligible_payments
+    fee_processing_eligible.map(&:process_payments)
+  end
+
   def self.count_backer_voting_results
     pending_for_backer_voting.find_each do |idea|
       idea.set_voting_result
