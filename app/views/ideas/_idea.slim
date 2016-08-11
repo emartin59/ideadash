@@ -7,7 +7,7 @@
         = idea.user.name
         '
         i.fa.fa-dollar[title="Total Funds"]
-        '  #{ idea.amount_raised.to_f }
+        '  #{ decimal_number idea.amount_raised }
         i.fa.fa-user[title="Total Backers"]
         '  #{ idea.backers_count }
     = idea.summary

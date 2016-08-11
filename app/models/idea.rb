@@ -57,7 +57,7 @@ class Idea < ActiveRecord::Base
   end
 
   def formatted_rating
-    sprintf('%.1f', rating * 10)
+    sprintf('%.2f', rating * 10)
   end
 
   def in_voting_phase?

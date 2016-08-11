@@ -23,7 +23,7 @@
             .input-group
               .input-group-addon
                 i.fa.fa-dollar
-              = f.number_field :amount, class: 'form-control', min: 1
+              = f.number_field :amount, class: 'form-control', min: 1, value: '0.00'
               .input-group-btn= f.submit 'Donate', class: 'btn btn-primary'
     .votes
       span.votes-up
@@ -31,7 +31,7 @@
         = @idea.formatted_rating
       span.funded
         i.fa.fa-dollar(title='Amount Raised')
-        = @idea.amount_raised
+        = decimal_number @idea.amount_raised
       span.backers
         i.fa.fa-user(title='Total Backers')
         = @idea.backers_count

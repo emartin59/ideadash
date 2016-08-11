@@ -28,6 +28,10 @@ module IdeasHelper
     end
   end
 
+  def decimal_number n
+    sprintf('%.2f', n)
+  end
+
   private
   def current_ideas_path(*args)
     @user ? user_ideas_path(@user, *args) : ideas_path(*args)
