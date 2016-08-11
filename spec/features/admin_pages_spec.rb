@@ -31,7 +31,7 @@ describe 'admin root page' do
     it 'redirects to root path' do
       visit send("#{ active_admin }_root_path")
       expect(page).to have_text('ideadashbeta')
-      expect(page).to have_text('Learn how it works and about this month\'s $1,000 contest in 1.8 minutes')
+      expect(page).to have_text('Learn how it works in ~1.8 minutes')
       expect(page).to have_text('You are not authorized to access this page')
       expect(page).to_not have_text('Dashboard')
     end

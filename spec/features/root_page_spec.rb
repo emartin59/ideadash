@@ -4,7 +4,7 @@ describe 'root page' do
   it 'shows project name and slogan there' do
     visit root_path
     expect(page).to have_text('ideadashbeta')
-    expect(page).to have_text('Learn how it works and about this month\'s $1,000 contest in 1.8 minutes')
+    expect(page).to have_text('Learn how it works in ~1.8 minutes')
   end
 
   describe 'facebook sign in' do
