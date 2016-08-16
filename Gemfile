@@ -48,6 +48,7 @@ gem 'paypal-sdk-rest'
 gem 'acts_as_commentable_with_threading'
 
 gem 'dalli'
+gem 'actionpack-action_caching'
 
 gem 'algoliasearch-rails'
 

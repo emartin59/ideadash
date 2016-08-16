@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  get 'sitemap.xml', :to => 'sitemaps#index', :defaults => {:format => 'xml'}
+
   resources :ideas do
     resources :payments, only: :create
     resources :flags, only: :create
