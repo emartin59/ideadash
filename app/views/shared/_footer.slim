@@ -4,5 +4,16 @@
       .col-xs-12
         = link_to 'Privacy', privacy_policy_path
         = link_to 'Terms', terms_path
-        = link_to 'Facebook', 'https://www.facebook.com/groups/ideaDash/', target: '_blank'
+        .dropup-wrapper
+          = link_to 'Community', 'javascript:void(0);', 'data-toggle' => 'dropdown'
+          .dropup.dropdown-menu
+            = link_to 'http://forum.ideadash.com/', target: '_blank' do
+              strong Forum
+              div.small Discuss ideas and implementations
+            = link_to 'https://www.facebook.com/ideadash', target: '_blank' do
+              strong Facebook Page
+              div.small Join ideaDash's official page for updates
+            = link_to 'https://www.facebook.com/groups/ideaDash', target: '_blank' do
+              strong Facebook Group
+              div.small Join others to discuss ideas and ideaDash
         = link_to 'About', about_path

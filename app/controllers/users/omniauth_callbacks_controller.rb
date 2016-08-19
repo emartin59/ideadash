@@ -10,8 +10,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       session[:fbq] = '"CompleteRegistration"' if @user.created_at > 10.seconds.ago
-      sign_in_and_redirect @user
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+      if coming_from_discourse?
+        sign_in @user
+        redirect_to cookies.delete(:discourse)
+      else
+        sign_in_and_redirect @user
+        set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+      end
     else
       redirect_to root_path, warning: "An error occured while signing up from Facebook: #{ @user.errors.full_messages.join(', ') }"
     end
@@ -22,8 +27,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       session[:fbq] = '"CompleteRegistration"' if @user.created_at > 10.seconds.ago
-      sign_in_and_redirect @user
-      set_flash_message(:notice, :success, :kind => "Google") if is_navigational_format?
+      if coming_from_discourse?
+        sign_in @user
+        redirect_to cookies.delete(:discourse)
+      else
+        sign_in_and_redirect @user
+        set_flash_message(:notice, :success, :kind => "Google") if is_navigational_format?
+      end
     else
       message = if @user.errors[:email].include? 'has already been taken'
                   'This email address has already been used for sign up. Please, try using another authentication method.'
@@ -36,5 +46,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def failure
     redirect_to root_path, warning: failure_message
+  end
+
+  private
+  def coming_from_discourse?
+    cookies[:discourse].present?
   end
 end

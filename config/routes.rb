@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   get 'sitemap.xml', :to => 'sitemaps#index', :defaults => {:format => 'xml'}
+  get 'discourse/sso', to: 'discourse_sso#sso'
 
   resources :ideas do
     resources :payments, only: :create
