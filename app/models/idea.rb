@@ -40,6 +40,7 @@ class Idea < ActiveRecord::Base
   validates :user, presence: true
   validates :tos_accepted, acceptance: { accept: '1' }
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
+  validate :video_url_valid?
 
   default_scope { order(created_at: :desc) }
 
@@ -123,6 +124,41 @@ class Idea < ActiveRecord::Base
     pending_for_backer_voting.find_each do |idea|
       idea.set_voting_result
     end
+  end
+
+  def video_url
+    str = "https://youtu.be/#{ video_id }"
+    str += "?t=#{video_time}" if video_time.present?
+    str
+  end
+
+  def video_url=(value)
+    uri = URI.parse(value)
+    mthds = %w(hours minutes seconds)
+    if uri.host == 'www.youtube.com'
+      queries = uri.query.split('&').map{|q| q.split('=') }.to_h
+      time = queries['t'].split(/[a-z]/).reverse.map(&:to_i).inject(0){|tmp, n| tmp + n.send(mthds.pop) }
+      self.video_id = queries['v']
+      self.video_time = time
+    elsif uri.host == 'youtu.be'
+      queries = uri.query.split('&').map{|q| q.split('=') }.to_h
+      time = queries['t'].split(/[a-z]/).reverse.map(&:to_i).inject(0){|tmp, n| tmp + n.send(mthds.pop) }
+      self.video_id = uri.path.split('/').last
+      self.video_time = time
+    else
+      errors.add(:video_url, 'URL is invalid')
+    end
+  rescue URI::InvalidURIError
+    errors.add(:video_url, 'URL is invalid')
+  end
+
+  def video_url_valid?
+    uri = URI.parse(video_url)
+    if uri.host != 'www.youtube.com' && uri.host != 'youtu.be'
+      errors.add(:video_url, 'URL is invalid')
+    end
+  rescue URI::InvalidURIError
+    errors.add(:video_url, 'URL is invalid')
   end
 
   private

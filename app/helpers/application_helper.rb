@@ -16,4 +16,12 @@ module ApplicationHelper
         ActiveAdmin::Resource::Routes
     ).first.namespace.name
   end
+
+  def embed_video(item)
+    content_tag :div, nil, class: 'embed-responsive embed-responsive-16by9' do
+      query = "?"
+      query += "start=#{ item.video_time }" if item.video_time
+      content_tag(:iframe, nil, src: "//www.youtube.com/embed/#{item.video_id}#{query}")
+    end
+  end
 end
