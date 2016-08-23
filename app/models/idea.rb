@@ -127,12 +127,14 @@ class Idea < ActiveRecord::Base
   end
 
   def video_url
+    return '' if video_id.blank?
     str = "https://youtu.be/#{ video_id }"
     str += "?t=#{video_time}" if video_time.present?
     str
   end
 
   def video_url=(value)
+    return if value.blank?
     uri = URI.parse(value)
     mthds = %w(hours minutes seconds)
     if uri.host == 'www.youtube.com'
@@ -153,6 +155,7 @@ class Idea < ActiveRecord::Base
   end
 
   def video_url_valid?
+    return true if video_url.blank?
     uri = URI.parse(video_url)
     if uri.host != 'www.youtube.com' && uri.host != 'youtu.be'
       errors.add(:video_url, 'URL is invalid')
