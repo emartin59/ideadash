@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805132937) do
+ActiveRecord::Schema.define(version: 20160823100333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,13 +152,14 @@ ActiveRecord::Schema.define(version: 20160805132937) do
     t.string   "sender_type"
     t.integer  "recipient_id"
     t.string   "recipient_type"
-    t.decimal  "amount",          precision: 9, scale: 2, default: 0.0, null: false
+    t.decimal  "amount",          precision: 9, scale: 2, default: 0.0,       null: false
     t.string   "paypal_id"
     t.string   "paypal_status"
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
-    t.decimal  "transaction_fee", precision: 9, scale: 2, default: 0.0, null: false
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
+    t.decimal  "transaction_fee", precision: 9, scale: 2, default: 0.0,       null: false
     t.string   "paypal_payer_id"
+    t.string   "kind",                                    default: "funding"
   end
 
   add_index "payments", ["paypal_id"], name: "index_payments_on_paypal_id", using: :btree

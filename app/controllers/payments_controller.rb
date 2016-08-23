@@ -2,6 +2,19 @@ class PaymentsController < ApplicationController
   load_resource :idea
   authorize_resource :payment
 
+  def index
+    @incoming_payments = current_user.incoming_payments.successful.includes(:sender).order(created_at: :desc).limit(5)
+    @outgoing_payments = current_user.outgoing_payments.successful.includes(:recipient).order(created_at: :desc).limit(5)
+  end
+
+  def incoming
+    @payments = current_user.incoming_payments.successful.includes(:sender).paginate(:page => params[:page])
+  end
+
+  def outgoing
+    @payments = current_user.outgoing_payments.successful.includes(:recipient).paginate(:page => params[:page])
+  end
+
   def create
     @payment = current_user.outgoing_payments.build(payment_params)
     if @payment.save

@@ -1,0 +1,6 @@
+= content_tag_for :tr, incoming_payment do
+  td= link_to incoming_payment.sender.title, incoming_payment.sender
+  td= humanize_payment_kind incoming_payment.kind
+  td.amount
+    = decimal_number incoming_payment.amount
+    ' $

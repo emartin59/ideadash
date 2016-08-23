@@ -13,8 +13,13 @@ class User < ActiveRecord::Base
   has_many :flags
   has_many :implementations
   has_many :outgoing_payments, as: :sender, class_name: 'Payment'
+  has_many :incoming_payments, as: :recipient, class_name: 'Payment'
 
   has_many :backer_votes
+
+  def title
+    name
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

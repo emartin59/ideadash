@@ -1,0 +1,12 @@
+- provide :title, 'Payments'
+.col-xs-12.col-md-offset-1.col-md-10
+  h3 Outgoing payments
+
+  table.table#outgoing_payments
+    thead
+      tr
+        th To
+        th Amount
+    tbody
+      = render collection: @payments, partial: 'outgoing_payment'
+  = will_paginate @payments, renderer: BootstrapPagination::Rails

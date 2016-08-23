@@ -135,8 +135,8 @@ class Idea < ActiveRecord::Base
 
   def process_author_fee
     return if author_fee_processed
-    ideadash_fee = amount_raised * 0.1
-    outgoing_payments.create!(amount: ideadash_fee, recipient: user)
+    author_fee = amount_raised * 0.1
+    outgoing_payments.create!(amount: author_fee, recipient: user)
     update_column :author_fee_processed, true
   end
 end

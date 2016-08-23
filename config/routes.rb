@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :payments, only: [] do
+  resources :payments, only: [:index] do
     get :callback, on: :collection
+    get :incoming, on: :collection
+    get :outgoing, on: :collection
   end
 
   ActiveAdmin.routes(self)

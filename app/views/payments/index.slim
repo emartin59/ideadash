@@ -1,0 +1,33 @@
+- provide :title, 'Payments'
+.col-xs-12.col-md-offset-1.col-md-10
+  .row
+    .col-xs-12.col-md-4
+      h4 Your balance: #{ decimal_number current_user.balance }$
+    .col-xs-12.col-md-4
+      h4 You funded: #{ current_user.outgoing_payments.successful.count } ideas
+    .col-xs-12.col-md-4
+      h4 You received: #{ current_user.incoming_payments.successful.count } transfers
+  - unless @incoming_payments.empty?
+    h3
+      ' Recent incoming payments
+      span.small= link_to '(see all)', incoming_payments_path
+    table.table#incoming_payments
+      thead
+        tr
+          th From
+          th Kind
+          th Amount
+      tbody
+        = render collection: @incoming_payments, partial: 'incoming_payment'
+  - unless @outgoing_payments.empty?
+    h3
+      ' Recent outgoing payments
+      span.small= link_to '(see all)', outgoing_payments_path
+
+    table.table#outgoing_payments
+      thead
+        tr
+          th To
+          th Amount
+      tbody
+        = render collection: @outgoing_payments, partial: 'outgoing_payment'
