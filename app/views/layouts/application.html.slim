@@ -34,8 +34,13 @@ html
     meta name="og:image" content="#{ image_url('dashnut-social.png') }"
     meta name="twitter:card" content="summary"
     meta name="twitter:site" content="@idea_dash"
-    meta name="twitter:image" content="#{ image_url('dashnut-social.png') }"
     meta name="twitter:title" content="#{ content_for?(:title) ? yield(:title) + ' — ideaDash' : 'ideaDash' }"
+    - if content_for? :image
+      meta name="og:image" content="#{ yield(:image) }"
+      meta name="twitter:image" content="#{ yield(:image) }"
+    - else
+      meta name="og:image" content="#{ image_url('dashnut-social.png') }"
+      meta name="twitter:image" content="#{ image_url('dashnut-social.png') }"
     - if content_for? :description
       meta name="description" content="#{ yield(:description) }"
       meta property="og:description" content="#{ yield(:description) }"

@@ -1,5 +1,8 @@
 - provide :title, @idea.title
 - provide :description, @idea.summary
+- if @idea.video_id
+  - provide :image, "http://img.youtube.com/vi/#{ @idea.video_id }/mqdefault.jpg"
+
 .col-xs-12.col-md-8.col-md-offset-2
   .jumbotron.text-center
     - if user_signed_in? && current_user.can_flag?(@idea)

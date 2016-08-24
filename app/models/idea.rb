@@ -1,5 +1,6 @@
 class Idea < ActiveRecord::Base
   attr_accessor :tos_accepted
+  attr_accessor :video_url
 
   include AlgoliaSearch
 
@@ -40,7 +41,7 @@ class Idea < ActiveRecord::Base
   validates :user, presence: true
   validates :tos_accepted, acceptance: { accept: '1' }
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
-  validate :video_url_valid?
+  validates :video_url, youtube_url: true
 
   default_scope { order(created_at: :desc) }
 
@@ -52,6 +53,7 @@ class Idea < ActiveRecord::Base
   scope :fee_processing_eligible, -> { where('created_at < ? AND balance > 0', Date.today.beginning_of_month - 1.month) }
 
   before_update :update_amount_raised, if: :balance_changed?
+  before_save :set_video_info
 
   def rating
     positive_votes_count.to_f / ( positive_votes_count + negative_votes_count + 1 )
@@ -127,41 +129,13 @@ class Idea < ActiveRecord::Base
   end
 
   def video_url
-    return '' if video_id.blank?
-    str = "https://youtu.be/#{ video_id }"
-    str += "?t=#{video_time}" if video_time.present?
-    str
+    return @video_url if @video_url.present?
+    YoutubeUrl.convert_back video_id, video_time
   end
 
-  def video_url=(value)
-    return if value.blank?
-    uri = URI.parse(value)
-    mthds = %w(hours minutes seconds)
-    if uri.host == 'www.youtube.com'
-      queries = uri.query.split('&').map{|q| q.split('=') }.to_h
-      time = queries['t'].split(/[a-z]/).reverse.map(&:to_i).inject(0){|tmp, n| tmp + n.send(mthds.pop) }
-      self.video_id = queries['v']
-      self.video_time = time
-    elsif uri.host == 'youtu.be'
-      queries = uri.query.split('&').map{|q| q.split('=') }.to_h
-      time = queries['t'].split(/[a-z]/).reverse.map(&:to_i).inject(0){|tmp, n| tmp + n.send(mthds.pop) }
-      self.video_id = uri.path.split('/').last
-      self.video_time = time
-    else
-      errors.add(:video_url, 'URL is invalid')
-    end
-  rescue URI::InvalidURIError
-    errors.add(:video_url, 'URL is invalid')
-  end
-
-  def video_url_valid?
-    return true if video_url.blank?
-    uri = URI.parse(video_url)
-    if uri.host != 'www.youtube.com' && uri.host != 'youtu.be'
-      errors.add(:video_url, 'URL is invalid')
-    end
-  rescue URI::InvalidURIError
-    errors.add(:video_url, 'URL is invalid')
+  def set_video_info
+    youtube_url = YoutubeUrl.new video_url
+    self.video_id, self.video_time = youtube_url.process
   end
 
   private
