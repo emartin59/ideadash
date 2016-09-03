@@ -3,6 +3,7 @@
   .form-inputs
     = f.input :title, hint: '{{ titleLength }}', input_html: { 'v-model' => 'title' }, hint_html: { 'v-if' => 'showTitleHint' }
     = f.input :summary, as: :text, hint: '{{ summaryLength }}', input_html: { 'v-model' => 'summary' }, hint_html: { 'v-if' => 'showSummaryHint' }
+    = f.input :tag_list, input_html: { class: 'tag_list', value: @idea.tag_list.join(',') }
     = f.input :user_name, label: 'Author Name', required: true do
       = text_field :idea, :user_name, value: current_user.name, disabled: true, class: 'form-control'
     = f.input :description

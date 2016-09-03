@@ -22,3 +22,17 @@ $ ->
           @summary.length > 100
         showTitleHint: ->
           @title.length > 50
+
+  if $('.tag_list').length
+    $('.tag_list').selectize
+      delimiter: ','
+      persist: false
+      maxItems: 5
+      preload: true
+      load: (q, cb) ->
+        $.getJSON "/tags?q=#{q}", (data) ->
+          selTags = _.map data.tags, (tag) -> { value: tag, text: tag }
+          cb(selTags)
+      create: (input) ->
+        value: input,
+        text: input

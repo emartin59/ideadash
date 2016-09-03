@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get :outgoing, on: :collection
   end
 
+  resources :tags, only: :index
+
   ActiveAdmin.routes(self)
 
   get 'sitemap.xml', :to => 'sitemaps#index', :defaults => {:format => 'xml'}

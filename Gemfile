@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'acts-as-taggable-on', '~> 4.0'
+
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 
@@ -83,5 +85,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-vue'
   gem 'rails-assets-algoliasearch'
   gem 'rails-assets-lodash'
+  gem 'rails-assets-selectize'
 end
 

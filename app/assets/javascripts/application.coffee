@@ -8,6 +8,7 @@
 #= require lodash
 #= require vue
 #= require vue_extensions
+#= require selectize/standalone/selectize
 #= require algoliasearch/algoliasearchLite
 #= require comments
 #= require ideas

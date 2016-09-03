@@ -20,13 +20,13 @@
       p
         ' by
         = @idea.user.name
-      p.lead= @idea.summary
+      p= @idea.summary
     - else
       h1= @idea.title
       p
         ' by
         = @idea.user.name
-      p.lead= @idea.summary
+      p= @idea.summary
     - if can?(:manage, Payment) && @idea.in_voting_phase?
       .row
         .col-xs-12.col-md-6.col-md-offset-3
