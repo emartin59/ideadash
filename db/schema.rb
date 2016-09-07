@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903141139) do
+ActiveRecord::Schema.define(version: 20160907162901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160903141139) do
     t.boolean  "refund_fee_processed",                              default: false
     t.string   "video_id"
     t.integer  "video_time"
+    t.string   "picture"
   end
 
   add_index "ideas", ["balance"], name: "index_ideas_on_balance", using: :btree

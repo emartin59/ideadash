@@ -4,6 +4,8 @@ class Idea < ActiveRecord::Base
 
   include AlgoliaSearch
 
+  mount_uploader :picture, PictureUploader
+
   algoliasearch per_environment: true, disable_indexing: Rails.env.test? do
     attribute :title, :tag_list, :summary, :description
   end

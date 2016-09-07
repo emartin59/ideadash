@@ -21,6 +21,13 @@
         ' by
         = @idea.user.name
       p= @idea.summary
+    - elsif @idea.picture.present?
+      = image_tag @idea.picture_url, alt: @idea.title, class: 'img-responsive'
+      h3= @idea.title
+      p
+        ' by
+        = @idea.user.name
+      p= @idea.summary
     - else
       h1= @idea.title
       p

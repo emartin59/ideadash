@@ -8,6 +8,8 @@
       = text_field :idea, :user_name, value: current_user.name, disabled: true, class: 'form-control'
     = f.input :description
     = f.input :video_url, label: 'YouTube video URL', hint: "You can paste a Youtube video URL here. Also, you can use Youtube's \"Share\" function to link to a specific time mark"
+    = f.hidden_field :picture_cache
+    = f.input :picture, as: :file, label: 'Upload Image'
     = f.input :tos_accepted, as: :boolean, label: 'I accept Terms of Service and understand that by posting my idea anyone will be able to use it or implement it.' if @idea.new_record?
   .form-actions
     .btn-group
