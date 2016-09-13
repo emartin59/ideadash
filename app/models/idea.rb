@@ -32,8 +32,8 @@ class Idea < ActiveRecord::Base
   MAX_SUMMARY_LENGTH = 200
 
   SAFE_ORDERS = {
-      newest: 'ideas.created_at DESC',
-      oldest: 'ideas.created_at ASC',
+      newest: 'ideas.posted_at DESC',
+      oldest: 'ideas.posted_at ASC',
       backers: 'ideas.backers_count DESC',
       balance: 'ideas.amount_raised DESC',
       rating: '(positive_votes_count::float / (positive_votes_count + negative_votes_count + 1)) DESC'
@@ -46,17 +46,18 @@ class Idea < ActiveRecord::Base
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
   validates :video_url, youtube_url: true
 
-  default_scope { order(created_at: :desc) }
+  default_scope { order(posted_at: :desc) }
 
-  scope :current, -> { where('extract(month from ideas.created_at) = extract(month from current_date)') }
-  scope :previous, -> { where('extract(month from ideas.created_at) = extract(month from current_date) - 1') }
+  scope :current, -> { where('extract(month from ideas.posted_at) = extract(month from current_date)') }
+  scope :previous, -> { where('extract(month from ideas.posted_at) = extract(month from current_date) - 1') }
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str){ SAFE_ORDERS[:rating] }) }
   scope :visible, -> { where('ideas.flags_count < ? OR approved = ?', 5, true) }
-  scope :pending_for_backer_voting, -> { where(backer_voting_result: 'extend').where('ideas.created_at < ?', Date.today.beginning_of_month) }
-  scope :fee_processing_eligible, -> { where('created_at < ? AND balance > 0', Date.today.beginning_of_month - 1.month) }
+  scope :pending_for_backer_voting, -> { where(backer_voting_result: 'extend').where('ideas.posted_at < ?', Date.today.beginning_of_month) }
+  scope :fee_processing_eligible, -> { where('posted_at < ? AND balance > 0', Date.today.beginning_of_month - 1.month) }
 
   before_update :update_amount_raised, if: :balance_changed?
   before_save :set_video_info
+  before_create :reset_posted_at
 
   def rating
     positive_votes_count.to_f / ( positive_votes_count + negative_votes_count + 1 )
@@ -67,7 +68,7 @@ class Idea < ActiveRecord::Base
   end
 
   def in_voting_phase?
-    created_at > Date.today.beginning_of_month && created_at < Date.today.end_of_month + 1.day
+    posted_at > Date.today.beginning_of_month && posted_at < Date.today.end_of_month + 1.day
   end
 
   def in_proposals_phase?
@@ -139,6 +140,10 @@ class Idea < ActiveRecord::Base
   def set_video_info
     youtube_url = YoutubeUrl.new video_url
     self.video_id, self.video_time = youtube_url.process
+  end
+
+  def reset_posted_at
+    self.posted_at = Time.now
   end
 
   private

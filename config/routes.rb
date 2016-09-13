@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'discourse/sso', to: 'discourse_sso#sso'
 
   resources :ideas do
+    patch :repost, on: :member
     resources :payments, only: :create
     resources :flags, only: :create
     resources :implementations, only: [:index, :create, :new, :show]

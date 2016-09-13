@@ -12,6 +12,7 @@
         '  #{ idea.backers_count }
     = idea.summary
   - if @user
+    td= link_to 'Repost', repost_idea_path(idea), method: :patch, class: 'btn btn-success btn-xs' if can? :repost, idea
     td= link_to 'Edit', edit_idea_path(idea), class: 'btn btn-warning btn-xs' if can? :edit, idea
     td= link_to 'Delete', idea_path(idea), method: :delete,
             data: { confirm: 'Are you sure? This action is irreversible.' },

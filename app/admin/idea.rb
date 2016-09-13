@@ -19,6 +19,7 @@ ActiveAdmin.register Idea do
       simple_format idea.description
     end
     div "Created: " + idea.created_at.to_formatted_s
+    div "Last Posted: " + idea.posted_at.to_formatted_s
     div "Updated: " + idea.updated_at.to_formatted_s
     div "Rating: #{ idea.rating.round(2) } (+#{ idea.positive_votes_count } / -#{ idea.negative_votes_count })"
     div "Balance: #{ idea.balance.to_f }"

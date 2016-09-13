@@ -15,6 +15,9 @@ class Ability
       cannot [:edit, :destroy], Idea do |idea|
         idea.positive_votes_count * 3 > idea.negative_votes_count || idea.balance > 0
       end
+      cannot :repost, Idea do |idea|
+        idea.in_voting_phase? || idea.positive_votes_count < idea.negative_votes_count || idea.balance > 0
+      end
       can(:manage, Vote) if user.more_votes_allowed?
       can :create, Flag
       can :create, BackerVote do |backer_vote|
