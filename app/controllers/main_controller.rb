@@ -19,8 +19,4 @@ class MainController < ApplicationController
 
   def search
   end
-
-  def letsencrypt
-    render text: 'WYPUBmuNdE8H8DWR03bj2QPerfNGIa2AYW3XpdLiYQU.RxQRd4Fobz-EYXXu2uCEebPb8NjiQNF8r1w4uX0Jxwc'
-  end
 end
