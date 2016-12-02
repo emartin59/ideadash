@@ -37,12 +37,12 @@
     - if can?(:manage, Payment) && @idea.in_voting_phase?
       .row
         .col-xs-12.col-md-6.col-md-offset-3
-          = simple_form_for [@idea, Payment.new] do |f|
+          = simple_form_for [@idea, Payment.new], html: { data: { balance: sprintf('%.2f', current_user.balance) } } do |f|
             .input-group
               .input-group-addon
                 i.fa.fa-dollar
-              = f.number_field :amount, class: 'form-control', min: 1, value: '0.00'
-              .input-group-btn= f.submit 'Donate', class: 'btn btn-primary'
+              = f.number_field :amount, class: 'form-control', min: 1, value: '0.00', 'v-model' => 'fundedAmount'
+              .input-group-btn= f.submit 'Donate', class: 'btn btn-primary', 'v-on:click.prevent' => 'confirmAction', ':disabled' => 'isInvalidAmount'
     .votes
       span.votes-up
         i.fa.fa-line-chart(title='Rating out of 10.0')
