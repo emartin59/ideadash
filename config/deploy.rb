@@ -46,7 +46,7 @@ end
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
-  # command %{rbenv install 2.3.0}
+  invoke :'rvm:use', 'ruby-2.3.1@ideadash'
 end
 
 desc "Deploys the current version to the server."
@@ -54,6 +54,7 @@ task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
   deploy do
+    invoke :'rvm:use', 'ruby-2.3.1@ideadash'
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'

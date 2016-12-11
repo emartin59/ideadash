@@ -1,12 +1,12 @@
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: ideadash-staging
-  production:
-    branch: production
-    heroku:
-      appname: ideadash
+#deployment:
+#  staging:
+#    branch: master
+#    heroku:
+#      appname: ideadash-staging
+#  production:
+#    branch: production
+#    heroku:
+#      appname: ideadash
 
 test:
   override:
