@@ -56,14 +56,15 @@ gem 'algoliasearch-rails'
 
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
-  gem 'dotenv-rails'
   gem 'faker'
   gem 'simplecov', :require => false
+  gem 'mina'
 end
 
 group :development do
