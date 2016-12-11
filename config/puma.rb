@@ -1,22 +1,27 @@
-workers Integer(ENV['WEB_CONCURRENCY'] || 2)
-threads 1, 4
+require 'dotenv'
+ENV.update Dotenv::Environment.new('.env')
+
+# Change to match your CPU core count
+workers Integer(ENV['PUMA_WORKERS'] || 2)
+
+# Min and Max threads per worker
+threads 1, Integer(ENV['PUMA_MAX_THREADS']|| 5)
 
 app_dir = File.expand_path("../..", __FILE__)
-shared_dir = "#{app_dir}/shared"
 
+# Default to production
 rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
 
-bind "unix://#{shared_dir}/sockets/puma.sock"
-
-preload_app!
+# Set up socket location
+bind "unix://#{app_dir}/tmp/sockets/puma.sock"
 
 # Logging
-stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
+stdout_redirect "#{app_dir}/log/puma.stdout.log", "#{app_dir}/log/puma.stderr.log", true
 
 # Set master PID and state locations
-pidfile "#{shared_dir}/pids/puma.pid"
-state_path "#{shared_dir}/pids/puma.state"
+pidfile "#{app_dir}/tmp/pids/puma.pid"
+state_path "#{app_dir}/tmp/pids/puma.state"
 activate_control_app
 
 on_worker_boot do
