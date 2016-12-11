@@ -15,6 +15,6 @@ test:
 
 production:
   <<: *default
-  database: ideadash_production
+  database: <%= ENV['IDEADASH_DATABASE'] %>
   username: ideadash
   password: <%= ENV['IDEADASH_DATABASE_PASSWORD'] %>
