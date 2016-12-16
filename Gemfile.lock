@@ -223,7 +223,6 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     netrc (0.11.0)
-    newrelic_rpm (3.15.2.317)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -448,7 +447,6 @@ DEPENDENCIES
   letter_opener
   merit
   mina
-  newrelic_rpm
   omniauth-facebook
   omniauth-google-oauth2
   paypal-sdk-rest
