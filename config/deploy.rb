@@ -23,6 +23,8 @@ else
   exit
 end
 
+set :stage, ENV['to']
+
 # Optional settings:
 set :user, 'deployer'          # Username in the server to SSH to.
 set :port, '4567'           # SSH port number.
@@ -75,6 +77,22 @@ task :deploy do
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
   # run :local { say 'done' }
 end
+
+namespace :env do
+  desc "Downloads .env file"
+  task :download do
+    run :local do
+      command %{scp -P #{fetch(:port)} #{fetch(:user)}@#{fetch(:domain)}:#{fetch(:deploy_to)}/shared/.env ./.env.#{fetch(:stage)}}
+    end
+  end
+  desc "Uploads .env file"
+  task :upload do
+    run :local do
+      command %{scp -P #{fetch(:port)} ./.env.#{fetch(:stage)} #{fetch(:user)}@#{fetch(:domain)}:#{fetch(:deploy_to)}/shared/.env}
+    end
+  end
+end
+
 
 # For help in making your deploy script, see the Mina documentation:
 #
