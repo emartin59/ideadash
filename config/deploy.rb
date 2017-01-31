@@ -62,15 +62,20 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
+      invoke 'deploy:restart'
     end
   end
 
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
   # run :local { say 'done' }
+end
+
+namespace :deploy do
+  task :restart do
+    comment %{Restarting Ideadash #{fetch(:stage)}...}
+    command %{sudo /bin/systemctl restart ideadash-#{fetch(:stage)}.service}
+    comment %{Restarted}
+  end
 end
 
 namespace :env do
@@ -82,9 +87,13 @@ namespace :env do
   end
   desc "Uploads .env file"
   task :upload do
+    comment %{Uploading .env.#{fetch(:stage)} file to shared/.env...}
     run :local do
       command %{scp -P #{fetch(:port)} ./.env.#{fetch(:stage)} #{fetch(:user)}@#{fetch(:domain)}:#{fetch(:deploy_to)}/shared/.env}
     end
+    comment %{Uploaded}
+
+    invoke 'deploy:restart'
   end
 end
 
