@@ -57,6 +57,8 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails'
 
+gem 'whenever', :require => false
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'

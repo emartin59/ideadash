@@ -115,6 +115,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    chronic (0.10.2)
     cliver (0.3.2)
     cloudinary (1.2.3)
       aws_cf_signer
@@ -407,6 +408,8 @@ GEM
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    whenever (0.9.7)
+      chronic (>= 0.6.3)
     will_paginate (3.1.0)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
@@ -476,6 +479,7 @@ DEPENDENCIES
   vcr
   web-console (~> 2.0)
   webmock
+  whenever
   will_paginate (~> 3.1.0)
   will_paginate-bootstrap
 
