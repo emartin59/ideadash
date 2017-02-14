@@ -35,7 +35,7 @@ set :forward_agent, true     # SSH forward_agent.
 set :shared_dirs, fetch(:shared_dirs, []).push("tmp/puma", "tmp/sockets")
 set :shared_files, fetch(:shared_files, []).push('.env')
 
-set :whenever_name, "ideadash_#{stage}"
+set :whenever_name, "ideadash_#{fetch(:stage)}"
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
