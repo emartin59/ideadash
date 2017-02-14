@@ -2,6 +2,7 @@ require 'mina/rails'
 require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 require 'mina/rvm'    # for rvm support. (https://rvm.io)
+require 'mina/whenever'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -34,6 +35,8 @@ set :forward_agent, true     # SSH forward_agent.
 set :shared_dirs, fetch(:shared_dirs, []).push("tmp/puma", "tmp/sockets")
 set :shared_files, fetch(:shared_files, []).push('.env')
 
+set :whenever_name, "ideadash_#{stage}"
+
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
@@ -62,6 +65,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
+      invoke 'whenever:update'
       invoke 'deploy:restart'
     end
   end

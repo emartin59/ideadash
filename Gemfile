@@ -58,6 +58,7 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 
 gem 'whenever', :require => false
+gem 'mina-whenever'
 
 group :development, :test do
   gem 'byebug'
