@@ -2,7 +2,6 @@ require 'mina/rails'
 require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 require 'mina/rvm'    # for rvm support. (https://rvm.io)
-require 'mina/whenever'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -40,7 +39,7 @@ set :whenever_name, "ideadash_#{fetch(:stage)}"
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
-#   invoke :'rvm:use', 'ruby-2.3.1@ideadash'
+  invoke :'rvm:use', 'ruby-2.3.1@ideadash'
 end
 
 # Put any custom commands you need to run at setup
@@ -65,7 +64,8 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      invoke 'whenever:update'
+      invoke :environment
+      command "bundle exec whenever -i #{fetch(:whenever_name)} --update-crontab"
       invoke 'deploy:restart'
     end
   end
