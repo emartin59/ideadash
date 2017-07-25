@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PaymentsController, type: :controller do
+RSpec.describe PaymentsController, type: :controller, skip: 'Payments disabled' do
   let(:user){ create :user }
   let(:idea){ create :idea }
 

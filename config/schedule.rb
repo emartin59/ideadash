@@ -21,8 +21,8 @@ every 1.day, at: '11:30 pm' do
   rake "backer_voting_results_monthly"
 end
 
-every 1.day, at: '1:00 am' do
-  rake "process_payments_monthly"
-end
+# every 1.day, at: '1:00 am' do
+#   rake "process_payments_monthly"
+# end
 
 # Learn more: http://github.com/javan/whenever

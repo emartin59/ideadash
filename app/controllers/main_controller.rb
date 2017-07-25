@@ -2,7 +2,7 @@ class MainController < ApplicationController
   skip_authorization_check
 
   def index
-    @ideas = Idea.current.safe_order(:rating).limit(6) if user_signed_in?
+    @ideas = Idea.safe_order(:rating).limit(6) if user_signed_in?
   end
 
   def terms

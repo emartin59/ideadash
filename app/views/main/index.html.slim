@@ -2,6 +2,8 @@
 - provide :description, 'Post ideas. Rate ideas. Ideas raise money. Idea posters get some money. Backer-chosen implementers get most of the money raised.'
 .subscribe-header
   - if user_signed_in?
+    .alert.alert-info
+      ' Due to low demand, ideaDash does not currently accept payments.
     p.lead Wondering what to do?
     - if can? :create, Idea
       p.lead= link_to 'Post an idea', new_idea_path

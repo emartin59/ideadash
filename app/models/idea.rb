@@ -48,8 +48,8 @@ class Idea < ActiveRecord::Base
 
   default_scope { order(posted_at: :desc) }
 
-  scope :current, -> { where('extract(month from ideas.posted_at) = extract(month from current_date)') }
-  scope :previous, -> { where('extract(month from ideas.posted_at) = extract(month from current_date) - 1') }
+  scope :current, -> { where('posted_at BETWEEN ? AND ?', Date.today.beginning_of_month, Date.today.next_month.beginning_of_month) }
+  scope :previous, -> { where('posted_at BETWEEN ? AND ?', Date.today.prev_month.beginning_of_month, Date.today.beginning_of_month)  }
   scope :safe_order, -> (order_str){ unscope(:order).order(SAFE_ORDERS.fetch(order_str){ SAFE_ORDERS[:rating] }) }
   scope :visible, -> { where('ideas.flags_count < ? OR approved = ?', 5, true) }
   scope :pending_for_backer_voting, -> { where(backer_voting_result: 'extend').where('ideas.posted_at < ?', Date.today.beginning_of_month) }
@@ -60,7 +60,7 @@ class Idea < ActiveRecord::Base
   before_create :reset_posted_at
 
   def rating
-    positive_votes_count.to_f / ( positive_votes_count + negative_votes_count + 1 )
+    (positive_votes_count + 1).to_f / ( positive_votes_count + negative_votes_count + 2 )
   end
 
   def formatted_rating

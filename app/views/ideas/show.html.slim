@@ -34,7 +34,7 @@
         ' by
         = @idea.user.name
       p= @idea.summary
-    - if can?(:manage, Payment) && @idea.in_voting_phase?
+    - if can?(:manage, Payment) && @idea.in_voting_phase? && false
       .row
         .col-xs-12.col-md-6.col-md-offset-3
           = simple_form_for [@idea, Payment.new], html: { data: { balance: sprintf('%.2f', current_user.balance) } } do |f|
@@ -47,7 +47,7 @@
       span.votes-up
         i.fa.fa-line-chart(title='Rating out of 10.0')
         = @idea.formatted_rating
-      span.funded
+      span.funded.hidden
         i.fa.fa-dollar(title='Amount Raised')
         = decimal_number @idea.amount_raised
       span.backers
